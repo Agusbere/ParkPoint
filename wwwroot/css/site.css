@@ -14,6 +14,8 @@ body {
   padding: 10px;
 }
 
+#map { height: 180px; } 
+
 
 footer {
   margin-top: 10px;
