@@ -9,6 +9,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\facebook_footer.png",
+      "PackagePath": "staticwebassets\\img\\facebook_footer.png"
+    },
+    {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\instagram_footer.png",
+      "PackagePath": "staticwebassets\\img\\instagram_footer.png"
+    },
+    {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\logogrande.png",
+      "PackagePath": "staticwebassets\\img\\logogrande.png"
+    },
+    {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\logosolo.png",
+      "PackagePath": "staticwebassets\\img\\logosolo.png"
+    },
+    {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\notifiaciones.png",
+      "PackagePath": "staticwebassets\\img\\notifiaciones.png"
+    },
+    {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\x_footer.avif",
+      "PackagePath": "staticwebassets\\img\\x_footer.avif"
+    },
+    {
       "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
