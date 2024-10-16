@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NombreProyecto</title>
+    <title>@ViewData["Title"] - ParkPoint</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 
@@ -30,39 +30,47 @@
         @RenderBody()
     </main>
 
-    <footer>
 
-        <img src = "~/img/logogrande.png"/>
-
-        <h3 class = "footer_fila_1">Sobre nosotros</h3>
-        <p>Trabaja con ParkPoint</p>
-        <p>Novedades</p>
-        <p>Contacto</p>
-        <p>Acerca de ParkPoint</p>
-
-        <h3 class = "footer_fila_2">Ayuda</h3>
-
-        <p>Servicio al cliente</p>
-        <p>Preguntas frecuentes</p>
-        <p>Recomendaciones de la app</p>
-        <p>Como funciona</p>
-
-        <p>Política de privacidad</p>
-        <p>Términos y condiciones</p>
-
-        <div class = "redes_sociales"> 
-
-            <a href = ""> <img src = "" /> </a>
-            <img src = "" />
-            <img src = "" />
-            <img src = "" />
-        
-        
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="~/img/logogrande.png" alt="ParkPoint Logo" class="logo" />
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Trabaja con ParkPoint</a></li>
+                    <li><a href="#">Novedades</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Acerca de ParkPoint</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Servicio al cliente</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Recomendaciones de la app</a></li>
+                    <li><a href="#">Cómo funciona</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Política</h3>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class = "Copyright"> Copyright &copy; - ParkPoint @DateTime.Now.Year </p>
+            </div>
         </div>
-        
-        <p class = "Copyright"> Copyright &copy; - ParkPoint @DateTime.Now.Year </p>
+    </div>
+</footer>
 
-    </footer>
 
 
     <script src="~/js/site.js" asp-append-version="true"></script>
