@@ -9,8 +9,18 @@ html {
   }
 }
 
-body {
+@font-face {
+  font-family: 'Alexandria';
+  src: url('/Content/fonts/Alexandria.woff2') format('woff2'),
+  url('/Content/fonts/Alexandria.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Alexandria', sans-serif;
 }
 
 #map { 
@@ -22,6 +32,7 @@ body {
   background-color: #1f2733;
   color: white;
   padding: 20px 0;
+  position: relative;
 }
 
 .footer .container {
@@ -54,9 +65,10 @@ body {
 }
 
 .social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
+  position: absolute;
+  top: 20px; 
+  right: 10px;
+  margin-left: 15px;
 }
 
 .social-icons a {
@@ -64,29 +76,20 @@ body {
   font-size: 1.5rem;
 }
 
-.social-icons a:hover {
-  color: #007bff;
+.social-icons a img {
+  width: 40px;
+  height: 40px;
 }
 
 
 .logo {
   width: 300px;
-  /* height: 100px; */
   margin-bottom: 10px;
   clip-path: inset(20px 50px 10px 60px);
-  /* object-fit: cover; */
 }
 
 .Copyright{
   text-align: right;
   margin-right: 10px;
   margin-bottom: 0;
-}
-
-
-header{
-
-
-
-  
 }
