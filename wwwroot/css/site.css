@@ -24,7 +24,7 @@ html {
 }
 
 #map { 
-  height: 180px; 
+  height: 600px; 
 } 
 
 
@@ -93,3 +93,16 @@ html {
   margin-right: 10px;
   margin-bottom: 0;
 }
+.gradient-bg {
+  background: linear-gradient(90deg, #001AFF 0%, #0019F1 16%, #0014CB 34%, #0011B0 81%, #000F99 99%);
+}
+
+.logoheader{
+  
+  margin-left: 10px;
+  width: 40px;
+  height: auto;
+
+
+}
+

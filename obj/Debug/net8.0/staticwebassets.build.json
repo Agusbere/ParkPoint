@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G+GQM2j+yryswdZhkE1zpIgLkjsrHmCh0/p+x0378W8=",
+  "Hash": "Cj14mdXQUDLMzKfxhFYx3+AtNINM0CtG78rhQOLGvPw=",
   "Source": "ParkPoint",
   "BasePath": "_content/ParkPoint",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\x_footer.avif"
+    },
+    {
+      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\map.js",
+      "SourceId": "ParkPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "BasePath": "_content/ParkPoint",
+      "RelativePath": "js/map.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\map.js"
     },
     {
       "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\site.js",

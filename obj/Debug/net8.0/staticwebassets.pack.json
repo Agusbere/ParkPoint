@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\img\\x_footer.avif"
     },
     {
+      "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\map.js",
+      "PackagePath": "staticwebassets\\js\\map.js"
+    },
+    {
       "Id": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
