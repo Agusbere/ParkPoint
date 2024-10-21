@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "OtDf4nKlD4fzUfdeaTocoFIxhpbjHyD9XdVJDDbnvqWBGVdbuumJKz62AVtfoTlGzeRQ8ztYNYV/XilkL6Wkgw==",
+=======
+  "dgSpecHash": "zvthZLqJR4+Gj+p0Yqqisya0Zt5I/0W+OAx2/ntNhG1qCw92/+T0BEINLzLDjI/qlAJOuWHFNR4v0BMCFvDx8Q==",
+>>>>>>> 7d49da3a1ee78514e4cc4982c45fdb810fa4b0ca
   "success": true,
-  "projectFilePath": "C:\\Users\\48178406\\Desktop\\ParkPoint\\ParkPoint.csproj",
+  "projectFilePath": "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
