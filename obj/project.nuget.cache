@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cZHcmRnnGEkyQf/hxvouP/mRq6nXfVChXlJvlOLkqh8toWyONh2xfCnSN65nXqyxXD3L+JNx4V2TNP3JX4+Owg==",
+  "dgSpecHash": "GYLSwuXI1LCAMmF5I3JNNZ3/JfDEhIwmswm8V/2017uhWsfZu7GNGYfaP6RvaE+ZuzJ8yz53XE+FALfthAodww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj",
+  "projectFilePath": "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\48592365\\Downloads\\ParkPoint\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

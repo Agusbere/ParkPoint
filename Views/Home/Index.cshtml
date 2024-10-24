@@ -8,10 +8,31 @@
       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-<div>
-
 
 
     
+
+    <div class="todo-mapa">
+        <div id="map"></div>
+        <div class="barra-busqueda">
+            <img src="~/img/lupa.png" alt="busqueda">
+            <input type="text" placeholder="Buscar destino...">
+        </div>
+        <div class="tiempo-zona">
+            Tiempo estimado en la zona: 15 minutos
+        </div>
+        <div class="conjunto-botones-de-accion">
+            <button class="ocupar-espacio">
+                <img src="~/img/auto.png" alt="auto">
+                Ocupar espacio
+            </button>
+            <button class="reportar">
+                <img src="~/img/advertencia.png" alt="reporte">
+                Reportar
+            </button>
+        </div>
+    </div>
+
+    
     <div id="map"></div>
-</div>
+

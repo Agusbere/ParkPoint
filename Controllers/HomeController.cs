@@ -17,4 +17,21 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    public IActionResult Puntos(){
+
+        return View();
+    }
+    public IActionResult Reportar(){
+
+        return View();
+    }
+    public IActionResult Estacionar(){
+
+        return View();
+    }
+    public IActionResult Ayuda(){
+
+        return View();
+    }
 }
