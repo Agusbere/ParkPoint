@@ -12,17 +12,17 @@
 
 #map {
   height: 920px;
+  margin-bottom: 0;
 }
 
 footer {
   background-color: #1f2733;
   color: white;
   position: relative;
-  
-  
+
 }
 
-.contenedor {
+.contenedor-footer {
   display: flex;
   justify-content: space-between;
   margin-left: 0;
@@ -81,7 +81,7 @@ footer ul li a {
 }
 
 .logoheader {
-  margin-left: 10px;
+  margin-left: 13px;
   width: 40px;
   height: auto;
 }
@@ -230,4 +230,49 @@ header nav a{
   margin-top:10px ;
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
+}
+
+.contenedor-main{
+
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-left: 31px;
+  padding-top: 47px;
+}
+
+form{
+
+  display: relative;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+  align-items: center;
+}
+
+.casilla-formulario{
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input-formulario{
+  top: 2;
+  width: 900px;
+  height: 69px;
+}
+
+form input[type="submit"] {
+
+  margin-top: 108px;
+  width: 900px;
+  height: 87.07px;
+  border-radius: 20px;
+  border: none;
+  background-color: #171D8D;
+  color: white;
+}
+
+form input[type="submit"]:hover{
+  transition-duration: 0.1s;
+  background-color:#0019f1;
 }

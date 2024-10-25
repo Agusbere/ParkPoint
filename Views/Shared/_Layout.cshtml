@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="~/img/logosolo.png">
 </head>
 
 
@@ -33,6 +34,22 @@
 
 </header>
 
+@if (!ViewContext.View.Path.Contains("/Index"))
+    {
+        
+        <h1 style="position: relative; top: 38px; left: 31px; color: #171D8D; font-size: 48px; font-weight: bold;">@ViewData["Title"]</h1>
+       
+
+        @if (ViewContext.View.Path.Contains("/Estacionar"))
+        {
+            <h4 style="position: relative; top: 35px; left: 31px; font-size: 23px;">Gestiona fácilmente el estacionamiento de tu vehículo. Ingresa la información necesaria para seleccionar un lugar de estacionamiento disponible.   
+            </h4>
+
+
+        }
+    }
+    
+
 
 <main role="main">
     @RenderBody()
@@ -41,7 +58,7 @@
 
 <footer>
     <img src="~/img/logogrande.png" alt="ParkPoint Logo" class="logo" />
-    <div class="contenedor">
+    <div class="contenedor-footer">
 
 
         <div class="columna">

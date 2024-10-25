@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "ESTACIONAR";
+}
+
+<div class="contenedor-main">
+
+    <form action="@Url.Action("Index")">
+
+        <div class="casilla-formulario">
+            <h5 style="position:relative; left: px; top:96px; width: 61.47px; height: 30.23px;">Calle*:</h5>
+            <input class="input-formulario" type="text" name="calle" placeholder="Calle" required />
+        </div>
+
+        <div class="casilla-formularo">
+            <h5>Altura*:</h5>
+            <input class="input-formulario" type="number" name="Altura" placeholder="altura" required />
+        </div>
+
+        <input type="submit" value="Ocupar lugar">
+
+    </form>
+
+
+</div>
