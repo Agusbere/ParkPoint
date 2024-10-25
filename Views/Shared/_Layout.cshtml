@@ -14,10 +14,7 @@
     <link rel="icon" type="image/x-icon" href="~/img/logosolo.png">
 </head>
 
-
-
 <header>
-
     <img class="logoheader" src="~/img/logosolo.png" />
     <nav>
         <a href="@Url.Action("Index")">Inicio</a>
@@ -26,43 +23,49 @@
         <a href="@Url.Action("Estacionar")">Estacionar</a>
         <a href="@Url.Action("Ayuda")">Ayuda</a>
     </nav>
-
     <div class="botones-header">
         <img class="notis" src="~/img/campana-header.png" alt="notificaciones">
         <img class="perfil" src="~/img/perfil.png" alt="perfil">
     </div>
-
 </header>
-
-
-    
-
 
 <main role="main">
     @if (!ViewContext.View.Path.Contains("/Index"))
     {
-        
-        <h1 style="position: relative; top: 38px; left: 31px; color: #171D8D; font-size: 48px; font-weight: bold; width: 200px;">@ViewData["Title"]</h1>
-       
+        <h1
+            style="position: relative; top: 38px; left: 31px; color: #171D8D; font-size: 48px; font-weight: bold; width: 200px;">
+            @ViewData["Title"]</h1>
 
         @if (ViewContext.View.Path.Contains("/Estacionar"))
         {
-            <h4 style="position: relative; top: 35px; left: 31px; font-size: 23px;">Gestiona fácilmente el estacionamiento de tu vehículo. Ingresa la información necesaria para seleccionar un lugar de estacionamiento disponible.   
+            <style>
+                .contenedor-main {
+                    display: flex;
+                    justify-content: center;
+                    height: 820px;
+                }
+            </style>
+            <h4 style="position: relative; top: 35px; left: 31px; font-size: 23px;">Gestiona fácilmente el estacionamiento de tu
+                vehículo. Ingresa la información necesaria para seleccionar un lugar de estacionamiento disponible.
             </h4>
-
-
+        }
+        else
+        {
+            <style>
+                .contenedor-main {
+                    display: flex;
+                    justify-content: center;
+                    height: 855px;
+                }
+            </style>
         }
     }
-
     @RenderBody()
 </main>
-
 
 <footer>
     <img src="~/img/logogrande.png" alt="ParkPoint Logo" class="logo" />
     <div class="contenedor-footer">
-
-
         <div class="columna">
             <h3>Sobre nosotros</h3>
             <ul>
@@ -87,13 +90,12 @@
                 <li><a href="#">Política de privacidad</a></li>
                 <li><a href="#">Términos y condiciones</a></li>
             </ul>
-            <div class="redes-sociales">
-                <a href="#"> <img src="~/img/facebook.png" /></a>
-                <a href="#"> <img src="~/img/instagram.png" /></a>
-                <a href="#"> <img src="~/img/x.png" /></a>
-                <a href="#"> <img src="~/img/youtube.png" /></a>
-
-            </div>
+        </div>
+        <div class="redes-sociales">
+            <a href="#"> <img src="~/img/facebook.png" /></a>
+            <a href="#"> <img src="~/img/instagram.png" /></a>
+            <a href="#"> <img src="~/img/x.png" /></a>
+            <a href="#"> <img src="~/img/youtube.png" /></a>
         </div>
     </div>
     </div>
@@ -102,5 +104,4 @@
 </footer>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
-
 </html>

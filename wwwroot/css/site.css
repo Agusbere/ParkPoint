@@ -1,21 +1,15 @@
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html, body {
+  overflow-y:visible;
+  overflow-x: hidden; 
+  box-sizing: border-box;
 }
 
 * {
-  padding: 0;
-  margin: 0;
   font-family: "Alexandria", sans-serif;
 }
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
+
 #map {
   height: 920px;
-  margin-bottom: 0;
 }
 
 footer {
@@ -26,26 +20,21 @@ footer {
 
 .contenedor-footer {
   display: flex;
-  justify-content: space-between;
-  margin-left: 0;
   padding: 0 80px; 
 }
 
 footer ul {
-  padding-left: 0;
+  padding: 0;
 }
 
 footer h3 {
   margin-bottom: 15px;
-  font-size: 1.2rem;
-  margin-left: 0;
+  font-size: 1.5rem;
 }
 
 footer ul li {
   margin-bottom: 10px;
   list-style: none;
-  text-decoration: none;
-  padding-left: 0;
 }
 
 footer ul li a {
@@ -55,15 +44,11 @@ footer ul li a {
 }
 
 .redes-sociales {
+  display: flex; 
   position: absolute;
   top: 20px;
   right: 20px;
-  display: flex; 
   gap: 10px;
-}
-
-.redes-sociales a {
-  font-size: 1.5rem;
 }
 
 .redes-sociales a img {
@@ -76,16 +61,15 @@ footer ul li a {
 }
 
 .Copyright {
-  text-align: right;
+  display:flex;
+  justify-content: end;
   padding: 10px 20px;
   margin-bottom: 0;
-
 }
 
 .logoheader {
   margin-left: 13px;
   width: 40px;
-  height: auto;
 }
 
 .barra-busqueda {
@@ -93,8 +77,6 @@ footer ul li a {
   top: 30px;
   left: 70px;
   z-index: 1000;
-  display: flex;
-  align-items: center;
   background-color: #171d8d;
   border-radius: 25px;
   padding: 5px 15px;
@@ -102,7 +84,7 @@ footer ul li a {
 }
 
 .barra-busqueda img {
-  width: 25px;
+  width: 35px;
 }
 
 .barra-busqueda input {
@@ -119,15 +101,10 @@ footer ul li a {
   color: #ffffff;
 }
 
-.barra-busqueda i {
-  color: #ffffff;
-  margin-right: 10px;
-}
-
 .tiempo-zona {
   position: absolute;
   top: 35px;
-  right: 30px;
+  right: 70px;
   background-color: white;
   padding: 10px 20px;
   border-radius: 100px;
@@ -145,7 +122,7 @@ footer ul li a {
   z-index: 1000;
 }
 
-.conjunto-botones-de-accion button {
+.conjunto-botones-de-accion a {
   padding: 10px 20px;
   border-radius: 25px;
   border: none;
@@ -153,6 +130,7 @@ footer ul li a {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
 .ocupar-espacio {
@@ -170,8 +148,9 @@ footer ul li a {
 }
 
 .reportar img {
+  position: relative;
   width: 40px;
-  padding: 0%;
+  right: 3px;
 }
 
 .todo-mapa {
@@ -181,8 +160,6 @@ footer ul li a {
 header {
   padding: 0.5rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   background: linear-gradient(
     90deg,
     #001aff 0%,
@@ -197,15 +174,12 @@ header nav {
   display: flex;
   align-items: center;
   margin-right: 2rem;
-  color: white;
   margin-left: auto;
   margin-top: 0.5rem;
   gap: 15px;
-  
 }
 
 header nav a{
-
   text-decoration: none;
   color: white;
 }
@@ -216,44 +190,26 @@ header nav a{
   margin-right: 1.5rem;
   margin-top: 0.5rem;
   gap: 20px;
-  color: white;
 }
 
-.perfil {
-  width: 40px;
-}
-
-.notis {
+.perfil, .notis {
   width: 40px;
 }
 
 .columna {
-  text-align: left;
-  margin-top:10px ;
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
 }
 
-.contenedor-main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 820px;
-}
 form{
   margin-top: 120px;
-  justify-content: center;
-  text-align: left;
-  flex-direction: column;
-  align-items: center;
 }
 
 .casilla-formulario {
   padding-bottom: 30px;
 }
+
 .casilla-formulario h5 {
-  display: block;
-  font-size: 1rem;
   margin-bottom: 5px;
   font-size: 20px
 }
@@ -271,11 +227,11 @@ form{
   border-radius: 10px;
 }
 
-
 .input-formulario::placeholder {
   font-size: 1.2rem; 
   color: #999;
 }
+
 form input[type="submit"] {
   margin-top: 150px;
   width: 900px; 
@@ -286,6 +242,7 @@ form input[type="submit"] {
   color: white;
   font-size: 1.5rem;
 }
+
 form input[type="submit"]:hover {
   transition-duration: 0.1s;
   background-color: #0019f1;
@@ -294,9 +251,7 @@ form input[type="submit"]:hover {
 .imagenes-puntos{
   gap: 100px;
   display: flex;
-  padding-top: 50px;
   align-items: center;
-  
 }
 
 .imagenes-puntos img, #img-especial{ 
@@ -314,10 +269,9 @@ form input[type="submit"]:hover {
 
 .cantidad-puntos{
   display: flex;
-  position: relative;
-  top: 27px;
-  right: 59px;
-  justify-content: end;
+  position: absolute;
+  top: 130px;
+  right: 80px;
   align-items: center;
 }
 
@@ -326,6 +280,48 @@ form input[type="submit"]:hover {
   font-size: 60px;
 }
 
+.contenedor-imagen-puntos {
+    position: relative;
+    display: inline-block;
+}
+
+.contenedor-imagen-puntos img,
+#img-especial {
+    display: block;
+    width: 800px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: #000F99;
+  
+  
+}
+
+.texto-recoger {
+
+    position: absolute;
+    bottom: 5px;
+    left: 95px;
+    color: #ffffff;
+    background-color:#171D8D;
+    padding: 10px;
+    font-size: 48px;
+    border-radius: 20px;
+    font-weight: bold;
+    
+    
+}
+
+.texto-gastar {
+    background-color: rgba(23, 29, 141, 0.8);
+    font-weight: bold ;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 48px;
+    border-radius: 20px;
+}
 
 
 

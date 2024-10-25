@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\ParkPoints.png",
+      "PackagePath": "staticwebassets\\img\\ParkPoints.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\Recoger-puntos.jpg",
+      "PackagePath": "staticwebassets\\img\\Recoger-puntos.jpg"
+    },
+    {
       "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\advertencia.png",
       "PackagePath": "staticwebassets\\img\\advertencia.png"
     },
@@ -47,6 +55,10 @@
     {
       "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\perfil.png",
       "PackagePath": "staticwebassets\\img\\perfil.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\recompensas-puntos.jpg",
+      "PackagePath": "staticwebassets\\img\\recompensas-puntos.jpg"
     },
     {
       "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\x.png",
