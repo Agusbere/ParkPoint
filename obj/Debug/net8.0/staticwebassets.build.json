@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y6hkUnFyzE7az4Z3Y7OKjET6QDfC4cXo2VS34LNCh5M=",
+  "Hash": "UF2qIE+NhUAZk2A7LRsXeXDKWQjL9UTqM/owraiU9sk=",
   "Source": "ParkPoint",
   "BasePath": "_content/ParkPoint",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\facebook.png"
+    },
+    {
+      "Identity": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\infraccion.png",
+      "SourceId": "ParkPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\",
+      "BasePath": "_content/ParkPoint",
+      "RelativePath": "img/infraccion.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\infraccion.png"
     },
     {
       "Identity": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\instagram.png",
@@ -300,6 +319,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\recompensas-puntos.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\tiemporeal.png",
+      "SourceId": "ParkPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\",
+      "BasePath": "_content/ParkPoint",
+      "RelativePath": "img/tiemporeal.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\tiemporeal.png"
     },
     {
       "Identity": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\x.png",

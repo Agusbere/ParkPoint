@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\img\\facebook.png"
     },
     {
+      "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\infraccion.png",
+      "PackagePath": "staticwebassets\\img\\infraccion.png"
+    },
+    {
       "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\instagram.png",
       "PackagePath": "staticwebassets\\img\\instagram.png"
     },
@@ -59,6 +63,10 @@
     {
       "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\recompensas-puntos.jpg",
       "PackagePath": "staticwebassets\\img\\recompensas-puntos.jpg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\tiemporeal.png",
+      "PackagePath": "staticwebassets\\img\\tiemporeal.png"
     },
     {
       "Id": "C:\\Users\\David\\Downloads\\ParkPoint\\wwwroot\\img\\x.png",
