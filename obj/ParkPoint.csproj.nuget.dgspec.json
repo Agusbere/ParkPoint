@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj": {}
+    "C:\\Users\\David\\ParkPoint\\ParkPoint.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj": {
+    "C:\\Users\\David\\ParkPoint\\ParkPoint.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj",
+        "projectUniqueName": "C:\\Users\\David\\ParkPoint\\ParkPoint.csproj",
         "projectName": "ParkPoint",
-        "projectPath": "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj",
+        "projectPath": "C:\\Users\\David\\ParkPoint\\ParkPoint.csproj",
         "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\Downloads\\ParkPoint\\obj\\",
+        "outputPath": "C:\\Users\\David\\ParkPoint\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config"
