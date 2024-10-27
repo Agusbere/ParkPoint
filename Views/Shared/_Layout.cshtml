@@ -14,7 +14,8 @@
     <link rel="icon" type="image/x-icon" href="~/img/logosolo.png">
 </head>
 
-<header>
+@if(!ViewContext.View.Path.Contains("/LandingPage")){
+    <header>
     <img class="logoheader" src="~/img/logosolo.png" />
     <nav>
         <a href="@Url.Action("Index")">Inicio</a>
@@ -28,6 +29,9 @@
         <img class="perfil" src="~/img/perfil.png" alt="perfil">
     </div>
 </header>
+
+}
+
 
 <main role="main">
     @if (!ViewContext.View.Path.Contains("/Index"))

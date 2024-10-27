@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BxStvFDmW0NwRJVoBhB1Gywo3x4XSL3t3wd17+/e+Yk=",
+  "Hash": "+yVmpPFDU5Sf9C84ONVr2vKA8LWgPtipU/r6Ycu9Tpc=",
   "Source": "ParkPoint",
   "BasePath": "_content/ParkPoint",
   "Mode": "Default",
@@ -378,12 +378,12 @@
       "OriginalItemSpec": "wwwroot\\img\\youtube.png"
     },
     {
-      "Identity": "C:\\Users\\David\\ParkPoint\\wwwroot\\js\\map.js",
+      "Identity": "C:\\Users\\David\\ParkPoint\\wwwroot\\js\\ayuda.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\David\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
-      "RelativePath": "js/map.js",
+      "RelativePath": "js/ayuda.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -394,7 +394,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\map.js"
+      "OriginalItemSpec": "wwwroot\\js\\ayuda.js"
     },
     {
       "Identity": "C:\\Users\\David\\ParkPoint\\wwwroot\\js\\site.js",
