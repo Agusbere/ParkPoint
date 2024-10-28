@@ -6,4 +6,4 @@
 
     L.marker([-34.6037, -58.3816]).addTo(map)
         .bindPopup('Buenos Aires, CABA')
-        .openPopup();
+        // .openPopup();

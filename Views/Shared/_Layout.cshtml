@@ -14,7 +14,7 @@
     <link rel="icon" type="image/x-icon" href="~/img/logosolo.png">
 </head>
 
-@if(!ViewContext.View.Path.Contains("/LandingPage")){
+@if(!ViewContext.View.Path.Contains("/LandingPage") && !ViewContext.View.Path.Contains("/InicioSesion") ){
     <header>
     <img class="logoheader" src="~/img/logosolo.png" />
     <nav>
@@ -26,7 +26,7 @@
     </nav>
     <div class="botones-header">
         <img class="notis" src="~/img/campana-header.png" alt="notificaciones">
-        <img class="perfil" src="~/img/perfil.png" alt="perfil">
+        <a href = "@Url.Action("InicioSesion")"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
     </div>
 </header>
 
@@ -67,6 +67,8 @@
     @RenderBody()
 </main>
 
+@if (!ViewContext.View.Path.Contains("/InicioSesion") &&  !ViewContext.View.Path.Contains("/Index") ){
+
 <footer>
     <img src="~/img/logogrande.png" alt="ParkPoint Logo" class="logo" />
     <div class="contenedor-footer">
@@ -102,10 +104,9 @@
             <a href="#"> <img src="~/img/youtube.png" /></a>
         </div>
     </div>
-    </div>
-    </div>
     <p class="Copyright"> Copyright &copy; - ParkPoint @DateTime.Now.Year </p>
 </footer>
+}
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 </html>

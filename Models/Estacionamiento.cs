@@ -7,7 +7,9 @@ public class Estacionamiento
     public string AlturaCalle { get; set; }
     public DateTime FechaLibre { get; set; }
     public DateTime FechaOcupado { get; set; }
-    public TimeSpan TiempoEstacionado { get; set; }
-    public string Ubicacion { get; set; }      public TimeSpan TiempoPromedioLlegada { get; set; }
-    public int IdAuto { get; set; }  // FK to Auto
+    public DateTime TiempoEstacionado { get; set; }
+    public double UbicacionX { get; set; }   
+    public double UbicacionY { get; set; }
+    public DateTime TiempoPromedioLlegada { get; set; }
+    public int IdAuto { get; set; }
 }

@@ -36,7 +36,8 @@ CREATE TABLE [dbo].[Estacionamiento](
     [fecha_libre] DATE NOT NULL,
     [fecha_ocupado] DATE NOT NULL,
     [tiempo_estacionado] TIME(7) NOT NULL,
-    [ubicacion] GEOMETRY NOT NULL,
+    [ubicacionX] FLOAT NOT NULL,
+    [ubicacionY] FLOAT NOT NULL,
     [tiempo_promedio_llegada] TIME(7) NOT NULL,
     [id_auto] INT NOT NULL,
     FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto])
@@ -95,11 +96,11 @@ GO
 CREATE TABLE [dbo].[Reporte](
     [id_reporte] INT IDENTITY(1,1) PRIMARY KEY,
     [enTiempoRealOInfraccion] BIT NOT NULL,
-    [Motivo_tiempo_real] VARCHAR(255) NOT NULL,
-    [Motivo_infraccion] VARCHAR(255) NOT NULL,
-    [calle_infraccion] VARCHAR(255) NOT NULL,
-    [altura_infraccion] VARCHAR(255) NOT NULL,
-    [patente_reportada] VARCHAR(255) NOT NULL,
+    [Motivo_tiempo_real] VARCHAR(255) NULL,
+    [Motivo_infraccion] VARCHAR(255) NULL,
+    [calle_infraccion] VARCHAR(255) NULL,
+    [altura_infraccion] VARCHAR(255) NULL,
+    [patente_reportada] VARCHAR(255) NULL,
     [fecha_reporte] DATE NOT NULL,
     [id_usuario] INT NOT NULL,
     FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario])

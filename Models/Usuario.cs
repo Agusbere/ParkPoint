@@ -8,5 +8,5 @@ public class Usuario
     public string Email { get; set; }
     public string Contrasena { get; set; }
     public TimeSpan FechaRegistro { get; set; }
-    public string FotoUsuario { get; set; }
+    public string ? FotoUsuario { get; set; }
 }
