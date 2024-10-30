@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using Dapper;
-public class BD
+public static class BD
 {
     private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
 

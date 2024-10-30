@@ -16,7 +16,7 @@
 
 @if(!ViewContext.View.Path.Contains("/LandingPage") && !ViewContext.View.Path.Contains("/InicioSesion") ){
     <header>
-    <img class="logoheader" src="~/img/logosolo.png" />
+    <a href = "@Url.Action("Index")"> <img class="logoheader" src="~/img/logosolo.png"/> </a>
     <nav>
         <a href="@Url.Action("Index")">Inicio</a>
         <a href="@Url.Action("Puntos")">Puntos</a>
