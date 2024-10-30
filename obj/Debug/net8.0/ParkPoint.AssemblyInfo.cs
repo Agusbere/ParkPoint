@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ParkPoint")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ac5958460c421725589cbf5189267ae39c8eff5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76c8a68dd2d8b69ee0bd215dd43addf1296dc3d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ParkPoint")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ParkPoint")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

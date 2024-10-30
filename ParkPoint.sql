@@ -18,25 +18,6 @@ CREATE TABLE [dbo].[Ubicacion](
 );
 GO
 
-CREATE TABLE [dbo].[Usuario](
-    [id_usuario] INT IDENTITY(1,1) PRIMARY KEY,
-    [dni] INT NOT NULL,
-    [foto_dni] VARCHAR(255) NOT NULL,
-    [nombre] VARCHAR(255) NOT NULL,
-    [apellido] VARCHAR(255) NOT NULL,
-    [fecha_nacimiento] DATE NOT NULL,
-    [email] VARCHAR(255) NOT NULL,
-    [contrasena] VARCHAR(255) NOT NULL,
-    [fecha_registro] DATE NOT NULL,
-    [fecha_vencimiento_carnet] DATE NOT NULL,
-    [foto_carnet] VARCHAR(255) NOT NULL,
-    [foto_usuario] VARCHAR(255) NOT NULL,
-    [id_genero] INT NOT NULL,
-    [id_ubicacion] INT NOT NULL
-    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion]),
-    FOREIGN KEY ([id_genero]) REFERENCES [dbo].[Genero]([id_genero])
-);
-GO
 
 CREATE TABLE [dbo].[Marca](
     [id_marca] INT IDENTITY(1,1) PRIMARY KEY,
@@ -75,9 +56,9 @@ CREATE TABLE [dbo].[Estacionamiento](
     [tiempo_estacionado] TIME(7) NOT NULL,
     [tiempo_promedio_llegada] TIME(7) NOT NULL,
     [id_auto] INT NOT NULL,
-    [id_usuario] INT NOT NULL
-    [id_ubicacion] INT NOT NULL
-    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Usuario]([id_ubicacion]),
+    [id_usuario] INT NOT NULL,
+    [id_ubicacion] INT NOT NULL,
+    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion]),
     FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto]),
     FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario])
 );
@@ -134,20 +115,61 @@ GO
 
 
 CREATE TABLE [dbo].[Tiempo_Real](
-    [id_reporte_tiempo_real] INT IDENTITY(1,1) PRIMARY KEY,
-    [descripcion] VARCHAR(255) NULL,
-    [id_ubicacion] INT NOT NULL,
-    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[UbicacionReporteTiempoReal]([id_ubicacion])
+    [id_motivo_tiempo_real] INT IDENTITY(1,1) PRIMARY KEY,
+    [descripcion] VARCHAR(255) NULL
 );
 GO
 
+CREATE TABLE [dbo].[ReporteTiempoReal](
+    [id_reporte_tiempo_real] INT IDENTITY(1,1) PRIMARY KEY,
+    [id_ubicacion] INT NOT NULL,
+    [id_motivo_tiempo_real] INT NOT NULL
+    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion]),
+    FOREIGN KEY ([id_motivo_tiempo_real]) REFERENCES [dbo].[Tiempo_Real]([id_motivo_tiempo_real])
+    
+);
+GO
+
+CREATE TABLE [dbo].[Usuario](
+    [id_usuario] INT IDENTITY(1,1) PRIMARY KEY,
+    [dni] INT NOT NULL,
+    [foto_dni] VARCHAR(255) NOT NULL,
+    [nombre] VARCHAR(255) NOT NULL,
+    [apellido] VARCHAR(255) NOT NULL,
+    [fecha_nacimiento] DATE NOT NULL,
+    [email] VARCHAR(255) NOT NULL,
+    [contrasena] VARCHAR(255) NOT NULL,
+    [fecha_registro] DATE NOT NULL,
+    [fecha_vencimiento_carnet] DATE NOT NULL,
+    [foto_carnet] VARCHAR(255) NOT NULL,
+    [foto_usuario] VARCHAR(255) NOT NULL,
+    [id_genero] INT NOT NULL,
+    [id_ubicacion] INT NOT NULL
+    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion]),
+    FOREIGN KEY ([id_genero]) REFERENCES [dbo].[Genero]([id_genero])
+);
+GO
+
+
+
 CREATE TABLE [dbo].[Infraccion](
+    [id_motivo_infraccion] INT IDENTITY(1,1) PRIMARY KEY,
+    [descripcion] VARCHAR(255) NULL
+);
+GO
+
+
+
+
+CREATE TABLE [dbo].[ReporteInfraccion](
     [id_reporte_infraccion] INT IDENTITY(1,1) PRIMARY KEY,
-    [descripcion] VARCHAR(255) NULL,
     [calle_infraccion] VARCHAR(255) NULL,
     [altura_infraccion] VARCHAR(255) NULL,
-    [patente_reportada] VARCHAR(255) NULL
-    --CONECTAR LA PATENTE QUE REPORTAS CON LA PATENTE DE UN AUTO Y EL ID DE USUARIO (TABLA DE AUTO) CON EL ID DE USUARIO (TABLA DE USUARIOS)
+    [patente_reportada] VARCHAR(255) NULL,
+    [id_motivo_infraccion] INT NOT NULL,
+    [id_auto] INT NOT NULL
+    FOREIGN KEY ([id_motivo_infraccion]) REFERENCES [dbo].[Infraccion]([id_motivo_infraccion]),
+    FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto]) --Hacer inner join con la patente del auto??
 );
 GO
 
@@ -159,8 +181,8 @@ CREATE TABLE [dbo].[Reporte](
     [id_reporte_tiempo_real] INT NOT NULL,
     [id_reporte_infraccion] INT NOT NULL
     FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario]),
-    FOREIGN KEY ([id_reporte_tiempo_real]) REFERENCES [dbo].[Tiempo_Real]([id_reporte_tiempo_real]),
-    FOREIGN KEY ([id_reporte_infraccion]) REFERENCES [dbo].[Infraccion]([id_reporte_infraccion])
+    FOREIGN KEY ([id_reporte_tiempo_real]) REFERENCES [dbo].[ReporteTiempoReal]([id_reporte_tiempo_real]),
+    FOREIGN KEY ([id_reporte_infraccion]) REFERENCES [dbo].[ReporteInfraccion]([id_reporte_infraccion])
 );
 GO
 ---------------------------------------------INSERTS--------------------------------------------------------
@@ -168,8 +190,21 @@ INSERT INTO [dbo].[Genero] (nombre_genero)
 VALUES ('Masculino'), ('Femenino'), ('No binario');
 GO
 
---Agregar insert de tiempo real
---Agregar insert de infraccion 
+INSERT INTO [dbo].[Tiempo_Real] (descripcion)
+VALUES 
+    ('Trafico'),
+    ('Accidente'),
+    ('Policia'),
+    ('Error en el mapa');
+GO
+
+INSERT INTO [dbo].[Infraccion] (descripcion)
+VALUES 
+    ('Mal estacionado'),
+    ('Puesto prohibido/reservado'),
+    ('Estacionamiento mal indicado');
+
+
 
 INSERT INTO [dbo].[Marca] (nombre_marca) VALUES
     ('Ford'), ('Fiat'), ('Peugeot'), ('Citroën'), ('Chevrolet'), 
