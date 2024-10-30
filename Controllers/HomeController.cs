@@ -42,7 +42,7 @@ public class HomeController : Controller
 
     public IActionResult VerMotivosInfoEnTiempoReal(){
 
-        ViewBag.MotivosInfoEnTiempoReal = BD.VerMotivosInfoEnTiempoReal();
+        ViewBag.VerMotivosInfoEnTiempoReal = BD.listaMotivosTiempoReal();
 
         return View("ReportarInfoenTiempoReal");
     }

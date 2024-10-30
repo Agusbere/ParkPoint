@@ -11,7 +11,12 @@
             <h5>Calle<span>*</span></h5>
             <select class = "input-formulario">
                
-               
+               @foreach (Tiempo_Real tiempo_real in ViewBag.VerMotivosInfoEnTiempoReal){
+
+                <option>@tiempo_real.descripcion</option>
+
+
+               }
             </select>
             <input class="input-formulario" type="text" name="calle" placeholder="Ingrese la calle" autocomplete="off" required />
         </div>
