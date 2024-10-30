@@ -1,8 +1,8 @@
 public class Auto
 {
-    public int IdAuto { get; set; }
-    public string Patente { get; set; }
-    public string Marca { get; set; }
-    public string Modelo { get; set; }
-    public int IdUsuario { get; set; }
+    public int id_auto { get; set; }
+    public string patente { get; set; }
+    public int id_usuario {get;set;}
+    public int id_marca {get;set;}
+    public int id_modelo { get; set; }
 }

@@ -1,9 +1,9 @@
 public class Recompensa
 {
-    public int IdRecompensa { get; set; }
-    public string Titulo { get; set; }
-    public string Descripcion { get; set; }
-    public int PuntosNecesarias { get; set; }
-    public string Imagen { get; set; }
-    public int IdCanjeo { get; set; }
+    public int id_recompensa { get; set; }
+    public string titulo { get; set; }
+    public string descripcion { get; set; }
+    public int puntos_necesarios { get; set; }
+    public string ? imagen { get; set; }
+    public int id_canjeo { get; set; }
 }

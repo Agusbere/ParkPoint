@@ -12,6 +12,10 @@ public static class BD
             string sql = "DELETE FROM Deportistas WHERE IdDeportista = @pidDeportista";
             db.Execute(sql, new { pidDeportista = idDeportista });
         }
+
+        
     }
+
+    public static List<> = 
 
 }

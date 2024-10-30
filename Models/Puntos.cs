@@ -1,7 +1,7 @@
 public class Puntos
 {
-    public int IdPuntos { get; set; }
-    public int Cantidad { get; set; }
-    public DateTime FechaActualizacion { get; set; }
-    public int IdUsuario { get; set; } 
+    public int id_puntos { get; set; }
+    public int cantidad { get; set; }
+    public DateTime fecha_actualizacion { get; set; }
+    public int id_usuario { get; set; } 
 }

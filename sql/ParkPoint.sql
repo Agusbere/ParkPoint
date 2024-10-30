@@ -45,7 +45,7 @@ CREATE TABLE [dbo].[Usuario](
     [fecha_registro] DATE NOT NULL,
     [fecha_vencimiento_carnet] DATE NOT NULL,
     [foto_carnet] VARCHAR(255) NOT NULL,
-    [foto_usuario] VARCHAR(255) NOT NULL,
+    [foto_usuario] VARCHAR(255) NULL,
     [id_genero] INT NOT NULL,
     [id_ubicacion] INT NOT NULL,
     FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion]),
@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[Recompensa](
     [titulo] TEXT NOT NULL,
     [descripcion] TEXT NOT NULL,
     [puntos_necesarios] INT NOT NULL,
-    [imagen] VARCHAR(255) NOT NULL,
+    [imagen] VARCHAR(255) NULL,
     [id_canjeo] INT NOT NULL,
     FOREIGN KEY ([id_canjeo]) REFERENCES [dbo].[Canjeo]([id_canjeo])
 );

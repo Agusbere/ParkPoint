@@ -40,8 +40,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult ReportarInfoEnTiempoReal(){
+    public IActionResult VerMotivosInfoEnTiempoReal(){
 
-        return View();
+        ViewBag.MotivosInfoEnTiempoReal = BD.VerMotivosInfoEnTiempoReal();
+
+        return View("ReportarInfoenTiempoReal");
     }
 }

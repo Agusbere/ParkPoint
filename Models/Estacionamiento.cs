@@ -1,15 +1,16 @@
 public class Estacionamiento
 {
-    public int IdEstacionamiento { get; set; }
+    public int id_estacionamiento { get; set; }
     public bool SePuedeEstacionar { get; set; }
-    public bool Ocupado { get; set; }
-    public string Calle { get; set; }
-    public string AlturaCalle { get; set; }
-    public DateTime FechaLibre { get; set; }
-    public DateTime FechaOcupado { get; set; }
-    public DateTime TiempoEstacionado { get; set; }
-    public double UbicacionX { get; set; }   
-    public double UbicacionY { get; set; }
-    public DateTime TiempoPromedioLlegada { get; set; }
-    public int IdAuto { get; set; }
+    public bool ocupado { get; set; }
+    public string calle { get; set; }
+    public string altura_Calle { get; set; }
+    public DateTime fecha_libre { get; set; }
+    public DateTime fecha_ocupado { get; set; }
+    public DateTime tiempo_estacionado { get; set; }
+    public DateTime tiempo_promedio_llegada { get; set; }
+    public int id_auto {get;set;}
+    public int id_usuario {get;set;}
+    public int id_ubicacion {get;set;}
+
 }
