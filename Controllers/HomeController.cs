@@ -46,4 +46,17 @@ public class HomeController : Controller
 
         return View("ReportarInfoenTiempoReal");
     }
+
+    public IActionResult IniciarSesion(string Contrasena, string Email){
+        Usuario usuario = ParkPointService.IniciarSesion(Email, Contrasena);
+
+        if(usuario == null){
+            ViewBag.Error = "Ingreso incorrectamente el e-mail o la contraseña";
+            return RedirectToAction("IniciarSesion");
+        }
+        else{
+            ParkPointService.Usuario = usuario;
+            return RedirectToAction("Index");
+        }
+    }
 }

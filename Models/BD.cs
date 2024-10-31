@@ -6,11 +6,50 @@ public class BD
 {
     private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
 
-    public static List<Tiempo_Real> ListaMotivosTiempoReal(){
+    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdGenero)
+    {
+        Usuario nuevoUsuario = null;
+        string sp = "SP_Registrarse";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            nuevoUsuario = db.QuerySingleOrDefault<Usuario>(sp, new
+            {
+                @DNI = DNI,
+                @FotoDNI = FotoDNI,
+                @Nombre = Nombre,
+                @Apellido = Apellido,
+                @Email = Email,
+                @Contrasena = Contrasena,
+                @FechaNacimiento = FechaNacimiento,
+                @FechaVencimientoCarnet = FechaVencimientoCarnet,
+                @FotoCarnet = FotoCarnet,
+                @IdGenero = IdGenero
+            }, commandType: System.Data.CommandType.StoredProcedure);
+        }
+
+        return nuevoUsuario;
+    }
+
+    public static Usuario IniciarSesion(string Email, string Contrasena)
+    {
+        Usuario usuario = null;
+        string sp = "SP_IniciarSesion";
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            usuario = db.QueryFirstOrDefault<Usuario>(sp, new { @Email = Email, @Contrasena = Contrasena }, commandType: System.Data.CommandType.StoredProcedure);
+        }
+
+        return usuario;
+    }
+
+
+    public static List<Tiempo_Real> ListaMotivosTiempoReal()
+    {
 
         List<Tiempo_Real> listaMotivosTiempoReal = new List<Tiempo_Real>();
 
-        using (SqlConnection db  = new SqlConnection(_connectionString))
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Tiempo_Real";
             listaMotivosTiempoReal = db.Query<Tiempo_Real>(sql).ToList();
@@ -20,6 +59,18 @@ public class BD
 
     }
 
-   
+    public static List<string> ObtenerMail()
+    {
+        string query = "SELECT email FROM Usuario";
+        List<string> email = null;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            email = db.Query<string>(query).ToList();
+        }
+
+        return email;
+    }
+
+
 
 }

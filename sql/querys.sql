@@ -77,7 +77,6 @@ CREATE PROCEDURE SP_Registrarse
     @FechaNacimiento DATE,
     @FechaVencimientoCarnet TIME(7),
     @FotoCarnet VARCHAR(255),
-    @FotoUsuario VARCHAR(255),
     @IdGenero INT
 AS
 BEGIN
@@ -114,13 +113,13 @@ BEGIN
 
     -- Si todas las validaciones son exitosas, inserta el nuevo usuario en la tabla Usuario
     INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena, fecha_registro, 
-    fecha_vencimiento_carnet, foto_carnet, fecha_nacimiento, id_genero, foto_usuario)
+    fecha_vencimiento_carnet, foto_carnet, fecha_nacimiento, id_genero)
     VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()), 
-            @FechaVencimientoCarnet, @FotoCarnet, @FechaNacimiento, @IdGenero, @FotoUsuario);
+            @FechaVencimientoCarnet, @FotoCarnet, @FechaNacimiento, @IdGenero);
 END;
 
 
-    CREATE PROCEDURE SP_IniciarSesion
+CREATE PROCEDURE SP_IniciarSesion
 @Email VARCHAR(255),
 @Contrasena VARCHAR(255)
 AS
