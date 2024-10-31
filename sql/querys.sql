@@ -1,6 +1,9 @@
 
 INSERT INTO [dbo].[Genero] (nombre_genero)
-VALUES ('Masculino'), ('Femenino'), ('No binario');
+VALUES 
+    ('Masculino'), 
+    ('Femenino'), 
+    ('No binario');
 GO
 
 INSERT INTO [dbo].[Tiempo_Real] (descripcion)
@@ -115,9 +118,9 @@ BEGIN
     VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()), 
             @FechaVencimientoCarnet, @FotoCarnet, @FechaNacimiento, @IdGenero, @FotoUsuario);
 END;
-GO
 
-CREATE PROCEDURE SP_IniciarSesion
+
+    CREATE PROCEDURE SP_IniciarSesion
 @Email VARCHAR(255),
 @Contrasena VARCHAR(255)
 AS

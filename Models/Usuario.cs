@@ -5,14 +5,14 @@ public class Usuario
     public string foto_dni { get; set; }
     public string nombre { get; set; }
     public string apellido { get; set; }
-    public DateTime fecha_nacimiento {get;set;}
+    public DateTime fecha_nacimiento { get; set; }
     public string email { get; set; }
     public string contrasena { get; set; }
     public DateTime fecha_registro { get; set; }
-    public DateTime fecha_vencimiento_carnet {get;set;}
-    public string foto_carnet {get;set;}
-    public string ? foto_usuario {get;set;}
-    public int id_genero {get;set;}
-    public int id_ubicacion {get;set;}
+    public DateTime fecha_vencimiento_carnet { get; set; }
+    public string foto_carnet { get; set; }
+    public string? foto_usuario { get; set; }
+    public int id_genero { get; set; }
+    public int id_ubicacion { get; set; }
 
 }
