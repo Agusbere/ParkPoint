@@ -17,12 +17,9 @@ public class HomeController : Controller
     {
         return View();
     }
-    
-    public IActionResult Puntos(){
-
-        return View();
-    }
     public IActionResult Reportar(){
+
+        ViewBag.MotivosReporte = BD.ListarMotivosReporte();
 
         return View();
     }
@@ -35,16 +32,15 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult InicioSesion(){
+    public IActionResult Puntos(){
 
+        
         return View();
     }
 
-    public IActionResult VerMotivosInfoEnTiempoReal(){
+    public IActionResult InicioSesion(){
 
-        ViewBag.VerMotivosInfoEnTiempoReal = BD.ListaMotivosTiempoReal();
-
-        return View("ReportarInfoenTiempoReal");
+        return View();
     }
 
     public IActionResult IniciarSesion(string Contrasena, string Email){
@@ -59,4 +55,5 @@ public class HomeController : Controller
             return RedirectToAction("Index");
         }
     }
+    
 }

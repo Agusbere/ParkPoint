@@ -249,11 +249,6 @@ form input[type="submit"]:hover {
   background-color: #0019f1;
 }
 
-.imagenes-puntos{
-  gap: 100px;
-  display: flex;
-  align-items: center;
-}
 
 .imagenes-reportes{
 
@@ -272,18 +267,7 @@ form input[type="submit"]:hover {
 
 
 
-.imagenes-puntos img, #img-especial{ 
-  border-radius: 20px;
-  width: 800px;
-  height: 500px;
-}
 
-#img-especial{
-
-  background-image: url(https://img.freepik.com/vector-premium/icono-plano-tarjeta-regalotarjeta-regalo-comprasganar-puntos-canjear-ilustracion-vector-concepto-caja-presente_716564-475.jpg);
-  background-size: cover;
-  background-position: center;
-}
 
 .cantidad-puntos{
   display: flex;
@@ -298,10 +282,6 @@ form input[type="submit"]:hover {
   font-size: 60px;
 }
 
-.contenedor-imagen-puntos {
-    position: relative;
-    display: inline-block;
-}
 
 .card-reportar{
   display: block;
@@ -317,16 +297,7 @@ form input[type="submit"]:hover {
     background-color: #000F99;
 
 }
-.contenedor-imagen-puntos img,
-#img-especial {
-    display: block;
-    width: 800px;
-    height: 500px;
-    border-radius: 20px;
-    background-color: #000F99;
-  
-  
-}
+
 
 .texto-recoger {
 
@@ -343,7 +314,7 @@ form input[type="submit"]:hover {
     
 }
 
-.texto-gastar, .texto-reportar {
+.texto-reportar {
     background-color: rgba(23, 29, 141, 0.8);
     font-weight: bold ;
     position: absolute;
