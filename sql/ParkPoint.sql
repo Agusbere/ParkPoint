@@ -56,7 +56,7 @@ GO
 -- Continuar con otras tablas dependientes
 CREATE TABLE [dbo].[Auto](
     [id_auto] INT IDENTITY(1,1) PRIMARY KEY,
-    [patente] VARCHAR(50) NOT NULL,
+    [patente] VARCHAR(50) NOT NULL UNIQUE,
     [id_usuario] INT NOT NULL,
     [id_marca] INT NOT NULL,
     [id_modelo] INT NOT NULL,
