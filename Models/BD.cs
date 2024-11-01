@@ -61,11 +61,25 @@ public class BD
 
     public static List<string> ObtenerMail()
     {
-        string query = "SELECT email FROM Usuario";
+        
         List<string> email = null;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            email = db.Query<string>(query).ToList();
+            string sql = "SELECT email FROM Usuario";
+            email = db.Query<string>(sql).ToList();
+        }
+
+        return email;
+    }
+
+    public static string ObtenerMailParaUsuario(int idUsuario)
+    {
+        
+        string email = null;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT email FROM Usuario WHERE IdUsuario = @idUsuario";
+            email = db.Query<string>(sql, new { @idUsuario = idUsuario});
         }
 
         return email;
