@@ -17,12 +17,9 @@ public class HomeController : Controller
     {
         return View();
     }
-    
-    public IActionResult Puntos(){
-
-        return View();
-    }
     public IActionResult Reportar(){
+
+        ViewBag.MotivosReporte = BD.ListarMotivosReporte();
 
         return View();
     }
@@ -40,13 +37,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult VerMotivosInfoEnTiempoReal(){
-
-        ViewBag.VerMotivosInfoEnTiempoReal = BD.ListaMotivosTiempoReal();
-
-        return View("ReportarInfoenTiempoReal");
-    }
-
     public IActionResult IniciarSesion(string Contrasena, string Email){
         Usuario usuario = ParkPointService.IniciarSesion(Email, Contrasena);
 
@@ -59,4 +49,5 @@ public class HomeController : Controller
             return RedirectToAction("Index");
         }
     }
+    
 }

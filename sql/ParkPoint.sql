@@ -134,50 +134,24 @@ CREATE TABLE [dbo].[Registro](
 );
 GO
 
-CREATE TABLE [dbo].[Tiempo_Real](
-    [id_motivo_tiempo_real] INT IDENTITY(1,1) PRIMARY KEY,
-    [descripcion] VARCHAR(255) NULL
-);
-GO
-
-CREATE TABLE [dbo].[ReporteTiempoReal](
-    [id_reporte_tiempo_real] INT IDENTITY(1,1) PRIMARY KEY,
-    [id_ubicacion] INT NOT NULL,
-    [id_motivo_tiempo_real] INT NOT NULL,
-    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion]),
-    FOREIGN KEY ([id_motivo_tiempo_real]) REFERENCES [dbo].[Tiempo_Real]([id_motivo_tiempo_real])
-);
-GO
-
 CREATE TABLE [dbo].[Infraccion](
     [id_motivo_infraccion] INT IDENTITY(1,1) PRIMARY KEY,
     [descripcion] VARCHAR(255) NULL
 );
 GO
 
-CREATE TABLE [dbo].[ReporteInfraccion](
-    [id_reporte_infraccion] INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE [dbo].[Reporte](
+    [id_reporte] INT IDENTITY(1,1) PRIMARY KEY,
+    [fecha_reporte] DATE NOT NULL,
     [calle_infraccion] VARCHAR(255) NULL,
     [altura_infraccion] VARCHAR(255) NULL,
     [patente_reportada] VARCHAR(50) NOT NULL,
     [id_auto_reportante] INT NOT NULL,
     [id_motivo_infraccion] INT NOT NULL,
-    FOREIGN KEY ([patente_reportada]) REFERENCES [dbo].[Auto]([patente]), -- Conexión a la patente en Auto
-    FOREIGN KEY ([id_auto_reportante]) REFERENCES [dbo].[Auto]([id_auto]), -- Auto que realiza el reporte
-    FOREIGN KEY ([id_motivo_infraccion]) REFERENCES [dbo].[Infraccion]([id_motivo_infraccion]) -- Motivo de la infracción
-);
-GO
-
-
-CREATE TABLE [dbo].[Reporte](
-    [id_reporte] INT IDENTITY(1,1) PRIMARY KEY,
-    [enTiempoRealOInfraccion] BIT NOT NULL,
-    [fecha_reporte] DATE NOT NULL,
     [id_usuario] INT NOT NULL,
-    [id_reporte_tiempo_real] INT NULL,
-    [id_reporte_infraccion] INT NULL,
     FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario]),
-    FOREIGN KEY ([id_reporte_tiempo_real]) REFERENCES [dbo].[ReporteTiempoReal]([id_reporte_tiempo_real]),
-    FOREIGN KEY ([id_reporte_infraccion]) REFERENCES [dbo].[ReporteInfraccion]([id_reporte_infraccion])
+    FOREIGN KEY ([patente_reportada]) REFERENCES [dbo].[Auto]([patente]),
+    FOREIGN KEY ([id_auto_reportante]) REFERENCES [dbo].[Auto]([id_auto]),
+    FOREIGN KEY ([id_motivo_infraccion]) REFERENCES [dbo].[Infraccion]([id_motivo_infraccion])
 );
 GO

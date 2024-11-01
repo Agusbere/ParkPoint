@@ -44,18 +44,19 @@ public class BD
     }
 
 
-    public static List<Tiempo_Real> ListaMotivosTiempoReal()
+    
+    public static List<Infraccion> ListarMotivosReporte()
     {
 
-        List<Tiempo_Real> listaMotivosTiempoReal = new List<Tiempo_Real>();
+        List<Infraccion> listaMotivosReporte = new List<Infraccion>();
 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Tiempo_Real";
-            listaMotivosTiempoReal = db.Query<Tiempo_Real>(sql).ToList();
+            string sql = "SELECT * FROM Infraccion";
+            listaMotivosReporte = db.Query<Infraccion>(sql).ToList();
         }
 
-        return listaMotivosTiempoReal;
+        return listaMotivosReporte;
 
     }
 

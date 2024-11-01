@@ -6,19 +6,12 @@ VALUES
     ('No binario');
 GO
 
-INSERT INTO [dbo].[Tiempo_Real] (descripcion)
-VALUES 
-    ('Trafico'),
-    ('Accidente'),
-    ('Policia'),
-    ('Error en el mapa');
-GO
-
 INSERT INTO [dbo].[Infraccion] (descripcion)
 VALUES 
     ('Mal estacionado'),
     ('Puesto prohibido/reservado'),
     ('Estacionamiento mal indicado');
+GO
 
 
 

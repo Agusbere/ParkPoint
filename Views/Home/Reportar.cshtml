@@ -1,22 +1,27 @@
 @{
-    ViewData["Title"] = "REPORTAR INFORMACIÓN";
+    ViewData["Title"] = "REPORTAR INFRACCIÓN";
 }
 
+    
 <div class="contenedor-main">
 
-   <div class = "imagenes-reportes">
+    <form action="@Url.Action("Index")">
 
-    <a href="@Url.Action("ReportarInfoenTiempoReal")">
-        <div class="card-reportar">
-            <img src="~/img/tiemporeal.png" alt="En tiempo real">
-            <p class="texto-reportar">En tiempo real</p>
-        </div>
-    </a> 
-        <div class="card-reportar">
-            <img src="~/img/infraccion.png" alt="Infracción">
-            <p class="texto-reportar">Infracción</p>
+        <div class="casilla-formulario">
+            <h5>Calle<span>*</span></h5>
+            <select class = "input-formulario">
+               
+               @foreach (Infraccion infraccion in ViewBag.MotivosReporte){
+
+                <option>@infraccion.descripcion</option>
+
+               }
+            </select>
+            <input class="input-formulario" type="text" name="calle" placeholder="Ingrese la calle" autocomplete="off" required />
         </div>
 
-   </div>
-    
+        <input type="submit" value="Ocupar lugar">
+
+    </form>
+
 </div>
