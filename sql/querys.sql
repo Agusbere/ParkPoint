@@ -70,11 +70,14 @@ CREATE PROCEDURE SP_Registrarse
     @FechaNacimiento DATE,
     @FechaVencimientoCarnet TIME(7),
     @FotoCarnet VARCHAR(255),
-    @IdGenero INT
+    @IdGenero INT,
+    @IdMarca INT,
+    @IdModelo INT
 AS
 BEGIN
     -- DECLARE @Edad INT;
     -- DECLARE @AñoActual DATE = GETDATE();
+
 
     -- -- Validación de DNI: No debe tener más de 8 dígitos
     -- IF LEN(CAST(@DNI AS VARCHAR(10))) > 8
@@ -104,11 +107,11 @@ BEGIN
     --     RETURN;
     -- END;
 
+
+
     -- Si todas las validaciones son exitosas, inserta el nuevo usuario en la tabla Usuario
-    INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena, fecha_registro, 
-    fecha_vencimiento_carnet, foto_carnet, fecha_nacimiento, id_genero)
-    VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()), 
-            @FechaVencimientoCarnet, @FotoCarnet, @FechaNacimiento, @IdGenero);
+INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena, fecha_registro, fecha_vencimiento_carnet, foto_carnet, fecha_nacimiento, id_genero, id_marca, id_modelo)
+VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()), @FechaVencimientoCarnet, @FotoCarnet, @FechaNacimiento, @IdGenero, @IdMarca, @IdModelo);
 END;
 
 
