@@ -74,17 +74,17 @@ public class BD
     }
 
     public static string ObtenerMailParaUsuario(int idUsuario)
+{
+    string email = null;
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        
-        string email = null;
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "SELECT email FROM Usuario WHERE IdUsuario = @idUsuario";
-            email = db.Query<string>(sql, new { @idUsuario = idUsuario});
-        }
-
-        return email;
+        string sql = "SELECT email FROM Usuario WHERE IdUsuario = @idUsuario";
+        email = db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
     }
+
+    return email;
+}
+
 
 
 
