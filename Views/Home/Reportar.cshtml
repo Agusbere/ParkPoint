@@ -5,22 +5,38 @@
     
 <div class="contenedor-main">
 
-    <form action="@Url.Action("Index")">
+    <form method="post" action="@Url.Action("GuardarReporte")">
 
         <div class="casilla-formulario">
             <h5>Calle<span>*</span></h5>
-            <select class = "input-formulario">
+            <input name="calleInfraccion" class = "input-formulario" type="text" min = "1" max = "10000" placeholder="Yatay" required>
+        </div>
+
+        <div class = "casilla-formulario">
+            <h5>Altura<span>*</span></h5>
+            <input name="alturaInfraccion" class = "input-formulario" type="number" min = "1" max = "10000" placeholder="210" required>
+        </div>
+
+        <div class = "casilla-formulario">
+            <h5>Patente a reportar<span>*</span></h5>
+            <input name="patenteReportada" class = "input-formulario" type="text" placeholder="En este formato: AB 123 CD / ABC 123" required>
+        </div>
+
+        <div class = "casilla-formulario">
+            <h5>Tipo de infracción<span>*</span></h5>
+            <select name="idMotivoInfraccion" class = "input-formulario" required selected=none>
                
+               <option value="" selected disabled>Seleccione una opción</option>
                @foreach (Infraccion infraccion in ViewBag.MotivosReporte){
 
-                <option>@infraccion.descripcion</option>
+                <option value="@infraccion.id_motivo_infraccion">@infraccion.descripcion</option>
 
                }
             </select>
-            <input class="input-formulario" type="text" name="calle" placeholder="Ingrese la calle" autocomplete="off" required />
         </div>
 
-        <input type="submit" value="Ocupar lugar">
+        <input type="hidden" name="idUsuario" value="1">
+        <input id = "submit-reportar" type="submit" value="Enviar">
 
     </form>
 

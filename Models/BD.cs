@@ -137,13 +137,13 @@ public class BD
         return ubicacionUsuario;
     }
 
-    public static void CrearReporte(string calleInfraccion, string alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
+    public static void CrearReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "INSERT INTO Reporte (fecha_reporte, calle_infraccion, altura_infraccion, patente_reportada, id_motivo_infraccion, id_usuario) VALUES (@FechaReporte, @CalleInfraccion, @AlturaInfraccion, @PatenteReportada, @IdMotivoInfraccion, @IdUsuario)";
 
-            db.Execute(sql, new { @FechaReporte = DateTime.Now, @CalleInfraccion = calleInfraccion, @AlturaInfraccion = alturaInfraccion, @PatenteReportada = patenteReportada, @IdMotivoInfraccion = idMotivoInfraccion, @IdUsuario = idUsuario });
+            db.Execute(sql, new { @FechaReporte = DateTime.Today, @CalleInfraccion = calleInfraccion, @AlturaInfraccion = alturaInfraccion, @PatenteReportada = patenteReportada, @IdMotivoInfraccion = idMotivoInfraccion, @IdUsuario = idUsuario });
         }
     }
 

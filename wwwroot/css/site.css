@@ -233,7 +233,7 @@ form{
   color: #999;
 }
 
-form input[type="submit"] {
+#submit-estacionar {
   margin-top: 150px;
   width: 900px; 
   height: 87.07px;
@@ -244,7 +244,18 @@ form input[type="submit"] {
   font-size: 1.5rem;
 }
 
-form input[type="submit"]:hover {
+#submit-reportar {
+  margin-top: 70px;
+  width: 900px; 
+  height: 87.07px;
+  border-radius: 20px;
+  border: none;
+  background-color: #171D8D;
+  color: white;
+  font-size: 1.5rem;
+}
+
+#submit-reportar:hover, #submit-estacionar:hover {
   transition-duration: 0.1s;
   background-color: #0019f1;
 }

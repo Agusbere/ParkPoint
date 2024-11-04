@@ -55,5 +55,13 @@ public class HomeController : Controller
             return RedirectToAction("Index");
         }
     }
+
+    public IActionResult GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario ){
+
+
+        BD.CrearReporte(calleInfraccion, alturaInfraccion, patenteReportada, idMotivoInfraccion, idUsuario);
+
+        return RedirectToAction("Index");
+    }
     
 }
