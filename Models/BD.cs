@@ -6,13 +6,13 @@ public class BD
 {
     private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint ; Trusted_Connection=True ;";
 
-    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdGenero)
+    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdGenero, int IdMarca, int IdModelo)
     {
         Usuario nuevoUsuario = null;
         string sp = "SP_Registrarse";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            nuevoUsuario = db.QuerySingleOrDefault<Usuario>(sp, new
+            nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sp, new
             {
                 @DNI = DNI,
                 @FotoDNI = FotoDNI,
@@ -23,7 +23,9 @@ public class BD
                 @FechaNacimiento = FechaNacimiento,
                 @FechaVencimientoCarnet = FechaVencimientoCarnet,
                 @FotoCarnet = FotoCarnet,
-                @IdGenero = IdGenero
+                @IdGenero = IdGenero,
+                @IdMarca = IdMarca,
+                @IdModelo = IdModelo
             }, commandType: System.Data.CommandType.StoredProcedure);
         }
 
@@ -43,8 +45,6 @@ public class BD
         return usuario;
     }
 
-
-    
     public static List<Infraccion> ListarMotivosReporte()
     {
 
@@ -60,9 +60,22 @@ public class BD
 
     }
 
+    public static List<Marca> ListarMarcas()
+    {
+        List<Marca> listaMarcas = new List<Marca>();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Marca";
+            listaMarcas = db.Query<Marca>(sql).ToList();
+        }
+
+        return listaMarcas;
+    }
+
     public static List<string> ObtenerMail()
     {
-        
+
         List<string> email = null;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
@@ -73,19 +86,139 @@ public class BD
         return email;
     }
 
-    public static string ObtenerMailParaUsuario(int idUsuario)
-{
-    string email = null;
-    using (SqlConnection db = new SqlConnection(_connectionString))
+    public static List<string> ObtenerConstrasena()
     {
-        string sql = "SELECT email FROM Usuario WHERE IdUsuario = @idUsuario";
-        email = db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
+
+        List<string> contrasena = null;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT constrasena FROM Usuario";
+            contrasena = db.Query<string>(sql).ToList();
+        }
+
+        return contrasena;
     }
 
-    return email;
-}
+    public static string ObtenerMailParaUsuario(int idUsuario)
+    {
+        string email = null;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT email FROM Usuario WHERE IdUsuario = @idUsuario";
+            email = db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
+        }
 
+        return email;
+    }
 
+    public static string ObtenerContrasenaParaUsuario(int idUsuario)
+    {
+        string constrasena = null;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT constrasena FROM Usuario WHERE IdUsuario = @idUsuario";
+            constrasena = db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
+        }
+
+        return constrasena;
+    }
+
+    public static Ubicacion ObtenerUbicacionUsuario(int idUsuario)
+    {
+        Ubicacion ubicacionUsuario = new Ubicacion();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT Ubicacion.ubicacionX, Ubicacion.ubicacionY FROM Usuario INNER JOIN Ubicacion ON Usuario.id_ubicacion = Ubicacion.id_ubicacion WHERE Usuario.id_usuario = @IdUsuario";
+
+            ubicacionUsuario = db.QueryFirstOrDefault<Ubicacion>(sql, new { @IdUsuario = idUsuario });
+        }
+
+        return ubicacionUsuario;
+    }
+
+    public static void CrearReporte(string calleInfraccion, string alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "INSERT INTO Reporte (fecha_reporte, calle_infraccion, altura_infraccion, patente_reportada, id_motivo_infraccion, id_usuario) VALUES (@FechaReporte, @CalleInfraccion, @AlturaInfraccion, @PatenteReportada, @IdMotivoInfraccion, @IdUsuario)";
+
+            db.Execute(sql, new { @FechaReporte = DateTime.Now, @CalleInfraccion = calleInfraccion, @AlturaInfraccion = alturaInfraccion, @PatenteReportada = patenteReportada, @IdMotivoInfraccion = idMotivoInfraccion, @IdUsuario = idUsuario });
+        }
+    }
+
+    public static Puntos ObtenerPuntosUsuario(int idUsuario)
+    {
+        Puntos puntosUsuario = new Puntos();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Puntos WHERE id_usuario = @IdUsuario";
+
+            puntosUsuario = db.QueryFirstOrDefault<Puntos>(sql, new { @IdUsuario = idUsuario });
+        }
+
+        return puntosUsuario;
+    }
+
+    public static Recompensa ObtenerRecompensa(int idRecompensa)
+    {
+        Recompensa recompensa = new Recompensa();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Recompensa WHERE id_recompensa = @IdRecompensa";
+
+            recompensa = db.QueryFirstOrDefault<Recompensa>(sql, new { @IdRecompensa = idRecompensa });
+        }
+
+        return recompensa;
+    }
+
+    public static void OcuparEspacio(int idEstacionamiento, string calle, string altura)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "UPDATE Estacionamiento SET ocupado = 1, calle = @Calle, altura_calle = @Altura, fecha_ocupado = @FechaOcupado WHERE id_estacionamiento = @IdEstacionamiento";
+
+            db.Execute(sql, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @IdEstacionamiento = idEstacionamiento });
+        }
+    }
+
+    public static void LiberarEspacio(int idEstacionamiento, int idAuto)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "UPDATE Estacionamiento SET ocupado = 0, fecha_libre = @FechaLibre, id_auto = @IdAuto WHERE id_estacionamiento = @IdEstacionamiento";
+
+            db.Execute(sql, new { @FechaLibre = DateTime.Now, @IdAuto = idAuto, @IdEstacionamiento = idEstacionamiento });
+        }
+    }
+
+    public static DetallesUbicacion MostrarDetallesUbicacion(int idEstacionamiento)
+    {
+        DetallesUbicacion detalles = new DetallesUbicacion();
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT E.tiempo_promedio_llegada, DATEDIFF(MINUTE, E.fecha_libre, GETDATE()) AS tiempo_desde_libre, M.nombre_marca, Mo.nombre_modelo FROM Estacionamiento E JOIN Auto A ON E.id_auto = A.id_auto JOIN Modelo Mo ON A.id_modelo = Mo.id_modelo JOIN Marca M ON Mo.id_marca = M.id_marca WHERE E.id_estacionamiento = @IdEstacionamiento";
+
+            DetallesUbicacion resultado = db.QueryFirstOrDefault<DetallesUbicacion>(sql, new { IdEstacionamiento = idEstacionamiento });
+
+            if (resultado != null)
+            {
+                detalles.TiempoPromedioLlegada = resultado.TiempoPromedioLlegada;
+                detalles.TiempoDesdeLibre = resultado.TiempoDesdeLibre;
+                detalles.NombreMarca = resultado.NombreMarca;
+                detalles.NombreModelo = resultado.NombreModelo;
+            }
+            else
+            {
+                detalles = null;
+            }
+        }
+
+        return detalles;
+    }
 
 
 }
