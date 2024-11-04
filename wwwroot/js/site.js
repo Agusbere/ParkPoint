@@ -6,53 +6,54 @@
 
     L.marker([-34.6037, -58.3816]).addTo(map)
         .bindPopup('Buenos Aires, CABA')
-        // .openPopup();
+        
+// Función para obtener la ubicación en tiempo real
+function obtenerUbicacion() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(
+            function(position) {
+                var lat = position.coords.latitude;
+                var lon = position.coords.longitude;
+                var userLocation = L.marker([lat, lon]).addTo(map)
+                    .bindPopup('Tu ubicación actual').openPopup();
+                
+                // Mover el mapa a la ubicación del usuario
+                map.setView([lat, lon], 13);
 
-// Crea un marcador para la ubicación en tiempo real
-var realTimeMarker = L.marker([-34.6037, -58.3816]).addTo(map)
-    .bindPopup('Tu ubicación actual');
+                // Aquí puedes llamar a tu API para guardar la ubicación
+                guardarUbicacion(lat, lon);
+            },
+            function(error) {
+                console.error('Error al obtener la ubicación:', error);
+            }
+        );
+    } else {
+        alert('La geolocalización no es soportada por este navegador.');
+    }
+}
 
-// Verifica si el navegador soporta la geolocalización
-if ("geolocation" in navigator) {
-    const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-    };
-
-function success(position) {
-    const ubicacionX = position.coords.latitude;
-    const ubicacionY = position.coords.longitude;
-    const idUsuario = 1
-
-    fetch('/ubicacion/actualizar', {
+// Función para guardar la ubicación en el servidor
+function guardarUbicacion(lat, lon) {
+    fetch('/Home/GuardarUbicacion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            idUsuario: idUsuario,
-            ubicacionX: ubicacionX,
-            ubicacionY: ubicacionY
+            ubicacionX: lat,
+            ubicacionY: lon
         })
-    })
-    .then(response => response.json())
-    .then(data => console.log('Ubicación actualizada en el servidor:', data))
-    .catch(error => console.error('Error al actualizar la ubicación:', error));
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Error al guardar la ubicación');
+        }
+        return response.json();
+    }).then(data => {
+        console.log('Ubicación guardada:', data);
+    }).catch(error => {
+        console.error('Error:', error);
+    });
 }
 
-    function error(err) {
-        console.error(`Error (${err.code}): ${err.message}`);
-    }
-
-    // Inicia el seguimiento de la ubicación
-    navigator.geolocation.watchPosition(success, error, options);
-} else {
-    console.error("Geolocalización no es soportada en este navegador.");
-}
-
-
-
-navigator.geolocation.getCurrentPosition(position => {
-    console.log(position);
-});
+// Llama a la función para obtener la ubicación
+obtenerUbicacion();

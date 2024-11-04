@@ -18,42 +18,6 @@ public class HomeController : Controller
         return View();
     }
 
-/*private readonly ParkPointService _parkPointService;
-private readonly UbicacionService _ubicacionService;
-
-public UbicacionController(ParkPointService parkPointService, UbicacionService ubicacionService)
-{
-    _parkPointService = parkPointService;
-    _ubicacionService = ubicacionService;
-}*/
-
-// Método que usa UbicacionService directamente
-/*
-[HttpPost]
-public IActionResult ActualizarUbicacion([FromBody] Ubicacion ubicacion, int idUsuario)
-{
-    bool exito = _ubicacionService.GuardarUbicacion(idUsuario, ubicacion.ubicacionX, ubicacion.ubicacionY);
-
-    if (exito)
-        return Json(new { mensaje = "Ubicación guardada exitosamente" });
-    else
-        return Json(new { mensaje = "Error al guardar la ubicación" });
-}*/
-
-// Método que usa ParkPointService
-/*
-[HttpPost]
-public IActionResult ActualizarUbicacionConParkService([FromBody] Ubicacion ubicacion, int idUsuario)
-{
-    bool exito = _parkPointService.GuardarUbicacion(idUsuario, ubicacion.ubicacionX, ubicacion.ubicacionY);
-
-    if (exito)
-        return Json(new { mensaje = "Ubicación guardada exitosamente" });
-    else
-        return Json(new { mensaje = "Error al guardar la ubicación" });
-}*/
-
-
     public IActionResult Reportar()
     {
 
