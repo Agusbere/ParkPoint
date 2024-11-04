@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint ; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
 
     public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdGenero, int IdMarca, int IdModelo)
     {
@@ -116,7 +116,7 @@ public class BD
         string constrasena = null;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT constrasena FROM Usuario WHERE IdUsuario = @idUsuario";
+            string sql = "SELECT contrasena FROM Usuario WHERE IdUsuario = @idUsuario";
             constrasena = db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
         }
 
@@ -137,13 +137,20 @@ public class BD
         return ubicacionUsuario;
     }
 
-    public static void CrearReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
+    public static bool CrearReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
     {
+        int fueCreado;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "INSERT INTO Reporte (fecha_reporte, calle_infraccion, altura_infraccion, patente_reportada, id_motivo_infraccion, id_usuario) VALUES (@FechaReporte, @CalleInfraccion, @AlturaInfraccion, @PatenteReportada, @IdMotivoInfraccion, @IdUsuario)";
 
-            db.Execute(sql, new { @FechaReporte = DateTime.Today, @CalleInfraccion = calleInfraccion, @AlturaInfraccion = alturaInfraccion, @PatenteReportada = patenteReportada, @IdMotivoInfraccion = idMotivoInfraccion, @IdUsuario = idUsuario });
+            fueCreado = db.Execute(sql, new { @FechaReporte = DateTime.Today, @CalleInfraccion = calleInfraccion, @AlturaInfraccion = alturaInfraccion, @PatenteReportada = patenteReportada, @IdMotivoInfraccion = idMotivoInfraccion, @IdUsuario = idUsuario });
+        }
+        if(fueCreado == 0){
+            return false;
+        }
+        else {
+            return true;
         }
     }
 
@@ -218,6 +225,20 @@ public class BD
         }
 
         return detalles;
+    }
+
+    public static Notificacion VerNotificacionesXUsuario(int id_usuario){
+
+        Notificacion notificacion = new Notificacion();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Notificacion WHERE id_usuario = @IdUsuario";
+
+            notificacion = db.QueryFirstOrDefault<Notificacion>(sql, new { @IdUsuario = id_usuario });
+        }
+
+        return notificacion;
     }
 
 

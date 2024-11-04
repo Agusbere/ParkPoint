@@ -15,11 +15,23 @@ public class ParkPointService
         return BD.IniciarSesion(Email, Contrasena);
     }
 
+    public static bool GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
+    {
+        if (!(BD.CrearReporte(calleInfraccion, alturaInfraccion, patenteReportada, idMotivoInfraccion, idUsuario)))
+        {
+            return false;
+        }
+        else
+        {
+            return BD.CrearReporte(calleInfraccion, alturaInfraccion, patenteReportada, idMotivoInfraccion, idUsuario);
+        }
 
+    }
     public static DetallesUbicacion ObtenerDetallesUbicacion(int idEstacionamiento)
     {
         return BD.MostrarDetallesUbicacion(idEstacionamiento);
     }
+
 
     //Es para validar que la contraseña sea de minimo 8 digitos, tenga una mayuscula y tenga alguna tecla especial
     public static bool VerificarContraseña(string contraseña)

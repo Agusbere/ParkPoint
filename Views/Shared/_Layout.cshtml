@@ -25,7 +25,7 @@
         <a href="@Url.Action("Ayuda")">Ayuda</a>
     </nav>
     <div class="botones-header">
-        <img class="notis" src="~/img/campana-header.png" alt="notificaciones">
+        <a onclick="MostrarNotificaciones(@ViewBag.Id_usuario)"> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"> </a>
         <a href = "@Url.Action("InicioSesion")"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
     </div>
 </header>
