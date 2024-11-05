@@ -73,6 +73,18 @@ public class BD
         return listaMarcas;
     }
 
+    public static List<Modelo> ListarModelos(int idMarca)
+    {
+        List<Modelo> listaModelos = new List<Modelo>();
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Modelo WHERE id_marca = @idMarca";
+            listaModelos = db.Query<Modelo>(sql, new { @idMarca = idMarca }).ToList();
+        }
+
+        return listaModelos;
+    }
+
     public static List<string> ObtenerMail()
     {
 

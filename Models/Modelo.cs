@@ -4,6 +4,4 @@ public class Modelo{
     public string nombre_modelo {get;set;}
     public int id_marca {get;set;}
 
-
-
 }

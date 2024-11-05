@@ -21,7 +21,7 @@ public class HomeController : Controller
     public IActionResult Reportar()
     {
 
-        ViewBag.MotivosReporte = BD.ListarMotivosReporte();
+        ViewBag.MotivosReporte = ParkPointService.ObtenerDetallesReporte();
 
         return View();
     }
@@ -73,7 +73,6 @@ public class HomeController : Controller
 
     public Notificacion VerNotificaciones(int id_usuario)
     {
-
         return BD.VerNotificacionesXUsuario(id_usuario);
     }
 

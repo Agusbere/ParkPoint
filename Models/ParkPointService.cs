@@ -32,6 +32,59 @@ public class ParkPointService
         return BD.MostrarDetallesUbicacion(idEstacionamiento);
     }
 
+    public static List<Infraccion> ObtenerDetallesReporte()
+    {
+        return BD.ListarMotivosReporte();
+    }
+
+    public static List<Marca> ObtenerMarcas()
+    {
+        return BD.ListarMarcas();
+    }
+
+    public static List<Modelo> ObtenerModelos(int idMarca)
+    {
+        return BD.ListarModelos(idMarca);
+    }
+
+    public static List<string> ObtenerMails()
+    {
+        return BD.ObtenerMail();
+    }
+
+    public static List<string> ObtenerConstrasenas()
+    {
+        return BD.ObtenerConstrasena();
+    }
+
+    public static string ObtenerMailParaUsuario(int idUsuario)
+    {
+        return BD.ObtenerMailParaUsuario(idUsuario);
+    }
+
+    public static string ObtenerConstrasenaParaUsuario(int idUsuario)
+    {
+        return BD.ObtenerContrasenaParaUsuario(idUsuario);
+    }
+
+    public static Ubicacion ObtenerUbicacionUsuario(int idUsuario)
+    {
+        return BD.ObtenerUbicacionUsuario(idUsuario);
+    }
+    public static Puntos ObtenerPuntosUsuario(int idUsuario)
+    {
+        return BD.ObtenerPuntosUsuario(idUsuario);
+    }
+
+    public static Recompensa ObtenerRecompensa(int idRecompensa)
+    {
+        return ObtenerRecompensa(idRecompensa);
+    }
+
+    public static Notificacion ObtenerNotificacionesPorUsuario(int id_usuario)
+    {
+        return BD.VerNotificacionesXUsuario(id_usuario);
+    }
 
     //Es para validar que la contraseña sea de minimo 8 digitos, tenga una mayuscula y tenga alguna tecla especial
     public static bool VerificarContraseña(string contraseña)
