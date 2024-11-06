@@ -14,7 +14,7 @@
     <link rel="icon" type="image/x-icon" href="~/img/logosolo.png">
 </head>
 
-@if(!ViewContext.View.Path.Contains("/LandingPage") && !ViewContext.View.Path.Contains("/InicioSesion") ){
+@if(!ViewContext.View.Path.Contains("/LandingPage") && !ViewContext.View.Path.Contains("/Registro1") ){
     <header>
     <a href = "@Url.Action("Index")"> <img class="logoheader" src="~/img/logosolo.png"/> </a>
     <nav>
@@ -26,7 +26,7 @@
     </nav>
     <div class="botones-header">
         <a onclick="MostrarNotificaciones(@ViewBag.Id_usuario)"> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"> </a>
-        <a href = "@Url.Action("InicioSesion")"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
+        <a href = "@Url.Action("Registro1")"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
     </div>
 </header>
 
@@ -34,7 +34,7 @@
 
 
 <main role="main">
-    @if (!ViewContext.View.Path.Contains("/Index"))
+    @if (!ViewContext.View.Path.Contains("/Index") && !ViewContext.View.Path.Contains("/Registro1"))
     {
         <h1
             style="position: relative; top: 38px; left: 31px; color: #171D8D; font-size: 48px; font-weight: bold;">
@@ -67,7 +67,7 @@
     @RenderBody()
 </main>
 
-@if (!ViewContext.View.Path.Contains("/InicioSesion") &&  !ViewContext.View.Path.Contains("/Index") ){
+@if (!ViewContext.View.Path.Contains("/Registro1") &&  !ViewContext.View.Path.Contains("/Index") ){
 
 <footer>
     <img src="~/img/logogrande.png" alt="ParkPoint Logo" class="logo" />

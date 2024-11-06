@@ -43,7 +43,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult InicioSesion()
+    public IActionResult Registro1()
     {
 
         return View();

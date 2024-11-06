@@ -4,8 +4,7 @@
         maxZoom: 19,
     }).addTo(map);
 
-    L.marker([-34.6037, -58.3816]).addTo(map)
-        .bindPopup('Buenos Aires, CABA')
+
         
 // Función para obtener la ubicación en tiempo real
 function obtenerUbicacion() {
