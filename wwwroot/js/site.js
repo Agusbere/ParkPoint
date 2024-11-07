@@ -4,6 +4,9 @@
         maxZoom: 19,
     }).addTo(map);
 
+    L.marker([-34.61084, -58.42991 ]).addTo(map).bindPopup('Bartolome mitre 320');
+    
+
 
         
 // Función para obtener la ubicación en tiempo real

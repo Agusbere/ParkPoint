@@ -4,12 +4,6 @@ GO
 USE [ParkPoint]
 GO
 
--- Tabla Genero
-CREATE TABLE [dbo].[Genero](
-    [id_genero] INT IDENTITY(1,1) PRIMARY KEY,
-    [nombre_genero] VARCHAR(255) NOT NULL
-);
-GO
 
 -- Tabla Ubicacion
 CREATE TABLE [dbo].[Ubicacion](
@@ -33,9 +27,7 @@ CREATE TABLE [dbo].[Usuario](
     [fecha_vencimiento_carnet] DATE NOT NULL,
     [foto_carnet] VARCHAR(255) NOT NULL,
     [foto_usuario] VARCHAR(255) NULL,
-    [id_genero] INT NOT NULL,
     [id_ubicacion] INT NOT NULL,
-    FOREIGN KEY ([id_genero]) REFERENCES [dbo].[Genero]([id_genero]),
     FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion])
 );
 GO

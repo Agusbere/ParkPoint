@@ -12,7 +12,6 @@ public class Usuario
     public DateTime fecha_vencimiento_carnet { get; set; }
     public string foto_carnet { get; set; }
     public string? foto_usuario { get; set; }
-    public int id_genero { get; set; }
     public int id_ubicacion { get; set; }
 
 }

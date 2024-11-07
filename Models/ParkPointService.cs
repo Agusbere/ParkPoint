@@ -5,9 +5,9 @@ public class ParkPointService
     public static Usuario Usuario;
     DetallesUbicacion detalles = new DetallesUbicacion();
 
-    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdGenero, int IdMarca, int IdModelo)
+    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdMarca, int IdModelo)
     {
-        return BD.Registrarse(DNI, FotoDNI, Nombre, Apellido, Email, Contrasena, FechaNacimiento, FechaVencimientoCarnet, FotoCarnet, IdGenero, IdMarca, IdModelo);
+        return BD.Registrarse(DNI, FotoDNI, Nombre, Apellido, Email, Contrasena, FechaNacimiento, FechaVencimientoCarnet, FotoCarnet, IdMarca, IdModelo);
     }
 
     public static Usuario IniciarSesion(string Email, string Contrasena)
