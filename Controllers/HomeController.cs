@@ -49,6 +49,15 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Registro2(){
+
+        return View();
+    }
+    public IActionResult indexBloqueado(){
+
+        return View();
+    }
+
     public IActionResult IniciarSesion(string Contrasena, string Email)
     {
         Usuario usuario = ParkPointService.IniciarSesion(Email, Contrasena);

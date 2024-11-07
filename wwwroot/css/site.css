@@ -13,6 +13,8 @@ html, body {
   height: 92.3vh;
 }
 
+
+
 footer {
   background-color: #1f2733;
   color: white;
@@ -276,10 +278,6 @@ header nav a{
   padding: 30px;
 }
 
-
-
-
-
 .cantidad-puntos{
   display: flex;
   position: absolute;
@@ -522,4 +520,36 @@ header nav a{
     transform: scale(1.8);
     opacity: 0;
   }
+}
+
+.index-bloqueado-foto {
+  width: 100vw; /* Ancho de la ventana del navegador */
+  height: 100vh; /* Alto de la ventana del navegador */
+  object-fit: cover; /* Hace que la imagen se recorte si es necesario para llenar el área */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Envía la imagen al fondo */
+}
+
+.div-bloqueado {
+  padding-top: 10%;
+  text-align: center;
+}
+.message {
+  font-size: 40px;
+  font-weight: bold;
+  color: #171D8D;
+}
+.link {
+  font-size: 40px;
+  font-weight: bold;
+  color: #001AFF;
+  text-decoration: underline;
+}
+.timer {
+  font-size: 64px;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-top: 100px;
 }

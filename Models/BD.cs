@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint ; Trusted_Connection=True ;";
 
     public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, DateTime FechaVencimientoCarnet, string FotoCarnet, int IdMarca, int IdModelo)
     {
