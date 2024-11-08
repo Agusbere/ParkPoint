@@ -141,10 +141,12 @@ public class BD
 
             fueCreado = db.Execute(sql, new { @FechaReporte = DateTime.Today, @CalleInfraccion = calleInfraccion, @AlturaInfraccion = alturaInfraccion, @PatenteReportada = patenteReportada, @IdMotivoInfraccion = idMotivoInfraccion, @IdUsuario = idUsuario });
         }
-        if(fueCreado == 0){
+        if (fueCreado == 0)
+        {
             return false;
         }
-        else {
+        else
+        {
             return true;
         }
     }
@@ -178,13 +180,13 @@ public class BD
     }
 
     public static void OcuparEspacio(int idEstacionamiento, string calle, string altura, float ubicacionX, float ubicacionY)
-{
-    string sp = "SP_OcuparEspacioEstacionamiento";
-    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        db.Execute(sp, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @UbicacionX = ubicacionX, @UbicacionY = ubicacionY, @IdEstacionamiento = idEstacionamiento}, commandType: System.Data.CommandType.StoredProcedure);
+        string sp = "SP_OcuparEspacioEstacionamiento";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sp, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @UbicacionX = ubicacionX, @UbicacionY = ubicacionY, @IdEstacionamiento = idEstacionamiento }, commandType: System.Data.CommandType.StoredProcedure);
+        }
     }
-}
 
     public static void LiberarEspacio(int idEstacionamiento, int idAuto)
     {
@@ -221,7 +223,8 @@ public class BD
         return detalles;
     }
 
-    public static Notificacion VerNotificacionesXUsuario(int id_usuario){
+    public static Notificacion VerNotificacionesXUsuario(int id_usuario)
+    {
 
         Notificacion notificacion = new Notificacion();
 

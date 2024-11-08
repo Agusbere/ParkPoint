@@ -49,11 +49,37 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Registro2(){
+    [HttpPost]
+    public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmContra)
+    {
+
+        Usuario usuario = new Usuario();
+        usuario.nombre = nombre;
+
+        if (contra != confirmContra)
+        {
+            ModelState.AddModelError("", "Las contraseñas no coinciden");
+            return View(); // Puedes regresar a la misma vista con el error
+        }
+
+        // Si todo está correcto, redirige a otra página o muestra un mensaje de éxito
+        return RedirectToAction("Registro2", new Usuario());
+    }
+
+    public IActionResult Registro2()
+    {
 
         return View();
     }
-    public IActionResult indexBloqueado(){
+
+    [HttpPost]
+    public IActionResult Registro2()
+    {
+
+        return View();
+    }
+    public IActionResult indexBloqueado()
+    {
 
         return View();
     }
@@ -84,5 +110,7 @@ public class HomeController : Controller
     {
         return BD.VerNotificacionesXUsuario(id_usuario);
     }
+
+    public IActionResult
 
 }

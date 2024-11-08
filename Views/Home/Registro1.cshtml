@@ -1,31 +1,31 @@
 <div class = "div-centrado"> 
 <div class = "bg-log-in">
-<form class="form" action="@Url.Action("Registro2")">
+<form class="form" action="@Url.Action("Registro1")">
     <p class="title">Register </p>
     <p class="message">Signup now and get full access to our app. </p>
         <div class="flex">
         <label>
-            <input required="" placeholder="" type="text" class="input">
+            <input required="" placeholder="" type="text" class="input" name = "nombre">
             <span>Nombre</span>
         </label>
 
         <label>
-            <input required="" placeholder="" type="text" class="input">
+            <input required="" placeholder="" type="text" class="input" name = "apellido">
             <span>Apellido</span>
         </label>
     </div>  
             
     <label>
-        <input required="" placeholder="" type="email" class="input">
+        <input required="" placeholder="" type="email" class="input" name = "email">
         <span>Email</span>
     </label> 
         
     <label>
-        <input required="" placeholder="" type="password" class="input">
+        <input required="" placeholder="" type="password" class="input" name = "contra">
         <span>Contraseña</span>
     </label>
     <label>
-        <input required="" placeholder="" type="password" class="input">
+        <input required="" placeholder="" type="password" class="input" name = "confirmContra">
         <span>Confirmar Contraseña</span>
     </label>
     <button class="submit">Registrarse</button>
