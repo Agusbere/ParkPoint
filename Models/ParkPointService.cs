@@ -66,11 +66,6 @@ public class ParkPointService
     {
         return BD.ObtenerContrasenaParaUsuario(idUsuario);
     }
-
-    public static Ubicacion ObtenerUbicacionUsuario(int idUsuario)
-    {
-        return BD.ObtenerUbicacionUsuario(idUsuario);
-    }
     public static Puntos ObtenerPuntosUsuario(int idUsuario)
     {
         return BD.ObtenerPuntosUsuario(idUsuario);
@@ -87,10 +82,10 @@ public class ParkPointService
     }
 
     //Es para validar que la contraseña sea de minimo 8 digitos, tenga una mayuscula y tenga alguna tecla especial
-    public static bool VerificarContraseña(string contraseña)
-    {
-        Regex validateGuidRegex = new Regex("^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$");
+    // public static bool VerificarContraseña(string contraseña)
+    // {
+    //     Regex validateGuidRegex = new Regex("^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$");
 
-        return validateGuidRegex.IsMatch(contraseña);
-    }
+    //     return validateGuidRegex.IsMatch(contraseña);
+    // }
 }

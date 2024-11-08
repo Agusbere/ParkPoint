@@ -132,20 +132,6 @@ public class BD
         return constrasena;
     }
 
-    public static Ubicacion ObtenerUbicacionUsuario(int idUsuario)
-    {
-        Ubicacion ubicacionUsuario = new Ubicacion();
-
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "SELECT Ubicacion.ubicacionX, Ubicacion.ubicacionY FROM Usuario INNER JOIN Ubicacion ON Usuario.id_ubicacion = Ubicacion.id_ubicacion WHERE Usuario.id_usuario = @IdUsuario";
-
-            ubicacionUsuario = db.QueryFirstOrDefault<Ubicacion>(sql, new { @IdUsuario = idUsuario });
-        }
-
-        return ubicacionUsuario;
-    }
-
     public static bool CrearReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
     {
         int fueCreado;
