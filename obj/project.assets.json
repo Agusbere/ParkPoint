@@ -505,19 +505,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\David\\.nuget\\packages\\": {}
+    "C:\\Users\\48592365\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj",
+      "projectUniqueName": "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj",
       "projectName": "ParkPoint",
-      "projectPath": "C:\\Users\\David\\Downloads\\ParkPoint\\ParkPoint.csproj",
-      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\Downloads\\ParkPoint\\obj\\",
+      "projectPath": "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj",
+      "packagesPath": "C:\\Users\\48592365\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\48592365\\Downloads\\ParkPoint\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\48592365\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -574,7 +574,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

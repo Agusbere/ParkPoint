@@ -9,8 +9,6 @@ public class Usuario
     public string email { get; set; }
     public string contrasena { get; set; }
     public DateTime fecha_registro { get; set; }
-    public DateTime fecha_vencimiento_carnet { get; set; }
-    public string foto_carnet { get; set; }
     public string? foto_usuario { get; set; }
     public int id_ubicacion { get; set; }
 

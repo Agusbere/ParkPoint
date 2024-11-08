@@ -24,8 +24,6 @@ CREATE TABLE [dbo].[Usuario](
     [email] VARCHAR(255) NOT NULL,
     [contrasena] VARCHAR(255) NOT NULL,
     [fecha_registro] DATE NOT NULL,
-    [fecha_vencimiento_carnet] DATE NOT NULL,
-    [foto_carnet] VARCHAR(255) NOT NULL,
     [foto_usuario] VARCHAR(255) NULL,
     [id_ubicacion] INT NOT NULL,
     FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion])
