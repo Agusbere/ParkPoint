@@ -296,5 +296,29 @@ function guardarUbicacion(lat, lon) {
     });
 }
 
+// Función para guardar la ubicación en el servidor
+function guardarUbicacion(lat, lon) {
+    fetch('/Home/GuardarUbicacion', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ubicacionY: lat,  // Asigna latitud a ubicacionY
+            ubicacionX: lon   // Asigna longitud a ubicacionX
+        })
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Error al guardar la ubicación');
+        }
+        return response.json();
+    }).then(data => {
+        console.log('Ubicación guardada:', data);
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
 // Llama a la función para obtener la ubicación
 obtenerUbicacion();

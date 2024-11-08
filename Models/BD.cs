@@ -177,7 +177,7 @@ public class BD
         return puntosUsuario;
     }
 
-    public static Recompensa ObtenerRecompensa(int idRecompensa)
+    public static Recompensa ObtenerDatosRecompensa(int idRecompensa)
     {
         Recompensa recompensa = new Recompensa();
 
@@ -191,15 +191,14 @@ public class BD
         return recompensa;
     }
 
-    public static void OcuparEspacio(int idEstacionamiento, string calle, string altura)
+    public static void OcuparEspacio(int idEstacionamiento, string calle, string altura, float ubicacionX, float ubicacionY)
+{
+    string sp = "SP_OcuparEspacioEstacionamiento";
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "UPDATE Estacionamiento SET ocupado = 1, calle = @Calle, altura_calle = @Altura, fecha_ocupado = @FechaOcupado WHERE id_estacionamiento = @IdEstacionamiento";
-
-            db.Execute(sql, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @IdEstacionamiento = idEstacionamiento });
-        }
+        db.Execute(sp, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @UbicacionX = ubicacionX, @UbicacionY = ubicacionY, @IdEstacionamiento = idEstacionamiento}, commandType: System.Data.CommandType.StoredProcedure);
     }
+}
 
     public static void LiberarEspacio(int idEstacionamiento, int idAuto)
     {

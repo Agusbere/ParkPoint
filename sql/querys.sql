@@ -1,11 +1,4 @@
 
-INSERT INTO [dbo].[Genero] (nombre_genero)
-VALUES 
-    ('Masculino'), 
-    ('Femenino'), 
-    ('No binario');
-GO
-
 INSERT INTO [dbo].[Infraccion] (descripcion)
 VALUES 
     ('Mal estacionado'),
@@ -125,4 +118,44 @@ FROM Usuario
 WHERE email = @Email AND contrasena = @Contrasena;
 END;
 GO
+
+CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
+    @UbicacionX FLOAT,
+    @UbicacionY FLOAT,
+    @Calle NVARCHAR(100),
+    @Altura NVARCHAR(20)
+AS
+BEGIN
+
+    -- Verificar si existe un espacio en la ubicación especificada
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM Estacionamiento 
+        INNER JOIN Ubicacion 
+        ON Estacionamiento.id_ubicacion = Ubicacion.id_ubicacion
+        WHERE Ubicacion.UbicacionX = @UbicacionX AND Ubicacion.UbicacionY = @UbicacionY
+    )
+    BEGIN
+        INSERT INTO Estacionamiento (UbicacionX, UbicacionY, calle, altura, ocupado)
+        VALUES (@UbicacionX, @UbicacionY, @Calle, @Altura, 1);
+    END
+    ELSE
+    BEGIN
+        -- Actualizar el campo ocupado si el espacio ya existe
+        UPDATE Estacionamiento 
+        SET Estacionamiento.ocupado = 1, 
+        Estacionamiento.calle = @Calle, 
+        Estacionamiento.altura_calle = @Altura, 
+        fecha_ocupado = @FechaOcupado, 
+        Ubicacion.ubicacionX = @UbicacionX, 
+        Ubicacion.ubicacionY = @UbicacionY 
+        INNER JOIN Ubicacion 
+        ON Ubicacion.id_ubicacion = Estacionamiento.id_ubicacion 
+        WHERE 
+        Estacionamiento.id_estacionamiento = @IdEstacionamiento
+    END
+
+END;
+GO
+
 
