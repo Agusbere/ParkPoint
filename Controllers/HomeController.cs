@@ -50,20 +50,18 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmContra)
+    public IActionResult Registro1(string nombre, string apellido, string email, string contra)
     {
 
         Usuario usuario = new Usuario();
         usuario.nombre = nombre;
+        usuario.apellido = apellido;
+        usuario.email = email;
+        usuario.contrasena = contra;
 
-        if (contra != confirmContra)
-        {
-            ModelState.AddModelError("", "Las contraseñas no coinciden");
-            return View(); // Puedes regresar a la misma vista con el error
-        }
 
-        // Si todo está correcto, redirige a otra página o muestra un mensaje de éxito
-        return RedirectToAction("Registro2", new Usuario());
+
+        return RedirectToAction("Registro3", usuario);
     }
 
     public IActionResult Registro2()
@@ -73,11 +71,37 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Registro2()
+    public IActionResult Registro2(string id_marca, string id_modelo, string patente)
     {
+        Auto auto = new Auto();
+        ViewBag.id_marca = auto.id_marca;
+        ViewBag.id_modelo = auto.id_modelo;
+        ViewBag.patente = auto.patente;
+
 
         return View();
     }
+
+    public IActionResult Registro3(Usuario usuario)
+    {
+        Usuario usuario1 = usuario;
+
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Registro3(Usuario usuario, string dni, string foto_dni)
+    {
+
+        Usuario usuario1 = usuario;
+        ViewBag.dni = usuario1.dni;
+        ViewBag.foto_dni = usuario1.foto_dni;
+        
+
+        return RedirectToAction("Index", usuario);
+
+    }
+
     public IActionResult indexBloqueado()
     {
 
@@ -100,17 +124,19 @@ public class HomeController : Controller
         }
     }
 
-    public IActionResult GuardarReporte()
+    public IActionResult GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
     {
+
+        ViewBag.CrearReporte = ParkPointService.GuardarReporte(calleInfraccion, alturaInfraccion, patenteReportada, idMotivoInfraccion, idUsuario);
 
         return RedirectToAction("Index");
     }
 
     public Notificacion VerNotificaciones(int id_usuario)
     {
-        return BD.VerNotificacionesXUsuario(id_usuario);
+        return ParkPointService.ObtenerNotificacionesPorUsuario(id_usuario);
     }
 
-    public IActionResult
+    // public IActionResult
 
 }

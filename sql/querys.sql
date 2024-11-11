@@ -1,4 +1,3 @@
-
 INSERT INTO [dbo].[Infraccion] (descripcion)
 VALUES 
     ('Mal estacionado'),
@@ -60,10 +59,6 @@ CREATE PROCEDURE SP_Registrarse
     @Apellido VARCHAR(255),
     @Email VARCHAR(255),
     @Contrasena VARCHAR(255),
-    @FechaNacimiento DATE,
-    @FechaVencimientoCarnet TIME(7),
-    @FotoCarnet VARCHAR(255),
-    @IdGenero INT,
     @IdMarca INT,
     @IdModelo INT
 AS
@@ -103,10 +98,10 @@ BEGIN
 
 
     -- Si todas las validaciones son exitosas, inserta el nuevo usuario en la tabla Usuario
-INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena, fecha_registro, fecha_vencimiento_carnet, foto_carnet, fecha_nacimiento, id_genero, id_marca, id_modelo)
-VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()), @FechaVencimientoCarnet, @FotoCarnet, @FechaNacimiento, @IdGenero, @IdMarca, @IdModelo);
+INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena, fecha_registro)
+VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()));
 END;
-
+GO
 
 CREATE PROCEDURE SP_IniciarSesion
 @Email VARCHAR(255),
@@ -122,40 +117,47 @@ GO
 CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
     @UbicacionX FLOAT,
     @UbicacionY FLOAT,
-    @Calle NVARCHAR(100),
-    @Altura NVARCHAR(20)
+    @Calle VARCHAR(100),
+    @Altura VARCHAR(20),
+    @IdAuto INT,
+    @IdUsuario INT
 AS
 BEGIN
-
-    -- Verificar si existe un espacio en la ubicación especificada
+    -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
     IF NOT EXISTS (
         SELECT 1 
         FROM Estacionamiento 
         INNER JOIN Ubicacion 
         ON Estacionamiento.id_ubicacion = Ubicacion.id_ubicacion
-        WHERE Ubicacion.UbicacionX = @UbicacionX AND Ubicacion.UbicacionY = @UbicacionY
+        WHERE Ubicacion.ubicacionX = @UbicacionX AND Ubicacion.ubicacionY = @UbicacionY
     )
     BEGIN
-        INSERT INTO Estacionamiento (UbicacionX, UbicacionY, calle, altura, ocupado)
-        VALUES (@UbicacionX, @UbicacionY, @Calle, @Altura, 1);
+        -- Insertar un nuevo registro en la tabla Ubicacion si la ubicación no existe
+        DECLARE @IdUbicacion INT;
+        INSERT INTO Ubicacion (ubicacionX, ubicacionY)
+        VALUES (@UbicacionX, @UbicacionY);
+
+        SET @IdUbicacion = SCOPE_IDENTITY();
+
+        -- Insertar un nuevo espacio de estacionamiento en la ubicación especificada
+        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, id_usuario, id_ubicacion)
+        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @IdUsuario, @IdUbicacion);
     END
     ELSE
     BEGIN
-        -- Actualizar el campo ocupado si el espacio ya existe
+        -- Actualizar el espacio de estacionamiento existente para marcarlo como ocupado y actualizar la información
         UPDATE Estacionamiento 
-        SET Estacionamiento.ocupado = 1, 
-        Estacionamiento.calle = @Calle, 
-        Estacionamiento.altura_calle = @Altura, 
-        fecha_ocupado = @FechaOcupado, 
-        Ubicacion.ubicacionX = @UbicacionX, 
-        Ubicacion.ubicacionY = @UbicacionY 
-        INNER JOIN Ubicacion 
-        ON Ubicacion.id_ubicacion = Estacionamiento.id_ubicacion 
-        WHERE 
-        Estacionamiento.id_estacionamiento = @IdEstacionamiento
-    END
-
+        SET ocupado = 1, 
+            calle = @Calle, 
+            altura_calle = @Altura, 
+            fecha_ocupado = GETDATE(),
+            id_auto = @IdAuto,
+            id_usuario = @IdUsuario
+        WHERE id_ubicacion = (
+            SELECT id_ubicacion 
+            FROM Ubicacion 
+            WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY
+        );
+    END;
 END;
 GO
-
-

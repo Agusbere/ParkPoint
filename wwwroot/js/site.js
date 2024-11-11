@@ -32,7 +32,7 @@ function obtenerDireccion(lat, lon, callback) {
                         callback(direccion);
                     });
             } else {
-                let direccion = `${calle} ${altura}`;
+                let direccion = `<p>${calle} ${altura}</p><button onclick="Estacionar(idUbicacion)">Ocupar</button>`;
                 callback(direccion);
             }
         })
@@ -103,6 +103,8 @@ function crearMarcador(lat, lon) {
         obtenerDireccion(lat, lon, (direccion) => {
             marker.bindPopup(direccion).openPopup();
         });
+
+        //direccionSeleccionada = direccion;
     });
 }
 

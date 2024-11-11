@@ -80,7 +80,6 @@ GO
 -- Tabla Estacionamiento
 CREATE TABLE [dbo].[Estacionamiento](
     [id_estacionamiento] INT IDENTITY(1,1) PRIMARY KEY,
-    [sePuedeEstacionar] BIT NOT NULL,
     [ocupado] BIT NOT NULL,
     [calle] TEXT NOT NULL,
     [altura_calle] TEXT NOT NULL,
