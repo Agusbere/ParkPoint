@@ -32,7 +32,7 @@ function obtenerDireccion(lat, lon, callback) {
                         callback(direccion);
                     });
             } else {
-                let direccion = `<p>${calle} ${altura}</p><button onclick="Estacionar(idUbicacion)">Ocupar</button>`;
+                let direccion = `<p>${calle} ${altura}</p>`;
                 callback(direccion);
             }
         })

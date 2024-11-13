@@ -1,7 +1,6 @@
 public class Estacionamiento
 {
     public int id_estacionamiento { get; set; }
-    public bool SePuedeEstacionar { get; set; }
     public bool ocupado { get; set; }
     public string calle { get; set; }
     public string altura_Calle { get; set; }
