@@ -41,6 +41,7 @@ function obtenerDireccion(lat, lon, callback) {
             callback('Dirección no disponible');
         });
 }
+
 /*
 
 var puntosAlmagro = [
@@ -98,7 +99,9 @@ var puntosAlmagro = [
 */
 // Función para crear un marcador y asignar la función de obtener dirección
 function crearMarcador(lat, lon) {
+
     var marker = L.marker([lat, lon]).addTo(map);
+    
     marker.on('click', function(e) {
         obtenerDireccion(lat, lon, (direccion) => {
             marker.bindPopup(direccion).openPopup();
@@ -109,7 +112,7 @@ function crearMarcador(lat, lon) {
 }
 
 // Crear los marcadores para cada punto en Almagro
-puntosAlmagro.forEach(coord => crearMarcador(coord[0], coord[1]));
+
 
 function actualizarUbicacion(lat, lon) {
     // Si el marcador de ubicación ya existe, se actualiza su posición
@@ -249,7 +252,7 @@ function obtenerUbicacion() {
                 ajustarMapa();
 
                 // Aquí puedes llamar a tu API para guardar la ubicación, si es necesario
-                guardarUbicacion(lat, lon);
+              //  guardarUbicacion(lat, lon);
             },
             function(error) {
                 console.error('Error al obtener la ubicación:', error);
@@ -321,6 +324,11 @@ function guardarUbicacion(lat, lon) {
     });
 }
 
+window.addEventListener('load', function() {
+    console.log(puntosAlmagro);
+    puntosAlmagro.forEach(coord => crearMarcador(coord[0], coord[1]));
+    obtenerUbicacion();
+});
 
 // Llama a la función para obtener la ubicación
-obtenerUbicacion();
+

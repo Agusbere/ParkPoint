@@ -16,12 +16,16 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.ListaCoordenadas = BD.ListarUbicaciones();
-
+        ViewBag.Ubicaciones="var puntosAlmagro = [";
+        string conector="";
         foreach (Ubicacion ubicacion in ViewBag.ListaCoordenadas)
         {
-            ViewBag.UbicacionX = ubicacion.ubicacionX;
-            ViewBag.UbicacionY = ubicacion.ubicacionY;
+             
+            ViewBag.Ubicaciones+=  conector + "["+ ubicacion.ubicacionX.ToString().Replace(",", ".")+ "," + ubicacion.ubicacionY.ToString().Replace(",", ".") +"]";
+            conector=",";
+
         }
+        ViewBag.Ubicaciones+="];";
 
         return View();
     }
