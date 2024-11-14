@@ -1,4 +1,4 @@
-﻿var map = L.map('map').setView([-34.6037, -58.4116], 15);
+﻿    var map = L.map('map').setView([-34.6037, -58.4116], 15);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -41,7 +41,7 @@ function obtenerDireccion(lat, lon, callback) {
             callback('Dirección no disponible');
         });
 }
-
+/*
 
 var puntosAlmagro = [
     [-34.6064, -58.4116], // 1
@@ -95,7 +95,7 @@ var puntosAlmagro = [
     [-34.6107, -58.4204], // 49
     [-34.6113, -58.4174], // 50
 ];
-
+*/
 // Función para crear un marcador y asignar la función de obtener dirección
 function crearMarcador(lat, lon) {
     var marker = L.marker([lat, lon]).addTo(map);

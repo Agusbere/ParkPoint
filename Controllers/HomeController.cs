@@ -7,7 +7,7 @@ namespace ParkPoint.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    
+
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -15,6 +15,14 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.ListaCoordenadas = BD.ListarUbicaciones();
+
+        foreach (Ubicacion ubicacion in ViewBag.ListaCoordenadas)
+        {
+            ViewBag.UbicacionX = ubicacion.ubicacionX;
+            ViewBag.UbicacionY = ubicacion.ubicacionY;
+        }
+
         return View();
     }
 
@@ -96,10 +104,15 @@ public class HomeController : Controller
         Usuario usuario1 = usuario;
         ViewBag.dni = usuario1.dni;
         ViewBag.foto_dni = usuario1.foto_dni;
-        
+
 
         return RedirectToAction("Index", usuario);
 
+    }
+    public IActionResult Ubicaciones()
+    {
+        ViewBag.ListaCoordenadas = BD.ListarUbicaciones();
+        return View("Index");
     }
 
     public IActionResult indexBloqueado()
@@ -137,7 +150,7 @@ public class HomeController : Controller
         return ParkPointService.ObtenerNotificacionesPorUsuario(id_usuario);
     }
 
-       
+
 
 
 }

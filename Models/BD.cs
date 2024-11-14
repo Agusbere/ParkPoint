@@ -57,6 +57,21 @@ public class BD
 
     }
 
+    public static List<Ubicacion> ListarUbicaciones()
+    {
+
+        List<Ubicacion> listaUbicacion = new List<Ubicacion>();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Ubicacion";
+            listaUbicacion = db.Query<Ubicacion>(sql).ToList();
+        }
+
+        return listaUbicacion;
+
+    }
+
     public static List<Marca> ListarMarcas()
     {
         List<Marca> listaMarcas = new List<Marca>();
