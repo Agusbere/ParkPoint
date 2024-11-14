@@ -21,13 +21,23 @@ public class HomeController : Controller
         foreach (Ubicacion ubicacion in ViewBag.ListaCoordenadas)
         {
              
-            ViewBag.Ubicaciones+=  conector + "["+ ubicacion.ubicacionX.ToString().Replace(",", ".")+ "," + ubicacion.ubicacionY.ToString().Replace(",", ".") +"]";
+            ViewBag.Ubicaciones +=  conector + "["+ ubicacion.ubicacionX.ToString().Replace(",", ".")+ "," + ubicacion.ubicacionY.ToString().Replace(",", ".") +"]";
             conector=",";
 
         }
         ViewBag.Ubicaciones+="];";
-
+        
         return View();
+    }
+
+    /*  */
+    public IActionResult OcuparEspacio(float ubicacionX, float ubicacionY){
+
+        ViewBag.UbicacionX = ubicacionX;
+        ViewBag.UbicacionX = ubicacionY;
+
+        ViewBag.OcuparEspacio = BD.OcuparEspacio();
+
     }
 
     public IActionResult Reportar()

@@ -106,7 +106,7 @@ function crearMarcador(lat, lon) {
         obtenerDireccion(lat, lon, (direccion) => {
             marker.bindPopup(direccion).openPopup();
         });
-
+        
         //direccionSeleccionada = direccion;
     });
 }

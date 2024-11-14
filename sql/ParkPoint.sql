@@ -6,12 +6,11 @@ GO
 
 
 -- Tabla Ubicacion
-CREATE TABLE [dbo].[Ubicacion](
-    [id_ubicacion] INT IDENTITY(1,1) PRIMARY KEY,
-    [ubicacionX] FLOAT NOT NULL,
-    [ubicacionY] FLOAT NOT NULL
-);
-GO
+-- CREATE TABLE [dbo].[Ubicacion](
+--     [id_ubicacion] INT IDENTITY(1,1) PRIMARY KEY,
+    
+-- );
+-- GO
 
 -- Tabla Usuario
 CREATE TABLE [dbo].[Usuario](
@@ -81,18 +80,18 @@ GO
 CREATE TABLE [dbo].[Estacionamiento](
     [id_estacionamiento] INT IDENTITY(1,1) PRIMARY KEY,
     [ocupado] BIT NOT NULL,
-    [calle] TEXT NOT NULL,
-    [altura_calle] TEXT NOT NULL,
-    [fecha_libre] DATE NOT NULL,
-    [fecha_ocupado] DATE NOT NULL,
-    [tiempo_estacionado] TIME(7) NOT NULL,
-    [tiempo_promedio_llegada] TIME(7) NOT NULL,
-    [id_auto] INT NOT NULL,
-    [id_usuario] INT NOT NULL,
-    [id_ubicacion] INT NOT NULL,
+    [calle] TEXT NULL,
+    [altura_calle] TEXT NULL,
+    [fecha_libre] DATE NULL,
+    [fecha_ocupado] DATE NULL,
+    [tiempo_estacionado] TIME(7) NULL,
+    [tiempo_promedio_llegada] TIME(7) NULL,
+    [id_auto] INT NULL,
+    [id_usuario] INT NULL,
+    [ubicacionX] FLOAT NOT NULL,
+    [ubicacionY] FLOAT NOT NULL
     FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto]),
     FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario]),
-    FOREIGN KEY ([id_ubicacion]) REFERENCES [dbo].[Ubicacion]([id_ubicacion])
 );
 GO
 

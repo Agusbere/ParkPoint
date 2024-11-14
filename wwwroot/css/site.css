@@ -137,6 +137,7 @@ footer ul li a {
 }
 
 .ocupar-espacio {
+  /* pointer-events: none; */
   background-color: #171d8d;
   color: #ffffff;
 }
