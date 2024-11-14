@@ -181,21 +181,13 @@ BEGIN
     IF NOT EXISTS (
         SELECT 1 
         FROM Estacionamiento 
-        INNER JOIN Ubicacion 
-        ON Estacionamiento.id_ubicacion = Ubicacion.id_ubicacion
-        WHERE Ubicacion.ubicacionX = @UbicacionX AND Ubicacion.ubicacionY = @UbicacionY
+        WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY
     )
     BEGIN
-        -- Insertar un nuevo registro en la tabla Ubicacion si la ubicación no existe
-        DECLARE @IdUbicacion INT;
-        INSERT INTO Ubicacion (ubicacionX, ubicacionY)
-        VALUES (@UbicacionX, @UbicacionY);
-
-        SET @IdUbicacion = SCOPE_IDENTITY();
 
         -- Insertar un nuevo espacio de estacionamiento en la ubicación especificada
-        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, id_usuario, id_ubicacion)
-        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @IdUsuario, @IdUbicacion);
+        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, id_usuario, ubicacionX, ubicacionY)
+        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @IdUsuario, @UbicacionX, @UbicacionY);
     END
     ELSE
     BEGIN
@@ -207,11 +199,8 @@ BEGIN
             fecha_ocupado = GETDATE(),
             id_auto = @IdAuto,
             id_usuario = @IdUsuario
-        WHERE id_ubicacion = (
-            SELECT id_ubicacion 
-            FROM Ubicacion 
-            WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY
-        );
+            WHERE ubicacionX = @UbicacionX 
+            AND ubicacionY = @UbicacionY
     END;
 END;
 GO

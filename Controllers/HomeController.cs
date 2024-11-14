@@ -31,13 +31,12 @@ public class HomeController : Controller
     }
 
     /*  */
-    public IActionResult OcuparEspacio(float ubicacionX, float ubicacionY){
+    public IActionResult OcuparEspacio(int idEstacionamiento, string calle, string altura, float ubicacionX, float ubicacionY){
 
-        ViewBag.UbicacionX = ubicacionX;
-        ViewBag.UbicacionX = ubicacionY;
-
-        ViewBag.OcuparEspacio = BD.OcuparEspacio();
-
+        // ViewBag.UbicacionX = ubicacionX;
+        // ViewBag.UbicacionX = ubicacionY;
+        BD.OcuparEspacio(idEstacionamiento, calle, altura, ubicacionX, ubicacionY);
+        return View("Index");
     }
 
     public IActionResult Reportar()
