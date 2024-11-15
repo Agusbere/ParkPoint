@@ -4,14 +4,6 @@ GO
 USE [ParkPoint]
 GO
 
-
--- Tabla Ubicacion
--- CREATE TABLE [dbo].[Ubicacion](
---     [id_ubicacion] INT IDENTITY(1,1) PRIMARY KEY,
-    
--- );
--- GO
-
 -- Tabla Usuario
 CREATE TABLE [dbo].[Usuario](
     [id_usuario] INT IDENTITY(1,1) PRIMARY KEY,
@@ -87,11 +79,9 @@ CREATE TABLE [dbo].[Estacionamiento](
     [tiempo_estacionado] TIME(7) NULL,
     [tiempo_promedio_llegada] TIME(7) NULL,
     [id_auto] INT NULL,
-    [id_usuario] INT NULL,
     [ubicacionX] FLOAT NOT NULL,
     [ubicacionY] FLOAT NOT NULL
-    FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto]),
-    FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario]),
+    FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto])
 );
 GO
 

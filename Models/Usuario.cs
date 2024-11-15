@@ -10,6 +10,5 @@ public class Usuario
     public string contrasena { get; set; }
     public DateTime fecha_registro { get; set; }
     public string? foto_usuario { get; set; }
-    public int id_ubicacion { get; set; }
 
 }
