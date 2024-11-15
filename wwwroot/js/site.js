@@ -1,4 +1,4 @@
-﻿    var map = L.map('map').setView([-34.6037, -58.4116], 15);
+﻿var map = L.map('map').setView([-34.6037, -58.4116], 15);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -8,6 +8,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Variables para el círculo de ubicación y su "aura" difusa
 var userLocationMarker;
 var userLocationAura;
+
+var selectedLat;
+var selectedLon;
 
 // Función para obtener la dirección a partir de coordenadas
 function obtenerDireccion(lat, lon, callback) {
@@ -34,7 +37,7 @@ function obtenerDireccion(lat, lon, callback) {
                         enviarDatosAControlador(calle, altura);
                     });
             } else {
-                let direccion = `<p>${calle} ${altura}</p>`;
+                let direccion = `<p>${calle} ${altura}</p><button name"btnOcupar" action="funcionajax()">fdfd</button>`;
                 callback(direccion);
                 enviarDatosAControlador(calle, altura);
             }
@@ -51,6 +54,8 @@ function crearMarcador(lat, lon) {
     var marker = L.marker([lat, lon]).addTo(map);
     
     marker.on('click', function(e) {
+        selectedLat = lat;
+        selectedLon = lon;
         obtenerDireccion(lat, lon, (direccion) => {
             marker.bindPopup(direccion).openPopup();
         });
@@ -58,9 +63,17 @@ function crearMarcador(lat, lon) {
         //direccionSeleccionada = direccion;
     });
 }
+
 function enviarDatosAControlador(calle, altura) {
-    $.ajax({
-        url: '/Home/GuardarDireccion', // Ruta al método del controlador
+
+    const latUsuario = userLocationMarker.getLatLng().lat;
+    const lonUsuario = userLocationMarker.getLatLng().lng;
+
+    alert(selectedLat);
+    alert(selectedLon);
+
+   /* $.ajax({
+        url: '@Url.Action("GuardarDireccion", "Home" , new)', // Ruta al método del controlador
         method: 'POST',
         data: { calle: calle, altura: altura }, // Enviar como datos serializados
         success: function (response) {
@@ -73,6 +86,7 @@ function enviarDatosAControlador(calle, altura) {
             console.error('Error al enviar la dirección:', error);
         }
     });
+*/
 }
 
 
@@ -83,6 +97,8 @@ function actualizarUbicacion(lat, lon) {
     // Si el marcador de ubicación ya existe, se actualiza su posición
     if (userLocationMarker) {
         userLocationMarker.setLatLng([lat, lon]);
+        selectedLat = lat;
+        selectedLon = lon;
     } else {
         // Crear el marcador de ubicación principal en azul oscuro
         userLocationMarker = L.circleMarker([lat, lon], {
