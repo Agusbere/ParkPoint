@@ -1,51 +1,51 @@
-﻿    @{
-        ViewData["Title"] = "Index";
-        var listaCoordenadas = ViewBag.ListaCoordenadas as List<Estacionamiento>;
-    }
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
+﻿        @{
+            ViewData["Title"] = "Index";
+            var listaCoordenadas = ViewBag.ListaCoordenadas as List<Estacionamiento>;
+        }
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
 
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
 
 
-    <!-- @{
-    ViewBag.MyData = "Ziggy, Rafiq Blog Post";
-    }
-        <input type="hidden" id="my-data" value="@ViewBag.MyData" />
-        <script>
-            var myData = document.getElementById("my-data").value;
-            console.log(myData); // Output: "Ziggy, Rafiq Blog Post"
-        </script> -->
+        <!-- @{
+        ViewBag.MyData = "Ziggy, Rafiq Blog Post";
+        }
+            <input type="hidden" id="my-data" value="@ViewBag.MyData" />
+            <script>
+                var myData = document.getElementById("my-data").value;
+                console.log(myData); // Output: "Ziggy, Rafiq Blog Post"
+            </script> -->
 
-        <div class="todo-mapa">
-            <div id="map"></div>
-            <div class="barra-busqueda">
-                <img src="~/img/lupa.png" alt="busqueda">
-                <input type="text" placeholder="Buscar destino...">
+            <div class="todo-mapa">
+                <div id="map"></div>
+                <div class="barra-busqueda">
+                    <img src="~/img/lupa.png" alt="busqueda">
+                    <input type="text" placeholder="Buscar destino...">
+                </div>
+                <div class="tiempo-zona">
+                    Tiempo estimado en la zona: 15 minutos
+                </div>
+                <div class="conjunto-botones-de-accion">
+                    <a class="ocupar-espacio" href="@Url.Action("GuardarDireccion")">
+                        <img src="~/img/auto.png" alt="auto">
+                        Ocupar espacio
+                    </button>
+                    <a class="reportar" href="@Url.Action("Reportar")">
+                        <img src="~/img/advertencia.png" alt="reporte">
+                        Reportar
+                    </button>
+                </div>
             </div>
-            <div class="tiempo-zona">
-                Tiempo estimado en la zona: 15 minutos
-            </div>
-            <div class="conjunto-botones-de-accion">
-                <a class="ocupar-espacio" href="@Url.Action("Estacionar")">
-                    <img src="~/img/auto.png" alt="auto">
-                    Ocupar espacio
-                </button>
-                <a class="reportar" href="@Url.Action("Reportar")">
-                    <img src="~/img/advertencia.png" alt="reporte">
-                    Reportar
-                </button>
-            </div>
-        </div>
-        
-        <script>
-            @ViewBag.Ubicaciones
-       </script>
-        
+            
+            <script>
+                @ViewBag.Ubicaciones
+        </script>
+            
 
+            
         
-       
 

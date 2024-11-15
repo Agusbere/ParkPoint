@@ -7,36 +7,18 @@
     <form action="@Url.Action("Index")" >
 
         <div class="casilla-formulario">
-            <h5>Calle<span>*</span></h5>
+            <h5>Calle @ViewBag.Calle<span>*</span></h5>
             <input class="input-formulario" id = "Calle" type="text" name="calle" placeholder="Ingrese la calle" autocomplete="off" required />
         </div>
+        
 
         <div class="casilla-formulario">
             <h5>Altura<span>*</span></h5>
             <input class="input-formulario" id = "Altura" type="number" name="Altura" placeholder="Ingrese la altura" autocomplete="off" min="1" max="100000" required />
-        </div>
+        </div>  
 
         <input id="submit-estacionar" type="submit" value="Ocupar lugar">
 
     </form>
 
 </div>
-
-<script>
-    function DefinirCalleYAltura(calle, altura)
-    {
-        $.ajax(      
-        {
-            type: 'POST',
-            datatype: 'JSON',
-            url: '/Home/Estacionar.cshtml',
-            data: {calle: calle, altura: altura}        
-            success:
-            function (response)
-            {
-                $("#Calle").html(response.calle);
-                $("#Altura").html(response.altura);
-            }
-        });
-    }
-</script>

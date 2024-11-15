@@ -46,11 +46,26 @@ public class HomeController : Controller
 
         return View();
     }
-    public IActionResult Estacionar()
-    {
 
-        return View();
+   
+    public IActionResult GuardarDireccion(string calle, int altura)
+    {
+        ViewBag.Calle = calle;
+        ViewBag.Altura = altura;
+
+        
+
+        return View("Estacionar");
     }
+
+    
+    //public IActionResult MostrarDireccion()
+    //{
+      //  ViewBag.Calle = Estacionamiento.Calle;
+       // ViewBag.Altura = Estacionamiento.altura_Calle;
+
+        //return View("Estacionar");
+    //}
     public IActionResult Ayuda()
     {
 

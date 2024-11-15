@@ -2,6 +2,7 @@
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
+    attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
 // Variables para el círculo de ubicación y su "aura" difusa
@@ -30,10 +31,12 @@ function obtenerDireccion(lat, lon, callback) {
                         }
                         let direccion = `${calle} ${altura}`;
                         callback(direccion);
+                        enviarDatosAControlador(calle, altura);
                     });
             } else {
                 let direccion = `<p>${calle} ${altura}</p>`;
                 callback(direccion);
+                enviarDatosAControlador(calle, altura);
             }
         })
         .catch(error => {
@@ -41,62 +44,7 @@ function obtenerDireccion(lat, lon, callback) {
             callback('Dirección no disponible');
         });
 }
-
-/*
-
-var puntosAlmagro = [
-    [-34.6064, -58.4116], // 1
-    [-34.6053, -58.4109], // 2
-    [-34.6078, -58.4155], // 3
-    [-34.6090, -58.4170], // 4
-    [-34.6080, -58.4182], // 5
-    [-34.6102, -58.4201], // 6
-    [-34.6110, -58.4233], // 7
-    [-34.6021, -58.4083], // 8
-    [-34.6034, -58.4065], // 9
-    [-34.6041, -58.4140], // 10
-    [-34.6018, -58.4051], // 11
-    [-34.6108, -58.4227], // 12
-    [-34.6073, -58.4199], // 13
-    [-34.6069, -58.4178], // 14
-    [-34.6050, -58.4132], // 15
-    [-34.6084, -58.4136], // 16
-    [-34.6095, -58.4112], // 17
-    [-34.6023, -58.4092], // 18
-    [-34.6038, -58.4075], // 19
-    [-34.6123, -58.4194], // 20
-    [-34.6132, -58.4209], // 21
-    [-34.6104, -58.4148], // 22
-    [-34.6045, -58.4165], // 23
-    [-34.6012, -58.4107], // 24
-    [-34.6076, -58.4138], // 25
-    [-34.6093, -58.4129], // 26
-    [-34.6120, -58.4215], // 27
-    [-34.6130, -58.4176], // 28
-    [-34.6042, -58.4197], // 29
-    [-34.6061, -58.4152], // 30
-    [-34.6106, -58.4089], // 31
-    [-34.6082, -58.4141], // 32
-    [-34.6059, -58.4170], // 33
-    [-34.6079, -58.4114], // 34
-    [-34.6127, -58.4183], // 35
-    [-34.6049, -58.4204], // 36
-    [-34.6091, -58.4160], // 37
-    [-34.6035, -58.4110], // 38
-    [-34.6124, -58.4221], // 39
-    [-34.6013, -58.4159], // 40
-    [-34.6072, -58.4135], // 41
-    [-34.6100, -58.4192], // 42
-    [-34.6099, -58.4078], // 43
-    [-34.6020, -58.4145], // 44
-    [-34.6117, -58.4133], // 45
-    [-34.6088, -58.4202], // 46
-    [-34.6031, -58.4127], // 47
-    [-34.6057, -58.4156], // 48
-    [-34.6107, -58.4204], // 49
-    [-34.6113, -58.4174], // 50
-];
-*/
+ 
 // Función para crear un marcador y asignar la función de obtener dirección
 function crearMarcador(lat, lon) {
 
@@ -110,6 +58,23 @@ function crearMarcador(lat, lon) {
         //direccionSeleccionada = direccion;
     });
 }
+function enviarDatosAControlador(calle, altura) {
+    $.ajax({
+        url: '/Home/GuardarDireccion', // Ruta al método del controlador
+        method: 'POST',
+        data: { calle: calle, altura: altura }, // Enviar como datos serializados
+        success: function (response) {
+            console.log('Dirección enviada correctamente al controlador.');
+            if (response.redirectUrl) {
+                window.location.href = response.redirectUrl; // Redirigir si es necesario
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('Error al enviar la dirección:', error);
+        }
+    });
+}
+
 
 // Crear los marcadores para cada punto en Almagro
 
