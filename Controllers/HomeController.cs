@@ -15,10 +15,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.ListaCoordenadas = BD.ListarUbicaciones();
+        ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
         ViewBag.Ubicaciones="var puntosAlmagro = [";
         string conector="";
-        foreach (Ubicacion ubicacion in ViewBag.ListaCoordenadas)
+        foreach (Estacionamiento ubicacion in ViewBag.ListaCoordenadas)
         {
              
             ViewBag.Ubicaciones +=  conector + "["+ ubicacion.ubicacionX.ToString().Replace(",", ".")+ "," + ubicacion.ubicacionY.ToString().Replace(",", ".") +"]";
@@ -124,7 +124,7 @@ public class HomeController : Controller
     }
     public IActionResult Ubicaciones()
     {
-        ViewBag.ListaCoordenadas = BD.ListarUbicaciones();
+        ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
         return View("Index");
     }
 

@@ -57,18 +57,18 @@ public class BD
 
     }
 
-    public static List<Ubicacion> ListarUbicaciones()
+    public static List<Estacionamiento> ListarEstacionamientos()
     {
 
-        List<Ubicacion> listaUbicacion = new List<Ubicacion>();
+        List<Estacionamiento> listaEstacionamientos = new List<Estacionamiento>();
 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT ubicacionX, ubicacionY FROM Estacionamiento";
-            listaUbicacion = db.Query<Ubicacion>(sql).ToList();
+            listaEstacionamientos = db.Query<Estacionamiento>(sql).ToList();
         }
 
-        return listaUbicacion;
+        return listaEstacionamientos;
 
     }
 
