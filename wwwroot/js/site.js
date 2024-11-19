@@ -68,10 +68,6 @@ function enviarDatosAControlador(calle, altura) {
 
     const latUsuario = userLocationMarker.getLatLng().lat;
     const lonUsuario = userLocationMarker.getLatLng().lng;
-
-    alert(selectedLat);
-    alert(selectedLon);
-
    /* $.ajax({
         url: '@Url.Action("GuardarDireccion", "Home" , new)', // Ruta al método del controlador
         method: 'POST',
