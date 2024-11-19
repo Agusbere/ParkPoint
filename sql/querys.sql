@@ -173,8 +173,7 @@ CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
     @UbicacionY FLOAT,
     @Calle VARCHAR(100),
     @Altura VARCHAR(20),
-    @IdAuto INT,
-    @IdUsuario INT
+    @IdAuto INT
 AS
 BEGIN
     -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
@@ -186,8 +185,8 @@ BEGIN
     BEGIN
 
         -- Insertar un nuevo espacio de estacionamiento en la ubicación especificada
-        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, id_usuario, ubicacionX, ubicacionY)
-        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @IdUsuario, @UbicacionX, @UbicacionY);
+        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, ubicacionX, ubicacionY)
+        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @UbicacionX, @UbicacionY);
     END
     ELSE
     BEGIN
@@ -197,8 +196,7 @@ BEGIN
             calle = @Calle, 
             altura_calle = @Altura, 
             fecha_ocupado = GETDATE(),
-            id_auto = @IdAuto,
-            id_usuario = @IdUsuario
+            id_auto = @IdAuto
             WHERE ubicacionX = @UbicacionX 
             AND ubicacionY = @UbicacionY
     END;
