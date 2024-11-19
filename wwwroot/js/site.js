@@ -34,12 +34,12 @@ function obtenerDireccion(lat, lon, callback) {
                         }
                         let direccion = `${calle} ${altura}`;
                         callback(direccion);
-                        enviarDatosAControlador(calle, altura);
+                        
                     });
             } else {
-                let direccion = `<p>${calle} ${altura}</p><button name"btnOcupar" action="funcionajax()">fdfd</button>`;
+                let direccion = `<p>${calle} ${altura}</p><button name="btnOcupar" onclick="ocuparEspacio('${calle}', '${altura}')">Ocupar</button>`;
                 callback(direccion);
-                enviarDatosAControlador(calle, altura);
+                
             }
         })
         .catch(error => {
@@ -64,26 +64,59 @@ function crearMarcador(lat, lon) {
     });
 }
 
-function enviarDatosAControlador(calle, altura) {
+// function enviarDatosAControlador(calle, altura) {
+//     console.log("asd," + calle + altura);
 
-    const latUsuario = userLocationMarker.getLatLng().lat;
-    const lonUsuario = userLocationMarker.getLatLng().lng;
-   /* $.ajax({
-        url: '@Url.Action("GuardarDireccion", "Home" , new)', // Ruta al método del controlador
+//     $.ajax({
+//         url: '@Url.Action("GuardarDireccion")', // Ruta al método del controlador
+//         method: 'POST',
+//         data: { calle: calle, altura: altura }, // Enviar como datos serializados
+//         success: function (response) {
+//             console.log('Dirección enviada correctamente al controlador.');
+//             if (response.redirectUrl) {
+//                 window.location.href = response.redirectUrl; // Redirigir si es necesario
+//             }
+//         },
+//         error: function (xhr, status, error) {
+//             console.error('Error al enviar la dirección:', error);
+//         }
+//     });
+// }
+
+function ocuparEspacio(calle, altura) {
+    if (!calle || !altura) {
+        console.error("Datos inválidos para ocupar el espacio:", { calle, altura });
+        return; // Detenemos si los datos son inválidos
+    }
+
+    fetch('/Home/OcuparEspacio', {
         method: 'POST',
-        data: { calle: calle, altura: altura }, // Enviar como datos serializados
-        success: function (response) {
-            console.log('Dirección enviada correctamente al controlador.');
-            if (response.redirectUrl) {
-                window.location.href = response.redirectUrl; // Redirigir si es necesario
-            }
+        headers: {
+            'Content-Type': 'application/json'
         },
-        error: function (xhr, status, error) {
-            console.error('Error al enviar la dirección:', error);
+        body: JSON.stringify({
+            calle: calle,
+            altura: altura,
+            ubicacionX: selectedLat, // Asegúrate de que selectedLat y selectedLon estén definidos
+            ubicacionY: selectedLon
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al ocupar el espacio');
         }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Espacio ocupado con éxito:", data);
+        alert("Espacio ocupado exitosamente.");
+    })
+    .catch(error => {
+        console.error("Error al ocupar el espacio:", error);
     });
-*/
 }
+
+
 
 
 // Crear los marcadores para cada punto en Almagro

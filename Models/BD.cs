@@ -194,12 +194,12 @@ public class BD
         return recompensa;
     }
 
-    public static void OcuparEspacio(int idEstacionamiento, string calle, string altura, float ubicacionX, float ubicacionY)
+    public static void OcuparEspacio(int idAuto, string calle, string altura, float ubicacionX, float ubicacionY)
     {
         string sp = "SP_OcuparEspacioEstacionamiento";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sp, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @UbicacionX = ubicacionX, @UbicacionY = ubicacionY, @IdEstacionamiento = idEstacionamiento }, commandType: System.Data.CommandType.StoredProcedure);
+            db.Execute(sp, new { @Calle = calle, @Altura = altura, @FechaOcupado = DateTime.Now, @UbicacionX = ubicacionX, @UbicacionY = ubicacionY, @IdAuto = idAuto }, commandType: System.Data.CommandType.StoredProcedure);
         }
     }
 

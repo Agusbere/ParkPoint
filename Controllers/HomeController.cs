@@ -16,27 +16,29 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
-        ViewBag.Ubicaciones="var puntosAlmagro = [";
-        string conector="";
+        ViewBag.Ubicaciones = "var puntosAlmagro = [";
+        string conector = "";
         foreach (Estacionamiento ubicacion in ViewBag.ListaCoordenadas)
         {
-             
-            ViewBag.Ubicaciones +=  conector + "["+ ubicacion.ubicacionX.ToString().Replace(",", ".")+ "," + ubicacion.ubicacionY.ToString().Replace(",", ".") +"]";
-            conector=",";
+
+            ViewBag.Ubicaciones += conector + "[" + ubicacion.ubicacionX.ToString().Replace(",", ".") + "," + ubicacion.ubicacionY.ToString().Replace(",", ".") + "]";
+            conector = ",";
 
         }
-        ViewBag.Ubicaciones+="];";
-        
+        ViewBag.Ubicaciones += "];";
+
         return View();
     }
 
-    /*  */
-    public IActionResult OcuparEspacio(int idEstacionamiento, string calle, string altura, float ubicacionX, float ubicacionY){
+    [HttpPost]
+
+    public IActionResult OcuparEspacio(int idAuto, string calle, string altura, float ubicacionX, float ubicacionY)
+    {   
 
         // ViewBag.UbicacionX = ubicacionX;
         // ViewBag.UbicacionX = ubicacionY;
-        BD.OcuparEspacio(idEstacionamiento, calle, altura, ubicacionX, ubicacionY);
-        return View("Index");
+        BD.OcuparEspacio(idAuto, calle, altura, ubicacionX, ubicacionY);
+        return Json(new { success = true, message = "Espacio ocupado registrado correctamente." });
     }
 
     public IActionResult Reportar()
@@ -47,24 +49,23 @@ public class HomeController : Controller
         return View();
     }
 
-   
+
     public IActionResult GuardarDireccion(string calle, int altura)
     {
         ViewBag.Calle = calle;
         ViewBag.Altura = altura;
 
-        
 
-        return View("Estacionar");
+        return RedirectToAction("OcuparEspacio");
     }
 
-    
+
     //public IActionResult MostrarDireccion()
     //{
-      //  ViewBag.Calle = Estacionamiento.Calle;
-       // ViewBag.Altura = Estacionamiento.altura_Calle;
+    //  ViewBag.Calle = Estacionamiento.Calle;
+    // ViewBag.Altura = Estacionamiento.altura_Calle;
 
-        //return View("Estacionar");
+    //return View("Estacionar");
     //}
     public IActionResult Ayuda()
     {
