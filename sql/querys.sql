@@ -5,6 +5,16 @@ VALUES
     ('Estacionamiento mal indicado');
 GO
 
+INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena)
+VALUES 
+    (12345678, 'foto_dni_usuario.jpg', 'Juan', 'Pérez', 'juan.perez@mail.com', 'password123');
+GO
+
+INSERT INTO [dbo].[Auto] (patente, id_usuario, id_marca, id_modelo)
+VALUES 
+    ('ABC123', 1, 1, 1)
+GO
+
 INSERT INTO [dbo].[Estacionamiento] (ocupado, ubicacionX, ubicacionY) 
 VALUES 
     (1, -34.6064, -58.4116), -- 1
@@ -166,39 +176,3 @@ SELECT Usuario.*
 FROM Usuario
 WHERE email = @Email AND contrasena = @Contrasena;
 END;
-GO
-
-CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
-    @UbicacionX FLOAT,
-    @UbicacionY FLOAT,
-    @Calle VARCHAR(100),
-    @Altura VARCHAR(20),
-    @IdAuto INT
-AS
-BEGIN
-    -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
-    IF NOT EXISTS (
-        SELECT 1 
-        FROM Estacionamiento 
-        WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY
-    )
-    BEGIN
-
-        -- Insertar un nuevo espacio de estacionamiento en la ubicación especificada
-        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, ubicacionX, ubicacionY)
-        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @UbicacionX, @UbicacionY);
-    END
-    ELSE
-    BEGIN
-        -- Actualizar el espacio de estacionamiento existente para marcarlo como ocupado y actualizar la información
-        UPDATE Estacionamiento 
-        SET ocupado = 1, 
-            calle = @Calle, 
-            altura_calle = @Altura, 
-            fecha_ocupado = GETDATE(),
-            id_auto = @IdAuto
-            WHERE ubicacionX = @UbicacionX 
-            AND ubicacionY = @UbicacionY
-    END;
-END;
-GO

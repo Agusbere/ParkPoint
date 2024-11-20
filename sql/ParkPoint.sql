@@ -11,10 +11,8 @@
         [foto_dni] VARCHAR(255) NOT NULL,
         [nombre] VARCHAR(255) NOT NULL,
         [apellido] VARCHAR(255) NOT NULL,
-        [fecha_nacimiento] DATE NOT NULL,
         [email] VARCHAR(255) NOT NULL,
         [contrasena] VARCHAR(255) NOT NULL,
-        [fecha_registro] DATE NOT NULL,
         [foto_usuario] VARCHAR(255) NULL
     );
     GO

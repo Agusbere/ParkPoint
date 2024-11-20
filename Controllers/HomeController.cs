@@ -30,15 +30,12 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpPost]
-
     public IActionResult OcuparEspacio(int idAuto, string calle, string altura, float ubicacionX, float ubicacionY)
     {   
-
-        // ViewBag.UbicacionX = ubicacionX;
-        // ViewBag.UbicacionX = ubicacionY;
-        BD.OcuparEspacio(idAuto, calle, altura, ubicacionX, ubicacionY);
-        return Json(new { success = true, message = "Espacio ocupado registrado correctamente." });
+        Console.WriteLine(calle, altura);
+  
+        BD.OcuparEspacio(1, calle, altura, ubicacionX, ubicacionY);
+        return View("Estacionar");
     }
 
     public IActionResult Reportar()
@@ -49,14 +46,14 @@ public class HomeController : Controller
         return View();
     }
 
-
+    [HttpPost]
     public IActionResult GuardarDireccion(string calle, int altura)
     {
         ViewBag.Calle = calle;
         ViewBag.Altura = altura;
 
-
-        return RedirectToAction("OcuparEspacio");
+        Console.WriteLine("SSDDS");
+        return RedirectToAction("OcuparEspacio", new { calle = calle, altura = altura});
     }
 
 

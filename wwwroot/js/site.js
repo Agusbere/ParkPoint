@@ -1,4 +1,5 @@
-﻿var map = L.map('map').setView([-34.6037, -58.4116], 15);
+﻿
+var map = L.map('map').setView([-34.6037, -58.4116], 15);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -37,7 +38,7 @@ function obtenerDireccion(lat, lon, callback) {
                         
                     });
             } else {
-                let direccion = `<p>${calle} ${altura}</p><button name="btnOcupar" onclick="ocuparEspacio('${calle}', '${altura}')">Ocupar</button>`;
+                let direccion = `<p>${calle} ${altura}</p><button name="btnOcupar" onclick="enviarDatosAControlador('${calle}', '${altura}')">Ocupar</button>`;
                 callback(direccion);
                 
             }
@@ -64,25 +65,27 @@ function crearMarcador(lat, lon) {
     });
 }
 
-// function enviarDatosAControlador(calle, altura) {
-//     console.log("asd," + calle + altura);
+ function enviarDatosAControlador(calle, altura) {
 
-//     $.ajax({
-//         url: '@Url.Action("GuardarDireccion")', // Ruta al método del controlador
-//         method: 'POST',
-//         data: { calle: calle, altura: altura }, // Enviar como datos serializados
-//         success: function (response) {
-//             console.log('Dirección enviada correctamente al controlador.');
-//             if (response.redirectUrl) {
-//                 window.location.href = response.redirectUrl; // Redirigir si es necesario
-//             }
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('Error al enviar la dirección:', error);
-//         }
-//     });
-// }
+    
+     console.log("asd," + calle + altura);
 
+    $.ajax({
+        url: '/Home/GuardarDireccion', // Ruta al método del controlador
+        method: 'POST',
+        data: { calle: calle, altura: altura }, // Enviar como datos serializados
+      success: function (response) {
+           console.log('Dirección enviada correctamente al controlador.');
+          if (response.redirectUrl) {
+              window.location.href = response.redirectUrl; // Redirigir si es necesario
+           }
+        },
+        error: function (xhr, status, error) {
+            console.error('Error al enviar la dirección:', error);
+        }
+     });
+ }
+/* 
 function ocuparEspacio(calle, altura) {
     if (!calle || !altura) {
         console.error("Datos inválidos para ocupar el espacio:", { calle, altura });
@@ -114,7 +117,7 @@ function ocuparEspacio(calle, altura) {
     .catch(error => {
         console.error("Error al ocupar el espacio:", error);
     });
-}
+} */
 
 
 
