@@ -38,7 +38,7 @@ function obtenerDireccion(lat, lon, callback) {
                         
                     });
             } else {
-                let direccion = `<p>${calle} ${altura}</p><button name="btnOcupar" onclick="enviarDatosAControlador('${calle}', '${altura}')">Ocupar</button>`;
+                let direccion = `<p>${calle} ${altura}</p><button name="btnOcupar" onclick="enviarDatosAControlador('${calle}', '${altura}', '${selectedLat}', '${selectedLon}')">Ocupar</button>`;
                 callback(direccion);
                 
             }
@@ -65,15 +65,15 @@ function crearMarcador(lat, lon) {
     });
 }
 
- function enviarDatosAControlador(calle, altura) {
+ function enviarDatosAControlador(calle, altura, selectedLat, selectedLon) {
 
     
-     console.log("asd," + calle + altura);
+     console.log("asd," + calle + altura + selectedLat + selectedLon);
 
     $.ajax({
         url: '/Home/GuardarDireccion', // Ruta al método del controlador
         method: 'POST',
-        data: { calle: calle, altura: altura }, // Enviar como datos serializados
+        data: { calle: calle, altura: altura, ubicacionY: selectedLat, ubicacionX: selectedLon}, // Enviar como datos serializados
       success: function (response) {
            console.log('Dirección enviada correctamente al controlador.');
           if (response.redirectUrl) {
