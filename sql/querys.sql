@@ -188,7 +188,7 @@ CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
 AS
 BEGIN
     -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
-    IF EXISTS (SELECT 1 FROM Estacionamiento WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY)
+    IF EXISTS (SELECT * FROM Estacionamiento WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY)
     BEGIN
         -- Actualizar el espacio de estacionamiento si ya está ocupado
         UPDATE Estacionamiento
@@ -197,8 +197,7 @@ BEGIN
             altura_calle = @Altura, 
             fecha_ocupado = GETDATE(),
             id_auto = @IdAuto
-        WHERE ubicacionX = @UbicacionX 
-            AND ubicacionY = @UbicacionY;
+        WHERE ubicacionX = @UbicacionX AND ubicacionY = @UbicacionY;
     END
     ELSE
     BEGIN

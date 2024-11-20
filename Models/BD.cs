@@ -64,7 +64,7 @@ public class BD
 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT ubicacionX, ubicacionY FROM Estacionamiento";
+            string sql = "SELECT ubicacionX, ubicacionY FROM Estacionamiento WHERE ocupado = 1";
             listaEstacionamientos = db.Query<Estacionamiento>(sql).ToList();
         }
 
