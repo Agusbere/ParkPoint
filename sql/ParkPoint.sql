@@ -77,8 +77,8 @@
         [tiempo_estacionado] TIME(7) NULL,
         [tiempo_promedio_llegada] TIME(7) NULL,
         [id_auto] INT NULL,
-        [ubicacionX] FLOAT NOT NULL,
-        [ubicacionY] FLOAT NOT NULL
+        [ubicacionX] DECIMAL(18, 10) NOT NULL,
+        [ubicacionY] DECIMAL(18, 10) NOT NULL
         FOREIGN KEY ([id_auto]) REFERENCES [dbo].[Auto]([id_auto])
     );
     GO

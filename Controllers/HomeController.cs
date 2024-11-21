@@ -30,7 +30,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult OcuparEspacio(int idAuto, string calle, int altura, float ubicacionX, float ubicacionY)
+    public IActionResult OcuparEspacio(int idAuto, string calle, int altura, decimal ubicacionX, decimal ubicacionY)
     {   
         Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
   
@@ -47,7 +47,7 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult GuardarDireccion(string calle, int altura, float ubicacionY, float ubicacionX)
+    public IActionResult GuardarDireccion(string calle, int altura, decimal ubicacionY, decimal ubicacionX)
     {
         ViewBag.Calle = calle;
         ViewBag.Altura = altura;

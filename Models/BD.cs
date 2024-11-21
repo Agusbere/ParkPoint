@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint ; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
 
     public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, int IdMarca, int IdModelo)
     {
@@ -194,7 +194,7 @@ public class BD
         return recompensa;
     }
 
-    public static void OcuparEspacio(int idAuto, string calle, int altura, float ubicacionY, float ubicacionX)
+    public static void OcuparEspacio(int idAuto, string calle, int altura, decimal ubicacionY, decimal ubicacionX)
     {
         string sp = "SP_OcuparEspacioEstacionamiento";
         using (SqlConnection db = new SqlConnection(_connectionString))
