@@ -180,8 +180,8 @@ END;
 
 
 CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
-    @UbicacionY DECIMAL(18, 10),
-    @UbicacionX DECIMAL(18, 10),
+    @UbicacionY FLOAT,
+    @UbicacionX FLOAT,
     @Calle VARCHAR(100),
     @Altura VARCHAR(20),
     @IdAuto INT

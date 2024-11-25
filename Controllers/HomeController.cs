@@ -30,11 +30,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult OcuparEspacio(int idAuto, string calle, int altura, decimal ubicacionX, decimal ubicacionY)
-    {   
+    public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY, int idAuto = 0)
+    {
         Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
-  
-        BD.OcuparEspacio(1, calle, altura, ubicacionX, ubicacionY);
+        BD.OcuparEspacio(2, calle, altura, ubicacionX, ubicacionY); // Cambiar a 1 devuelta
         return View("Estacionar");
     }
 
@@ -47,15 +46,14 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult GuardarDireccion(string calle, int altura, decimal ubicacionY, decimal ubicacionX)
+    public IActionResult GuardarDireccion(string calle, int altura, string ubicacionY, string ubicacionX)
     {
-        ViewBag.Calle = calle;
-        ViewBag.Altura = altura;
-        ViewBag.UbicacionY = ubicacionY;
-        ViewBag.UbicacionX = ubicacionX;
-
-        Console.WriteLine("SSDDS");
-        return RedirectToAction("OcuparEspacio", new { calle = calle, altura = altura, ubicacionX = ubicacionX, ubicacionY = ubicacionY});
+        // ViewBag.Calle = calle;
+        // ViewBag.Altura = altura;
+        // ViewBag.UbicacionY = ubicacionY;
+        // ViewBag.UbicacionX = ubicacionX;
+        Console.WriteLine(ubicacionY);
+        return RedirectToAction("OcuparEspacio", new { calle = calle, altura = altura, ubicacionX = ubicacionX, ubicacionY = ubicacionY });
     }
     public IActionResult Ayuda()
     {
