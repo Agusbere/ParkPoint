@@ -193,6 +193,7 @@ BEGIN
         -- Actualizar el espacio de estacionamiento si ya está ocupado
         UPDATE Estacionamiento
         SET 
+            ocupado = 1,
             calle = @Calle, 
             altura_calle = @Altura, 
             fecha_ocupado = GETDATE(),

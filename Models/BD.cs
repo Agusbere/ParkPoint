@@ -200,7 +200,7 @@ public class BD
         y = double.Parse(ubicacionY.Replace(".", ","));
         x = double.Parse(ubicacionX.Replace(".", ","));
         Console.WriteLine(x);
-        Console.WriteLine("Here");
+        Console.WriteLine("Llego");
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "EXEC SP_OcuparEspacioEstacionamiento @UbicacionY,  @UbicacionX, @Calle, @Altura, @IdAuto";

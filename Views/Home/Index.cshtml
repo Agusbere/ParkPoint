@@ -40,6 +40,22 @@
                 </div>
             </div>
             
+
+            
+<div class="modal-card">
+  <div class="modal-card-content">
+    <p class="modal-card-heading">OCUPAR ESPACIO</p>
+    <p class="modal-card-description">Desea ocupar el espacio en la ubicación seleccionada (calle + altura)</p>
+  </div>
+  <div class="modal-card-button-wrapper">
+    <button class="modal-card-button secondary">Cancelar</button>
+    <button class="modal-card-button primary" onclick="enviarDatosAControlador('${calle}', '${altura}', '${selectedLat}', '${selectedLon}')" >Confirmar</button>
+  </div>
+  <button class="modal-exit-button">
+
+  </button>
+</div>
+
             <script>
                 @ViewBag.Ubicaciones
         </script>
