@@ -70,62 +70,76 @@ public class HomeController : Controller
 
     public IActionResult Registro1()
     {
+        return View();
+    }
+
+    // [HttpPost]
+    // public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmacionContra)
+    // {
+
+    //     if (contra != confirmacionContra)
+    //     {
+    //         ViewBag.Error = "Las contraseñas no coinciden.";
+    //         return View(); // Regresar a la vista de registro con un mensaje de error
+    //     }
+
+
+    //     Usuario usuario = new Usuario(
+    //         nombre = nombre,
+    //         apellido = apellido,
+    //         email = email,
+    //         contrasena = contra
+    //     );
+
+
+    //     return RedirectToAction("Registro2", usuario);
+    // }
+
+    [HttpPost]
+    public IActionResult Registro2(string nombre, string apellido, string email, string contra, string confirmacionContra)
+    {
+        if (contra != confirmacionContra)
+        {
+            ViewBag.Error = "Las contraseñas no coinciden.";
+            return RedirectToAction("Registro1"); // Regresar a la vista de registro con un mensaje de error
+        }
+
+        Usuario usuario = new Usuario(
+            nombre = nombre,
+            apellido = apellido,
+            email = email,
+            contrasena = contra
+        );
+        TempData["Usuario"] = JsonConvert.SerializeObject(usuario);
 
         return View();
     }
 
     [HttpPost]
-    public IActionResult Registro1(string nombre, string apellido, string email, string contra)
-    {
+    public IActionResult Registro3(string id_marca, string id_modelo, string patente){
 
-        Usuario usuario = new Usuario();
-        usuario.nombre = nombre;
-        usuario.apellido = apellido;
-        usuario.email = email;
-        usuario.contrasena = contra;
-
-
-
-        return RedirectToAction("Registro3", usuario);
-    }
-
-    public IActionResult Registro2()
-    {
-
+        Auto auto = new Auto(
+            id_marca = id_marca,
+            id_modelo = id_modelo,
+            patente = patente
+        );
+        
         return View();
     }
 
-    [HttpPost]
-    public IActionResult Registro2(string id_marca, string id_modelo, string patente)
-    {
-        Auto auto = new Auto();
-        ViewBag.id_marca = auto.id_marca;
-        ViewBag.id_modelo = auto.id_modelo;
-        ViewBag.patente = auto.patente;
+    // [HttpPost]
+    // public IActionResult Registro2(string id_marca, string id_modelo, string patente)
+    // {
+    //     Auto auto = new Auto();
+    //     ViewBag.id_marca = auto.id_marca;
+    //     ViewBag.id_modelo = auto.id_modelo;
+    //     ViewBag.patente = auto.patente;
 
 
-        return View();
-    }
-
-    public IActionResult Registro3(Usuario usuario)
-    {
-        Usuario usuario1 = usuario;
-
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult Registro3(Usuario usuario, string dni, string foto_dni)
-    {
-
-        Usuario usuario1 = usuario;
-        ViewBag.dni = usuario1.dni;
-        ViewBag.foto_dni = usuario1.foto_dni;
+    //     return View();
+    // }
 
 
-        return RedirectToAction("Index", usuario);
-
-    }
     public IActionResult Ubicaciones()
     {
         ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();

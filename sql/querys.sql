@@ -128,43 +128,8 @@ CREATE PROCEDURE SP_Registrarse
     @IdModelo INT
 AS
 BEGIN
-    -- DECLARE @Edad INT;
-    -- DECLARE @AñoActual DATE = GETDATE();
-
-
-    -- -- Validación de DNI: No debe tener más de 8 dígitos
-    -- IF LEN(CAST(@DNI AS VARCHAR(10))) > 8
-    -- BEGIN
-    --     RAISERROR('El DNI no puede tener más de 8 dígitos.', 16);
-    --     RETURN;
-    -- END;
-
-    -- -- Validación de Fecha de Vencimiento del Carnet: No puede ser una fecha pasada
-    -- IF @FechaVencimientoCarnet < CONVERT(TIME, GETDATE())
-    -- BEGIN
-    --     RAISERROR('La fecha de vencimiento del carnet no puede ser una fecha pasada.', 16);
-    --     RETURN;
-    -- END;
-
-    -- -- Validación de Edad: Debe ser igual o mayor a 17 años
-    -- SET @Edad = DATEDIFF(YEAR, @FechaNacimiento, @AñoActual);
-    -- IF (MONTH(@FechaNacimiento) > MONTH(@AñoActual) OR
-    --    (MONTH(@FechaNacimiento) = MONTH(@AñoActual) AND DAY(@FechaNacimiento) > DAY(@AñoActual)))
-    -- BEGIN
-    --     SET @Edad = @Edad - 1;
-    -- END;
-
-    -- IF @Edad < 17
-    -- BEGIN
-    --     RAISERROR('La edad debe ser igual o mayor a 17 años.', 16);
-    --     RETURN;
-    -- END;
-
-
-
-    -- Si todas las validaciones son exitosas, inserta el nuevo usuario en la tabla Usuario
-INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena, fecha_registro)
-VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, CONVERT(TIME, GETDATE()));
+INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena)
+VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena);
 END;
 GO
 

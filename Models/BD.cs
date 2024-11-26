@@ -6,7 +6,7 @@ public class BD
 {
     private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
 
-    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, DateTime FechaNacimiento, int IdMarca, int IdModelo)
+    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, int IdMarca, int IdModelo)
     {
         Usuario nuevoUsuario = null;
         string sp = "SP_Registrarse";
@@ -20,7 +20,6 @@ public class BD
                 @Apellido = Apellido,
                 @Email = Email,
                 @Contrasena = Contrasena,
-                @FechaNacimiento = FechaNacimiento,
                 @IdMarca = IdMarca,
                 @IdModelo = IdModelo
             }, commandType: System.Data.CommandType.StoredProcedure);
