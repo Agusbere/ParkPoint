@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\48592365\\Downloads\\ParkPoint-1\\ParkPoint.csproj": {}
+    "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj": {}
   },
   "projects": {
-    "C:\\Users\\48592365\\Downloads\\ParkPoint-1\\ParkPoint.csproj": {
+    "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\48592365\\Downloads\\ParkPoint-1\\ParkPoint.csproj",
+        "projectUniqueName": "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj",
         "projectName": "ParkPoint",
-        "projectPath": "C:\\Users\\48592365\\Downloads\\ParkPoint-1\\ParkPoint.csproj",
+        "projectPath": "C:\\Users\\48592365\\Downloads\\ParkPoint\\ParkPoint.csproj",
         "packagesPath": "C:\\Users\\48592365\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\48592365\\Downloads\\ParkPoint-1\\obj\\",
+        "outputPath": "C:\\Users\\48592365\\Downloads\\ParkPoint\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -72,19 +72,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206\\RuntimeIdentifierGraph.json"
         }
       }
     }
