@@ -33,7 +33,7 @@ public class HomeController : Controller
     public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY, int idAuto = 0)
     {
         Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
-        BD.OcuparEspacio(2, calle, altura, ubicacionX, ubicacionY); // Cambiar a 1 devuelta
+        BD.OcuparEspacio(1, calle, altura, ubicacionX, ubicacionY); // Cambiar a 1 devuelta
         return View("Estacionar");
     }
 
