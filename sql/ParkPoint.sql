@@ -7,8 +7,8 @@
         -- Tabla Usuario
         CREATE TABLE [dbo].[Usuario](
             [id_usuario] INT IDENTITY(1,1) PRIMARY KEY,
-            [dni] INT NOT NULL,
-            [foto_dni] VARCHAR(255) NOT NULL,
+            [dni] INT NULL,
+            [foto_dni] VARCHAR(255) NULL,
             [nombre] VARCHAR(255) NOT NULL,
             [apellido] VARCHAR(255) NOT NULL,
             [email] VARCHAR(255) NOT NULL,

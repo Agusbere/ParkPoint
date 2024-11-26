@@ -40,7 +40,7 @@ function obtenerDireccion(lat, lon, callback) {
             callback(direccion);
           });
       } else {
-        let direccion = `<p>${calle} ${altura}</p><button onclick = "MostrarOcupar()" class = "ocupar-espacio" name="btnOcupar">Ocupar</button>`;
+        let direccion = `<p>${calle} ${altura}</p><button name="btnOcupar" onclick="enviarDatosAControlador('${calle}', '${altura}', '${selectedLat}', '${selectedLon}')">Ocupar</button>`;
         callback(direccion);
       }
     })
@@ -48,6 +48,7 @@ function obtenerDireccion(lat, lon, callback) {
       console.error("Error al obtener la dirección:", error);
       callback("Dirección no disponible");
     });
+    
 }
 
 // Función para crear un marcador y asignar la función de obtener dirección
@@ -62,9 +63,7 @@ function crearMarcador(lat, lon) {
     });
   });
 }
-
 function enviarDatosAControlador(calle, altura, selectedLat, selectedLon) {
-
   $.ajax({
     url: "/Home/GuardarDireccion", // Ruta al método del controlador
     method: "POST",
@@ -78,6 +77,8 @@ function enviarDatosAControlador(calle, altura, selectedLat, selectedLon) {
       console.log("Dirección enviada correctamente al controlador.");
       if (response.redirectUrl) {
         window.location.href = response.redirectUrl; // Redirigir si es necesario
+      } else {
+        window.location.reload(); // Recargar la página si no hay redirección
       }
     },
     error: function (xhr, status, error) {
@@ -360,6 +361,7 @@ window.addEventListener("load", function () {
   console.log(puntosAlmagro);
   puntosAlmagro.forEach((coord) => crearMarcador(coord[0], coord[1]));
   obtenerUbicacion();
+
 });
 
 // Llama a la función para obtener la ubicación
