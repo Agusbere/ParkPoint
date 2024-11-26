@@ -73,27 +73,27 @@ public class HomeController : Controller
         return View();
     }
 
-    // [HttpPost]
-    // public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmacionContra)
-    // {
+  [HttpPost]
+  public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmacionContra)
+  {
 
-    //     if (contra != confirmacionContra)
-    //     {
-    //         ViewBag.Error = "Las contraseñas no coinciden.";
-    //         return View(); // Regresar a la vista de registro con un mensaje de error
-    //     }
-
-
-    //     Usuario usuario = new Usuario(
-    //         nombre = nombre,
-    //         apellido = apellido,
-    //         email = email,
-    //         contrasena = contra
-    //     );
+      if (contra != confirmacionContra)
+      {
+          ViewBag.Error = "Las contraseñas no coinciden.";
+          return View(); // Regresar a la vista de registro con un mensaje de error
+      }
 
 
-    //     return RedirectToAction("Registro2", usuario);
-    // }
+      Usuario usuario = new Usuario(
+          nombre = nombre,
+          apellido = apellido,
+          email = email,
+          contrasena = contra
+      );
+
+    TempData["Usuario"] = JsonConvert.SerializeObject(usuario);
+      return RedirectToAction("Registro2", usuario);
+  }
 
     [HttpPost]
     public IActionResult Registro2(string nombre, string apellido, string email, string contra, string confirmacionContra)
