@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ParkPoint.Models;
+using Newtonsoft.Json;
 
 namespace ParkPoint.Controllers;
 
@@ -68,76 +69,80 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Registro1()
+     public IActionResult Registro1()
     {
         return View();
     }
 
-  [HttpPost]
-  public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmacionContra)
-  {
-
-      if (contra != confirmacionContra)
-      {
-          ViewBag.Error = "Las contraseñas no coinciden.";
-          return View(); // Regresar a la vista de registro con un mensaje de error
-      }
-
-
-      Usuario usuario = new Usuario(
-          nombre = nombre,
-          apellido = apellido,
-          email = email,
-          contrasena = contra
-      );
-
-    TempData["Usuario"] = JsonConvert.SerializeObject(usuario);
-      return RedirectToAction("Registro2", usuario);
-  }
-
     [HttpPost]
-    public IActionResult Registro2(string nombre, string apellido, string email, string contra, string confirmacionContra)
+    public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmacionContra)
     {
         if (contra != confirmacionContra)
         {
             ViewBag.Error = "Las contraseñas no coinciden.";
-            return RedirectToAction("Registro1"); // Regresar a la vista de registro con un mensaje de error
+            return View(); // Regresar a la vista de registro con un mensaje de error
         }
 
-        Usuario usuario = new Usuario(
+        Usuario usuario = new Usuario
+        {
             nombre = nombre,
             apellido = apellido,
             email = email,
-            contrasena = contra
-        );
-        TempData["Usuario"] = JsonConvert.SerializeObject(usuario);
+            contrasena = contra,
+            dni = null,
+            foto_dni = null
 
+        };
+
+        TempData["Usuario"] = JsonConvert.SerializeObject(usuario);
+        return RedirectToAction("Registro2");
+    }
+
+    public IActionResult Registro2()
+    {
         return View();
     }
 
     [HttpPost]
-    public IActionResult Registro3(string id_marca, string id_modelo, string patente){
+    public IActionResult Registro2(string dni, string fotoDNI)
+{
+    var usuarioJson = TempData["Usuario"] as string;
+    var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
 
-        Auto auto = new Auto(
-            id_marca = id_marca,
-            id_modelo = id_modelo,
-            patente = patente
-        );
-        
+    // Convertir el DNI a int
+    int dniInt;
+    if (!int.TryParse(dni, out dniInt))
+    {
+        ViewBag.Error = "El DNI debe ser un número válido.";
+        return View(); // Regresar a la vista de registro con un mensaje de error
+    }
+
+    // Guardamos los datos en TempData para el siguiente paso
+    TempData["DNI"] = dniInt; // Guardar como int
+    TempData["FotoDNI"] = fotoDNI;
+
+    return RedirectToAction("Registro3");
+}
+
+    public IActionResult Registro3()
+    {
+        ViewBag.Marcas = BD.ListarMarcas(); // Obtener marcas para el dropdown
         return View();
     }
 
-    // [HttpPost]
-    // public IActionResult Registro2(string id_marca, string id_modelo, string patente)
-    // {
-    //     Auto auto = new Auto();
-    //     ViewBag.id_marca = auto.id_marca;
-    //     ViewBag.id_modelo = auto.id_modelo;
-    //     ViewBag.patente = auto.patente;
+    [HttpPost]
+    public IActionResult Registro3(string patente, int idMarca, int idModelo)
+{
+    var usuarioJson = TempData["Usuario"] as string;
+    var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
+    var dni = (int)TempData["DNI"]; // Obtener como int
+    var fotoDNI = TempData["FotoDNI"] as string;
 
+    // Aquí se inserta el usuario y el auto en la base de datos
+    BD.Registrarse(dni, fotoDNI, usuario.nombre, usuario.apellido, usuario.email, usuario.contrasena, patente, idMarca, idModelo);
 
-    //     return View();
-    // }
+    return RedirectToAction("Index");
+}
 
 
     public IActionResult Ubicaciones()

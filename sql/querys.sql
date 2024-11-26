@@ -124,12 +124,24 @@ CREATE PROCEDURE SP_Registrarse
     @Apellido VARCHAR(255),
     @Email VARCHAR(255),
     @Contrasena VARCHAR(255),
+    @Patente VARCHAR(50),
     @IdMarca INT,
     @IdModelo INT
 AS
 BEGIN
-INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena)
-VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena);
+    -- Declarar variable para el ID del usuario
+    DECLARE @IdUsuario INT;
+
+    -- Insertar en la tabla Usuario
+    INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena)
+    VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena);
+
+    -- Obtener el ID del último registro insertado
+    SET @IdUsuario = SCOPE_IDENTITY();
+
+    -- Insertar en la tabla Auto, asociando con el usuario
+    INSERT INTO [dbo].[Auto] (id_usuario, patente, id_marca, id_modelo)
+    VALUES (@IdUsuario, @Patente, @IdMarca, @IdModelo);
 END;
 GO
 

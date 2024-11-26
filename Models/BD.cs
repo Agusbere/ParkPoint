@@ -4,15 +4,14 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint ; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint; Trusted_Connection=True ;";
 
-    public static Usuario Registrarse(int DNI, string FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, int IdMarca, int IdModelo)
+    public static void Registrarse(int? DNI, string? FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
-        Usuario nuevoUsuario = null;
-        string sp = "SP_Registrarse";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sp, new
+            string sql = "EXEC SP_Registrarse @DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
+            db.Execute(sql, new
             {
                 @DNI = DNI,
                 @FotoDNI = FotoDNI,
@@ -20,12 +19,11 @@ public class BD
                 @Apellido = Apellido,
                 @Email = Email,
                 @Contrasena = Contrasena,
+                @Patente = Patente,
                 @IdMarca = IdMarca,
                 @IdModelo = IdModelo
-            }, commandType: System.Data.CommandType.StoredProcedure);
+            });
         }
-
-        return nuevoUsuario;
     }
 
     public static Usuario IniciarSesion(string Email, string Contrasena)
@@ -89,7 +87,7 @@ public class BD
         List<Modelo> listaModelos = new List<Modelo>();
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Modelo WHERE id_marca = @idMarca";
+            string sql = "SELECT * FROM Modelo";
             listaModelos = db.Query<Modelo>(sql, new { @idMarca = idMarca }).ToList();
         }
 
