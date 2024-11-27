@@ -1,21 +1,16 @@
 <div class = "div-centrado"> 
 <div class = "bg-log-in">
-<form class="form" action='@Url.Action("Registro3")' method="POST">
-    <p class="title">Register </p>
-   
+<form class="form" action='@Url.Action("Index")' method="POST">
+    <p class="message">INICIA SESIÓN EN PARKPOINT</p>
             
     <label>
         <input autocomplete = "off" required="" placeholder="" type="email" class="input" name = "email">
-        <span>Patente</span>
+        <span>Email</span>
     </label> 
-        
+     
     <label>
         <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "contra">
-        <span>Marca</span>
-    </label>
-    <label>
-        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "confirmContra">
-        <span>Modelo</span>
+        <span>Contraseña</span>
     </label>
     <button class="submit">Registrarse</button>
     <p class="signin">¿Ya tienes una cuenta? <a href="#">Iniciar Sesion</a> </p>

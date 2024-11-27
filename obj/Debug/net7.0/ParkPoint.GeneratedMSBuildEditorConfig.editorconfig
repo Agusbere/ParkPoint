@@ -10,8 +10,6 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ParkPoint
 build_property.RootNamespace = ParkPoint
 build_property.ProjectDir = C:\Users\48592365\Downloads\ParkPoint\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -38,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEJsb3F1ZWFkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/48592365/Downloads/ParkPoint/Views/Home/InicioSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmljaW9TZXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/48592365/Downloads/ParkPoint/Views/Home/LandingPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMYW5kaW5nUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,20 +56,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWNvbXBlbnNhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/48592365/Downloads/ParkPoint/Views/Home/Registrarse.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RyYXJzZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/48592365/Downloads/ParkPoint/Views/Home/Registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Ryby5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/48592365/Downloads/ParkPoint/Views/Home/Registro2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RybzIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/48592365/Downloads/ParkPoint/Views/Home/Registro3.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RybzMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/48592365/Downloads/ParkPoint/Views/Home/Reportar.cshtml]

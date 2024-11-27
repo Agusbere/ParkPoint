@@ -24,7 +24,7 @@ public class BD
         }
     }
 
-    public static Usuario IniciarSesion(string Email, string Contrasena)
+    public static void IniciarSesion(string Email, string Contrasena)
     {
         Usuario usuario = null;
         string sp = "SP_IniciarSesion";
@@ -33,8 +33,6 @@ public class BD
         {
             usuario = db.QueryFirstOrDefault<Usuario>(sp, new { @Email = Email, @Contrasena = Contrasena }, commandType: System.Data.CommandType.StoredProcedure);
         }
-
-        return usuario;
     }
 
     public static List<Infraccion> ListarMotivosReporte()
