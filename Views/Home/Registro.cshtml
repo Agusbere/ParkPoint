@@ -33,7 +33,7 @@
     </label>
     <label>
 
-     <select id="modeloSelect" name="idMotivoInfraccion" class = "input" required selected=none>
+     <select id="modeloSelect" name="idMotivoInfraccion" class = "input"  disabled required selected=none>
                
                <option value="" selected disabled>Seleccione un modelo de la marca del vehículo</option>
                @foreach (Modelo modelo in ViewBag.Modelos){
@@ -75,21 +75,29 @@ $(document).ready(function() {
         $('#modeloSelect').empty();
         $('#modeloSelect').append('<option value="">Selecciona un modelo</option>');
 
-        // Hacer la llamada AJAX
-        $.ajax({
-            url: '@Url.Action("ObtenerModelos", "Home")', // Cambia esto según el nombre de tu controlador y acción
-            type: 'GET',
-            data: { idMarca: idMarca },
-            success: function(modelos) {
-                // Agregar los modelos al select
-                $.each(modelos, function(index, modelo) {
-                    $('#modeloSelect').append('<option value="' + modelo.id_modelo + '">' + modelo.nombre_modelo + '</option>');
-                });
-            },
-            error: function() {
-                alert('Error al obtener los modelos');
-            }
-        });
+        if (idMarca) {
+            // Habilitar el select de modelos
+            $('#modeloSelect').prop('disabled', false);
+
+            // Hacer la llamada AJAX
+            $.ajax({
+                url: '@Url.Action("ObtenerModelos", "Home")', // Cambia esto según el nombre de tu controlador y acción
+                type: 'GET',
+                data: { idMarca: idMarca },
+                success: function(modelos) {
+                    // Agregar los modelos al select
+                    $.each(modelos, function(index, modelo) {
+                        $('#modeloSelect').append('<option value="' + modelo.id_modelo + '">' + modelo.nombre_modelo + '</option>');
+                    });
+                },
+                error: function() {
+                    alert('Error al obtener los modelos');
+                }
+            });
+        } else {
+            // Deshabilitar el select de modelos si no hay marca seleccionada
+            $('#modeloSelect').prop('disabled', true);
+        }
     });
 });
 </script>
