@@ -9,7 +9,7 @@
         </label>    
 
         <label>
-            <input autocomplete = "off" required="" placeholder="" type="text" class="input" name = "apellido">
+            <input  autocomplete = "off" required="" placeholder="" type="text" class="input" name = "apellido">
             <span>Apellido</span>
         </label>
     </div>  
@@ -21,7 +21,7 @@
         
     <label>
 
-        <select id = "marcaSelect"name="idMotivoInfraccion" class = "input" required selected=none>
+        <select id = "marcaSelect"name="id_marca" class = "input" required selected=none>
                
                <option value="" selected disabled>Seleccione una marca de vehículo</option>
                @foreach (Marca marca in ViewBag.Marcas){
@@ -33,7 +33,7 @@
     </label>
     <label>
 
-     <select id="modeloSelect" name="idMotivoInfraccion" class = "input"  disabled required selected=none>
+     <select id="modeloSelect" name="id_modelo" class = "input"  disabled required selected=none>
                
                <option value="" selected disabled>Seleccione un modelo de la marca del vehículo</option>
                @foreach (Modelo modelo in ViewBag.Modelos){
@@ -45,7 +45,7 @@
     </label>
 
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="text" class="input" name = "email">
+        <input autocomplete = "off" required="" placeholder="" type="text" class="input" name = "patente">
         <span>Patente</span>
     </label> 
 
@@ -54,7 +54,7 @@
         <span>Contraseña</span>
     </label>
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "confirmContra">
+        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "confirmacionContra">
         <span>Confirmar Contraseña</span>
     </label>
     <button class="submit">Registrarse</button>
