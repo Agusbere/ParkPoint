@@ -21,7 +21,7 @@
         
     <label>
 
-        <select name="idMotivoInfraccion" class = "input" required selected=none>
+        <select id = "marcaSelect"name="idMotivoInfraccion" class = "input" required selected=none>
                
                <option value="" selected disabled>Seleccione una marca de vehículo</option>
                @foreach (Marca marca in ViewBag.Marcas){
@@ -33,7 +33,7 @@
     </label>
     <label>
 
-     <select name="idMotivoInfraccion" class = "input" required selected=none>
+     <select id="modeloSelect" name="idMotivoInfraccion" class = "input" required selected=none>
                
                <option value="" selected disabled>Seleccione un modelo de la marca del vehículo</option>
                @foreach (Modelo modelo in ViewBag.Modelos){
@@ -64,3 +64,32 @@
 </div>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#marcaSelect').change(function() {
+        var idMarca = $(this).val();
+        
+        // Limpiar el select de modelos
+        $('#modeloSelect').empty();
+        $('#modeloSelect').append('<option value="">Selecciona un modelo</option>');
+
+        // Hacer la llamada AJAX
+        $.ajax({
+            url: '@Url.Action("ObtenerModelos", "Home")', // Cambia esto según el nombre de tu controlador y acción
+            type: 'GET',
+            data: { idMarca: idMarca },
+            success: function(modelos) {
+                // Agregar los modelos al select
+                $.each(modelos, function(index, modelo) {
+                    $('#modeloSelect').append('<option value="' + modelo.id_modelo + '">' + modelo.nombre_modelo + '</option>');
+                });
+            },
+            error: function() {
+                alert('Error al obtener los modelos');
+            }
+        });
+    });
+});
+</script>

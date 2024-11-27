@@ -64,6 +64,12 @@ public class HomeController : Controller
 
         return View();
     }
+    [HttpGet]
+public IActionResult ObtenerModelos(int idMarca)
+{
+    List<Modelo> modelos = BD.ListarModelos(idMarca);
+    return Json(modelos);
+}
 
     public IActionResult Registro()
     {   
