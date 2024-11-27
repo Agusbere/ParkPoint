@@ -153,7 +153,7 @@ public IActionResult ObtenerModelos(int idMarca)
 
     public IActionResult Ubicaciones()
     {
-        ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
+        
         return View("Index");
     }
 

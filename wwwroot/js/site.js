@@ -357,11 +357,10 @@ function guardarUbicacion(lat, lon) {
     });
 }
 
-window.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", () => {
   console.log(puntosAlmagro);
   puntosAlmagro.forEach((coord) => crearMarcador(coord[0], coord[1]));
   obtenerUbicacion();
-
 });
 
 // Llama a la función para obtener la ubicación
