@@ -85,8 +85,8 @@ public class BD
         List<Modelo> listaModelos = new List<Modelo>();
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Modelo";
-            listaModelos = db.Query<Modelo>(sql, new { @idMarca = idMarca }).ToList();
+            string sql = "SELECT * FROM Modelo INNER JOIN Marca ON Modelo.id_marca = Marca.id_marca WHERE Modelo.id_marca = @id_marca";
+            listaModelos = db.Query<Modelo>(sql, new { @id_marca = idMarca }).ToList();
         }
 
         return listaModelos;

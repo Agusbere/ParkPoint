@@ -20,16 +20,32 @@
     </label> 
         
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "contra">
-        <span>Marca</span>
+
+        <select name="idMotivoInfraccion" class = "input" required selected=none>
+               
+               <option value="" selected disabled>Seleccione una marca de vehículo</option>
+               @foreach (Marca marca in ViewBag.Marcas){
+
+                <option value="@marca.id_marca">@marca.nombre_marca</option>
+
+               }
+            </select>
     </label>
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "confirmContra">
-        <span>Modelo</span>
+
+     <select name="idMotivoInfraccion" class = "input" required selected=none>
+               
+               <option value="" selected disabled>Seleccione un modelo de la marca del vehículo</option>
+               @foreach (Modelo modelo in ViewBag.Modelos){
+
+                <option value="@modelo.id_modelo">@modelo.nombre_modelo</option>
+
+               }
+            </select>
     </label>
 
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="email" class="input" name = "email">
+        <input autocomplete = "off" required="" placeholder="" type="text" class="input" name = "email">
         <span>Patente</span>
     </label> 
 

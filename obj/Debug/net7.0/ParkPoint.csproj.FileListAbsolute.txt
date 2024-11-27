@@ -125,3 +125,4 @@ C:\Users\48178406\Downloads\ParkPoint\obj\Debug\net7.0\scopedcss\bundle\ParkPoin
 C:\Users\48178406\Downloads\ParkPoint\obj\Debug\net7.0\ParkPoint.csproj.Up2Date
 C:\Users\48178406\Downloads\ParkPoint\obj\Debug\net7.0\ParkPoint.genruntimeconfig.cache
 C:\Users\48178406\Downloads\ParkPoint\obj\Debug\net7.0\ref\ParkPoint.dll
+C:\Users\48592365\Downloads\ParkPoint\bin\Debug\net7.0\Newtonsoft.Json.dll

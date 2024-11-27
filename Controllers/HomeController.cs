@@ -49,10 +49,6 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult GuardarDireccion(string calle, int altura, string ubicacionY, string ubicacionX)
     {
-        // ViewBag.Calle = calle;
-        // ViewBag.Altura = altura;
-        // ViewBag.UbicacionY = ubicacionY;
-        // ViewBag.UbicacionX = ubicacionX;
         Console.WriteLine(ubicacionY);
         return RedirectToAction("OcuparEspacio", new { calle = calle, altura = altura, ubicacionX = ubicacionX, ubicacionY = ubicacionY });
     }
@@ -70,8 +66,24 @@ public class HomeController : Controller
     }
 
     public IActionResult Registro()
-    {
+    {   
+        List<int> IdMarca = new List<int>();
         ViewBag.Marcas = BD.ListarMarcas();
+
+        for(int i = 0; i < ViewBag.Marcas.Count; i++){
+            IdMarca.Add(ViewBag.Marcas[i].id_marca);
+        }
+
+        List<Modelo> Modelos = new List<Modelo>();
+
+        for(int i = 0; i < IdMarca.Count; i++){
+            Console.WriteLine(IdMarca[i]);
+
+            Modelos.AddRange(BD.ListarModelos(IdMarca[i]));
+        }
+
+        ViewBag.Modelos = Modelos;
+
         return View();
     }
 
