@@ -6,15 +6,13 @@ public class BD
 {
     private static string _connectionString = @"Server=localhost; DataBase=ParkPoint; Trusted_Connection=True ;";
 
-    public static void Registrarse(int? DNI, string? FotoDNI, string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+    public static void Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "EXEC SP_Registrarse @DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
+            string sql = "EXEC SP_Registrarse @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
             db.Execute(sql, new
             {
-                @DNI = DNI,
-                @FotoDNI = FotoDNI,
                 @Nombre = Nombre,
                 @Apellido = Apellido,
                 @Email = Email,

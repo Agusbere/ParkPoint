@@ -69,80 +69,68 @@ public class HomeController : Controller
         return View();
     }
 
-     public IActionResult Registro1()
+    public IActionResult Registro()
     {
+        ViewBag.Marcas = BD.ListarMarcas();
         return View();
     }
 
     [HttpPost]
-    public IActionResult Registro1(string nombre, string apellido, string email, string contra, string confirmacionContra)
-    {
-        if (contra != confirmacionContra)
-        {
-            ViewBag.Error = "Las contraseñas no coinciden.";
-            return View(); // Regresar a la vista de registro con un mensaje de error
-        }
+    public IActionResult Registro(string nombre, string apellido, string email, string contra, string confirmacionContra, string patente, int id_marca, int id_modelo)
+    {   
 
-        Usuario usuario = new Usuario
-        {
-            nombre = nombre,
-            apellido = apellido,
-            email = email,
-            contrasena = contra,
-            dni = null,
-            foto_dni = null
 
-        };
+        ParkPointService.Registrarse(nombre, apellido, email, contra, patente, id_marca, id_modelo);
 
-        TempData["Usuario"] = JsonConvert.SerializeObject(usuario);
-        return RedirectToAction("Registro2");
+        return View("Index");
     }
 
-    public IActionResult Registro2()
-    {
-        return View();
-    }
 
-    [HttpPost]
-    public IActionResult Registro2(string dni, string fotoDNI)
-{
-    var usuarioJson = TempData["Usuario"] as string;
-    var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
+    //     public IActionResult Registro2()
+    //     {
+    //         return View();
+    //     }
 
-    // Convertir el DNI a int
-    int dniInt;
-    if (!int.TryParse(dni, out dniInt))
-    {
-        ViewBag.Error = "El DNI debe ser un número válido.";
-        return View(); // Regresar a la vista de registro con un mensaje de error
-    }
+    //     [HttpPost]
+    //     public IActionResult Registro2(string dni, string fotoDNI)
+    // {
+    //     var usuarioJson = TempData["Usuario"] as string;
+    //     var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
 
-    // Guardamos los datos en TempData para el siguiente paso
-    TempData["DNI"] = dniInt; // Guardar como int
-    TempData["FotoDNI"] = fotoDNI;
+    //     // Convertir el DNI a int
+    //     int dniInt;
+    //     if (!int.TryParse(dni, out dniInt))
+    //     {
+    //         ViewBag.Error = "El DNI debe ser un número válido.";
+    //         return View(); // Regresar a la vista de registro con un mensaje de error
+    //     }
 
-    return RedirectToAction("Registro3");
-}
+    //     // Guardamos los datos en TempData para el siguiente paso
+    //     TempData["DNI"] = dniInt; // Guardar como int
+    //     TempData["FotoDNI"] = fotoDNI;
 
-    public IActionResult Registro3()
-    {
-        ViewBag.Marcas = BD.ListarMarcas(); // Obtener marcas para el dropdown
-        return View();
-    }
+    //     return RedirectToAction("Registro3");
+    // }
 
-    [HttpPost]
-    public IActionResult Registro3(string patente, int idMarca, int idModelo)
-{
-    var usuarioJson = TempData["Usuario"] as string;
-    var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
-    var dni = (int)TempData["DNI"]; // Obtener como int
-    var fotoDNI = TempData["FotoDNI"] as string;
+    //     public IActionResult Registro3()
+    //     {
+    //         ViewBag.Marcas = BD.ListarMarcas(); // Obtener marcas para el dropdown
+    //         return View();
+    //     }
 
-    // Aquí se inserta el usuario y el auto en la base de datos
-    BD.Registrarse(dni, fotoDNI, usuario.nombre, usuario.apellido, usuario.email, usuario.contrasena, patente, idMarca, idModelo);
+    //     [HttpPost]
+    //     public IActionResult Registro3(string patente, int idMarca, int idModelo)
+    // {
+    //     var usuarioJson = TempData["Usuario"] as string;
+    //     var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
+    //     var dni = (int)TempData["DNI"]; // Obtener como int
+    //     var fotoDNI = TempData["FotoDNI"] as string;
 
-    return RedirectToAction("Index");
-}
+    //     // Aquí se inserta el usuario y el auto en la base de datos
+    //     ParkPointService.Registrarse(dni, fotoDNI, usuario.nombre, usuario.apellido, usuario.email, usuario.contrasena, patente, idMarca, idModelo);
+
+    //     return RedirectToAction("Index");
+    // }
 
 
     public IActionResult Ubicaciones()

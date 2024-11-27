@@ -10,10 +10,8 @@ public class Usuario
     public string? foto_usuario { get; set; }
 
     // Constructor que acepta dni como nullable
-    public Usuario(int? dni, string foto_dni, string nombre, string apellido, string email, string contrasena)
+    public Usuario(string nombre, string apellido, string email, string contrasena, string marca, string modelo, string patente)
     {
-        this.dni = dni;
-        this.foto_dni = foto_dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;

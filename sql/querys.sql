@@ -118,8 +118,6 @@ GO
 
 -----------------------------------------STORED PROCEDURES---------------------------------------------------
 CREATE PROCEDURE SP_Registrarse
-    @DNI INT,
-    @FotoDNI VARCHAR(255),
     @Nombre VARCHAR(255),
     @Apellido VARCHAR(255),
     @Email VARCHAR(255),
@@ -133,8 +131,8 @@ BEGIN
     DECLARE @IdUsuario INT;
 
     -- Insertar en la tabla Usuario
-    INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena)
-    VALUES (@DNI, @FotoDNI, @Nombre, @Apellido, @Email, @Contrasena);
+    INSERT INTO [dbo].[Usuario] (nombre, apellido, email, contrasena)
+    VALUES (@Nombre, @Apellido, @Email, @Contrasena);
 
     -- Obtener el ID del último registro insertado
     SET @IdUsuario = SCOPE_IDENTITY();

@@ -1,34 +1,20 @@
 <div class = "div-centrado"> 
 <div class = "bg-log-in">
-<form class="form">
+<form class="form" action='@Url.Action("Registro3")'>
     <p class="title">Register </p>
         <p class="message">Signup now and get full access to our app. </p>
         <div class="flex">
         <label>
-            <input required="" placeholder="" type="text" class="input">
-            <span>Marca de vehíc</span>
+            <input autocomplete = "off" required="" placeholder="" type="number" class="input" maxlength="8">
+            <span>DNI</span>
         </label>
 
         <label>
-            <input required="" placeholder="" type="text" class="input">
-            <span>Apellido</span>
+            <input autocomplete = "off" required="" placeholder="" type="file" class="input">
+            <span>Foto dni</span>
         </label>
     </div>  
-            
-    <label>
-        <input required="" placeholder="" type="email" class="input">
-        <span>Email</span>
-    </label> 
-        
-    <label>
-        <input required="" placeholder="" type="password" class="input">
-        <span>Contraseña</span>
-    </label>
-    <label>
-        <input required="" placeholder="" type="password" class="input">
-        <span>Confirmar Contraseña</span>
-    </label>
-    <button class="submit">Registrarse</button>
+    <button class="submit">Continuar</button>
     <p class="signin">¿Ya tienes una cuenta? <a href="#">Iniciar Sesion</a> </p>
 </form>
 
