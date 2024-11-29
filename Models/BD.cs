@@ -23,18 +23,6 @@ public class BD
             });
         }
     }
-
-    public static void IniciarSesion(string Email, string Contrasena)
-    {
-        Usuario usuario = null;
-        string sp = "SP_IniciarSesion";
-
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            usuario = db.QueryFirstOrDefault<Usuario>(sp, new { @Email = Email, @Contrasena = Contrasena }, commandType: System.Data.CommandType.StoredProcedure);
-        }
-    }
-
     public static List<Infraccion> ListarMotivosReporte()
     {
 

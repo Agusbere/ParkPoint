@@ -14,12 +14,6 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult InicioSesion(){
-
-        BD.IniciarSesion(string email, string contra);
-        return View();
-    }
-
     public IActionResult Index()
     {
         ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
@@ -120,22 +114,6 @@ public IActionResult ObtenerModelos(int idMarca)
     {
 
         return View();
-    }
-
-    public IActionResult IniciarSesion(string Contrasena, string Email)
-    {
-        Usuario usuario = ParkPointService.IniciarSesion(Email, Contrasena);
-
-        if (usuario == null)
-        {
-            ViewBag.Error = "Ingreso incorrectamente el e-mail o la contraseña";
-            return RedirectToAction("IniciarSesion");
-        }
-        else
-        {
-            ParkPointService.Usuario = usuario;
-            return RedirectToAction("Index");
-        }
     }
 
     public IActionResult GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
