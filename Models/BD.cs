@@ -25,9 +25,11 @@ public class BD
 
         // Aquí deberías obtener el ID del usuario recién registrado
         // Suponiendo que tienes una forma de obtener el ID, puedes hacer lo siguiente:
-        string sqlSelect = "SELECT * FROM Usuario WHERE email = @Email"; // O usa otro campo único
-        Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelect, new { @Email = Email });
-
+        string sqlSelectUser = "SELECT * FROM Usuario WHERE email = @Email";
+        string sqlSelectAuto = "SELECT * FROM Auto WHERE patente = @Patente"; 
+         // O usa otro campo único
+        Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelectUser, new { @Email = Email });
+        Auto auto = db.QueryFirstOrDefault<Auto>(sqlSelectAuto, new{@Patente = Patente});
         return nuevoUsuario; // Retorna el nuevo usuario
     }
 }

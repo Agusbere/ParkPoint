@@ -14,15 +14,8 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index(Usuario usuario)
+    public IActionResult Index(Usuario usuario, Auto auto)
     {
-
-        if (usuario == null)
-    {
-        Console.WriteLine("es nulo");
-        usuario = new Usuario();
-    }
-
         ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
         ViewBag.Ubicaciones = "var puntosAlmagro = [";
         string conector = "";
