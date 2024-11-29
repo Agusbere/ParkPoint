@@ -6,23 +6,31 @@ public class BD
 {
     private static string _connectionString = @"Server=localhost; DataBase=ParkPoint; Trusted_Connection=True ;";
 
-    public static void Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+    public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+{
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        using (SqlConnection db = new SqlConnection(_connectionString))
+      
+        string sql = "EXEC SP_Registrarse @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
+        db.Execute(sql, new
         {
-            string sql = "EXEC SP_Registrarse @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
-            db.Execute(sql, new
-            {
-                @Nombre = Nombre,
-                @Apellido = Apellido,
-                @Email = Email,
-                @Contrasena = Contrasena,
-                @Patente = Patente,
-                @IdMarca = IdMarca,
-                @IdModelo = IdModelo
-            });
-        }
+            @Nombre = Nombre,
+            @Apellido = Apellido,
+            @Email = Email,
+            @Contrasena = Contrasena,
+            @Patente = Patente,
+            @IdMarca = IdMarca,
+            @IdModelo = IdModelo
+        });
+
+        // Aquí deberías obtener el ID del usuario recién registrado
+        // Suponiendo que tienes una forma de obtener el ID, puedes hacer lo siguiente:
+        string sqlSelect = "SELECT * FROM Usuario WHERE email = @Email"; // O usa otro campo único
+        Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelect, new { @Email = Email });
+
+        return nuevoUsuario; // Retorna el nuevo usuario
     }
+}
     public static List<Infraccion> ListarMotivosReporte()
     {
 

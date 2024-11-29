@@ -9,6 +9,8 @@ public class Usuario
     public string contrasena { get; set; }
     public string? foto_usuario { get; set; }
 
+    public Usuario() { }
+
     // Constructor que acepta dni como nullable
     public Usuario(string nombre, string apellido, string email, string contrasena, string marca, string modelo, string patente)
     {

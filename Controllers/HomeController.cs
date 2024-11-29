@@ -14,8 +14,15 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(Usuario usuario)
     {
+
+        if (usuario == null)
+    {
+        Console.WriteLine("es nulo");
+        usuario = new Usuario();
+    }
+
         ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
         ViewBag.Ubicaciones = "var puntosAlmagro = [";
         string conector = "";
@@ -28,6 +35,9 @@ public class HomeController : Controller
         }
         ViewBag.Ubicaciones += "];";
 
+
+        Console.WriteLine(usuario.apellido);
+
         return View();
     }
 
@@ -35,7 +45,7 @@ public class HomeController : Controller
     {
         Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
         BD.OcuparEspacio(idAuto, calle, altura, ubicacionX, ubicacionY);
-        return View("Estacionar");
+        return View("Index");
     }
 
     public IActionResult Reportar()
@@ -98,9 +108,9 @@ public IActionResult ObtenerModelos(int idMarca)
     {   
 
 
-        ParkPointService.Registrarse(nombre, apellido, email, contra, patente, id_marca, id_modelo);
+        Usuario usuario = ParkPointService.Registrarse(nombre, apellido, email, contra, patente, id_marca, id_modelo);
 
-        return View("Index");
+        return RedirectToAction("Index", usuario);
     }
 
 
