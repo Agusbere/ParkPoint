@@ -30,6 +30,7 @@ public class BD
          // O usa otro campo único
         Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelectUser, new { @Email = Email });
         Auto auto = db.QueryFirstOrDefault<Auto>(sqlSelectAuto, new{@Patente = Patente});
+
         return nuevoUsuario; // Retorna el nuevo usuario
     }
 }
@@ -62,6 +63,20 @@ public class BD
         return listaEstacionamientos;
 
     }
+
+    public static Auto ListarMarcas()
+    {
+        List<Auto>  = new List<Auto>();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Marca";
+            listaMarcas = db.Query<Marca>(sql).ToList();
+        }
+
+        return listaMarcas;
+    }
+
 
     public static List<Marca> ListarMarcas()
     {
