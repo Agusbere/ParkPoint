@@ -14,28 +14,38 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index(Usuario usuario)
+    public IActionResult Index()
     {
-        ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
-       
-        ViewBag.Ubicaciones = "var puntosAlmagro = [";
-        string conector = "";
-        foreach (Estacionamiento ubicacion in ViewBag.ListaCoordenadas)
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+        if (idUsuario != null)
         {
+            ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
+       
+            ViewBag.Ubicaciones = "var puntosAlmagro = [";
+            string conector = "";
+            foreach (Estacionamiento ubicacion in ViewBag.ListaCoordenadas)
+            {
 
-            ViewBag.Ubicaciones += conector + "[" + ubicacion.ubicacionX.ToString().Replace(",", ".") + "," + ubicacion.ubicacionY.ToString().Replace(",", ".") + "]";
-            conector = ",";
+                ViewBag.Ubicaciones += conector + "[" + ubicacion.ubicacionX.ToString().Replace(",", ".") + "," + ubicacion.ubicacionY.ToString().Replace(",", ".") + "]";
+                conector = ",";
 
+            }
+            ViewBag.Ubicaciones += "];";
+
+            return View();
         }
-        ViewBag.Ubicaciones += "];";
-
-        return View();
+        else
+            return RedirectToAction("Registro");
     }
 
-    public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY, int idUsuario)
+    public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY)
     {
-        Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
-        BD.OcuparEspacio(idUsuario, calle, altura, ubicacionX, ubicacionY);
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+        if (idUsuario != null)
+        {
+            Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
+            BD.OcuparEspacio((int)idUsuario, calle, altura, ubicacionX, ubicacionY);
+        }
         return View("Index");
     }
 
@@ -117,12 +127,16 @@ public IActionResult ObtenerModelos(int idMarca)
         return View();
     }
 
-    public IActionResult GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
+    public IActionResult GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion)
     {
-
-        ViewBag.CrearReporte = ParkPointService.GuardarReporte(calleInfraccion, alturaInfraccion, patenteReportada, idMotivoInfraccion, idUsuario);
-
-        return RedirectToAction("Index");
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+        if (idUsuario != null)
+        {
+            ViewBag.CrearReporte = ParkPointService.GuardarReporte(calleInfraccion, alturaInfraccion, patenteReportada, idMotivoInfraccion, (int)idUsuario);
+            return RedirectToAction("Index");
+        }
+        else
+            return RedirectToAction("Registro");
     }
 
     public Notificacion VerNotificaciones(int id_usuario)

@@ -11,8 +11,13 @@ public class ParkPointService
         Usuario usuario = BD.Registrarse(Nombre, Apellido, Email, Contrasena, Patente, IdMarca, IdModelo);
         httpContext.Session.SetInt32(ID_USUARIO_LLAVE, usuario.id_usuario);
         return usuario;
-
     }
+    /*public static Usuario IniciarSesion(HttpContext httpContext, string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+    {
+        Usuario usuario = BD.IniciarSesion(Nombre, Apellido, Email, Contrasena, Patente, IdMarca, IdModelo);
+        httpContext.Session.SetInt32(ID_USUARIO_LLAVE, usuario.id_usuario);
+        return usuario;
+    }*/
 
     public static bool GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
     {
