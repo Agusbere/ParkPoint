@@ -14,9 +14,10 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index(Usuario usuario, Auto auto)
+    public IActionResult Index(Usuario usuario)
     {
         ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
+       
         ViewBag.Ubicaciones = "var puntosAlmagro = [";
         string conector = "";
         foreach (Estacionamiento ubicacion in ViewBag.ListaCoordenadas)
@@ -27,9 +28,6 @@ public class HomeController : Controller
 
         }
         ViewBag.Ubicaciones += "];";
-
-
-        Console.WriteLine(usuario.apellido);
 
         return View();
     }

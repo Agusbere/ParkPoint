@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint; Trusted_Connection=True ;";
 
     public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
 {
@@ -262,6 +262,19 @@ public class BD
         }
 
         return notificacion;
+    }
+
+    public static int VerIdAutoActual(Usuario usuario){
+
+        int id_auto;
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+
+            string sql = "SELECT id_auto FROM Auto WHERE id_usuario = @IdUsuario";
+            id_auto = db.QueryFirstOrDefault<int>(sql, new { @IdUsuario = usuario.id_usuario});
+        }
+            
+
+        return id_auto;
     }
 
 

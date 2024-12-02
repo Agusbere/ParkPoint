@@ -9,75 +9,75 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ParkPoint
 build_property.RootNamespace = ParkPoint
-build_property.ProjectDir = F:\_basura\Git\ParkPoint\
+build_property.ProjectDir = C:\Users\David\Downloads\ParkPoint\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\_basura\Git\ParkPoint
+build_property.MSBuildProjectDirectory = C:\Users\David\Downloads\ParkPoint
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/AcercadeNosotros.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/AcercadeNosotros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2VyY2FkZU5vc290cm9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Ayuda.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Ayuda.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBeXVkYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Estacionar.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Estacionar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFc3RhY2lvbmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Index.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/IndexBloqueado.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/IndexBloqueado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEJsb3F1ZWFkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/InicioSesion.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/InicioSesion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmljaW9TZXNpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/LandingPage.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/LandingPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMYW5kaW5nUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Perfil.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Puntos.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Puntos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQdW50b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Recompensas.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Recompensas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWNvbXBlbnNhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Registro.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Home/Reportar.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Home/Reportar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXBvcnRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Shared/_Layout.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/_ViewImports.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_basura/Git/ParkPoint/Views/_ViewStart.cshtml]
+[C:/Users/David/Downloads/ParkPoint/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
