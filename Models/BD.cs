@@ -200,7 +200,7 @@ public class BD
         return recompensa;
     }
 
-    public static void OcuparEspacio(int idAuto, string calle, int altura, string ubicacionY, string ubicacionX)
+    public static void OcuparEspacio(int idUsuario, string calle, int altura, string ubicacionY, string ubicacionX)
     {
         double y, x;
         y = double.Parse(ubicacionY.Replace(".", ","));
@@ -209,8 +209,8 @@ public class BD
         Console.WriteLine("Llego");
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "EXEC SP_OcuparEspacioEstacionamiento @UbicacionY,  @UbicacionX, @Calle, @Altura, @IdAuto";
-            db.Execute(sql, new { @Calle = calle, @Altura = altura, @UbicacionY = y, @UbicacionX = x, @IdAuto = idAuto });
+            string sql = "EXEC SP_OcuparEspacioEstacionamiento @UbicacionY,  @UbicacionX, @Calle, @Altura, @IdUsuario";
+            db.Execute(sql, new { @Calle = calle, @Altura = altura, @UbicacionY = y, @UbicacionX = x, @IdUsuario = idUsuario });
         }
     }
 

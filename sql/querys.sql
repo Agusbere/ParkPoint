@@ -159,10 +159,13 @@ CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
     @UbicacionX FLOAT,
     @Calle VARCHAR(100),
     @Altura VARCHAR(20),
-    @IdAuto INT
+    @IdUsuario INT
 AS
 BEGIN
-    IF NOT EXISTS (SELECT TOP 1 FROM Estacionamiento WHERE id_auto = @IdAuto)
+    DECLARE @IdAuto INT;
+    SELECT TOP 1 @IdAuto = id_auto  FROM Auto WHERE id_usuario = @IdUsuario;
+
+    IF NOT EXISTS (SELECT TOP 1 * FROM Estacionamiento WHERE id_auto = @IdAuto)
     BEGIN
         -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
         IF EXISTS (SELECT * FROM Estacionamiento WHERE ubicacionY = @UbicacionY AND ubicacionX = @UbicacionX)
