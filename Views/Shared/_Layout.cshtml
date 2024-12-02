@@ -24,7 +24,8 @@
         <a href="@Url.Action("Ayuda")">Ayuda</a>
     </nav>
     <div class="botones-header">
-        <a onclick="MostrarNotificaciones(@ViewBag.Id_usuario)"> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"> </a>
+        <!--<a onclick="MostrarNotificaciones(@ViewBag.Id_usuario)"> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"> </a>-->
+        <a href="@Url.Action("CerrarSesion")"> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"> </a>
         <a href = "@Url.Action("Registro")"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
     </div>
 </header>

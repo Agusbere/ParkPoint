@@ -35,7 +35,7 @@ public class HomeController : Controller
             return View();
         }
         else
-            return RedirectToAction("Registro");
+            return RedirectToAction("InicioSesion");
     }
 
     public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY)
@@ -83,35 +83,56 @@ public IActionResult ObtenerModelos(int idMarca)
 }
 
     public IActionResult Registro()
-    {   
-        List<int> IdMarca = new List<int>();
-        ViewBag.Marcas = BD.ListarMarcas();
+    {
+        if (ParkPointService.ObtenerIdUsuario(HttpContext) == null)
+        {
+            List<int> IdMarca = new List<int>();
+            ViewBag.Marcas = BD.ListarMarcas();
 
-        for(int i = 0; i < ViewBag.Marcas.Count; i++){
-            IdMarca.Add(ViewBag.Marcas[i].id_marca);
+            for(int i = 0; i < ViewBag.Marcas.Count; i++){
+                IdMarca.Add(ViewBag.Marcas[i].id_marca);
+            }
+
+            List<Modelo> Modelos = new List<Modelo>();
+
+            for(int i = 0; i < IdMarca.Count; i++){
+                Console.WriteLine(IdMarca[i]);
+
+                Modelos.AddRange(BD.ListarModelos(IdMarca[i]));
+            }
+
+            ViewBag.Modelos = Modelos;
+
+            return View();
         }
-
-        List<Modelo> Modelos = new List<Modelo>();
-
-        for(int i = 0; i < IdMarca.Count; i++){
-            Console.WriteLine(IdMarca[i]);
-
-            Modelos.AddRange(BD.ListarModelos(IdMarca[i]));
-        }
-
-        ViewBag.Modelos = Modelos;
-
-        return View();
+        else
+            return RedirectToAction("Index");
     }
 
     [HttpPost]
     public IActionResult Registro(string nombre, string apellido, string email, string contra, string confirmacionContra, string patente, int id_marca, int id_modelo)
+    {
+        if (ParkPointService.ObtenerIdUsuario(HttpContext) == null)
+        {
+            Usuario usuario = ParkPointService.Registrarse(nombre, apellido, email, contra, patente, id_marca, id_modelo);
+            ParkPointService.GuardarIdUsuario(HttpContext, usuario.id_usuario);
+        }
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult InicioSesion()
     {   
-
-
-        Usuario usuario = ParkPointService.Registrarse(HttpContext, nombre, apellido, email, contra, patente, id_marca, id_modelo);
-
-        return RedirectToAction("Index", usuario);
+        if (ParkPointService.ObtenerIdUsuario(HttpContext) == null)
+        {
+            return View();
+        }
+        else
+            return RedirectToAction("Index");
+    }
+    public IActionResult CerrarSesion()
+    {
+        ParkPointService.RemoverIdUsuario(HttpContext);
+        return RedirectToAction("InicioSesion");
     }
 
 
@@ -136,7 +157,7 @@ public IActionResult ObtenerModelos(int idMarca)
             return RedirectToAction("Index");
         }
         else
-            return RedirectToAction("Registro");
+            return RedirectToAction("InicioSesion");
     }
 
     public Notificacion VerNotificaciones(int id_usuario)

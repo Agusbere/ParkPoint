@@ -3,21 +3,21 @@ using System.Text.RegularExpressions;
 public class ParkPointService
 {
     const string ID_USUARIO_LLAVE = "idUsuario";
-    public static Usuario Usuario;
     DetallesUbicacion detalles = new DetallesUbicacion();
 
-    public static Usuario Registrarse(HttpContext httpContext, string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+    public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
         Usuario usuario = BD.Registrarse(Nombre, Apellido, Email, Contrasena, Patente, IdMarca, IdModelo);
-        httpContext.Session.SetInt32(ID_USUARIO_LLAVE, usuario.id_usuario);
         return usuario;
     }
-    /*public static Usuario IniciarSesion(HttpContext httpContext, string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+    public static void GuardarIdUsuario(HttpContext httpContext, int idUsuario)
     {
-        Usuario usuario = BD.IniciarSesion(Nombre, Apellido, Email, Contrasena, Patente, IdMarca, IdModelo);
-        httpContext.Session.SetInt32(ID_USUARIO_LLAVE, usuario.id_usuario);
-        return usuario;
-    }*/
+        httpContext.Session.SetInt32(ID_USUARIO_LLAVE, idUsuario);
+    }
+    public static void RemoverIdUsuario(HttpContext httpContext)
+    {
+        httpContext.Session.Remove(ID_USUARIO_LLAVE);
+    }
 
     public static bool GuardarReporte(string calleInfraccion, int alturaInfraccion, string patenteReportada, int idMotivoInfraccion, int idUsuario)
     {

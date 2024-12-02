@@ -1,6 +1,6 @@
 <div class = "div-centrado"> 
 <div class = "bg-log-in">
-<form class="form" action='@Url.Action("Index")' method="POST">
+<form class="form" action='@Url.Action("IniciarSesion")' method="POST">
     <p class="message">INICIA SESIÓN EN PARKPOINT</p>
             
     <label>
@@ -12,8 +12,8 @@
         <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "contra">
         <span>Contraseña</span>
     </label>
-    <button class="submit">Registrarse</button>
-    <p class="signin">¿Ya tienes una cuenta? <a href="#">Iniciar Sesion</a> </p>
+    <button class="submit">Iniciar sesión</button>
+    <p class="signin">¿No tienes una cuenta? <a href="@Url.Action("Registro")">Registrate</a> </p>
 </form>
 
 </div>
