@@ -83,6 +83,7 @@ function enviarDatosAControlador(calle, altura, selectedLat, selectedLon) {
     },
     error: function (xhr, status, error) {
       console.error("Error al enviar la dirección:", error);
+      console.error(xhr);
     },
   });
 }

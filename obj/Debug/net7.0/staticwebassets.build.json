@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XJ8EfWH5yFgadXoPK3wJii/nnu3W1ahNLs2JgQR7axQ=",
+  "Hash": "MDlK7+iVWgn5WwwOSs1hw++awUl5EzgG8uTvuVyxCRQ=",
   "Source": "ParkPoint",
   "BasePath": "_content/ParkPoint",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ParkPoint\\wwwroot",
       "Source": "ParkPoint",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\css\\site.css",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\favicon.ico",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\advertencia.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\advertencia.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/advertencia.png",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\img\\advertencia.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\auto.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\auto.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/auto.png",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\img\\auto.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\campana-header.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\campana-header.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/campana-header.png",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\img\\campana-header.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\facebook.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\facebook.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/facebook.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\img\\facebook.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\index-bloqueado.jpeg",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\index-bloqueado.jpeg",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/index-bloqueado.jpeg",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\img\\index-bloqueado.jpeg"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\infraccion.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\infraccion.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/infraccion.png",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\img\\infraccion.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\instagram.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\instagram.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/instagram.png",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\img\\instagram.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\logogrande.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\logogrande.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/logogrande.png",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\img\\logogrande.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\logosolo.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\logosolo.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/logosolo.png",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\img\\logosolo.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\lupa.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\lupa.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/lupa.png",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\img\\lupa.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\notifiaciones.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\notifiaciones.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/notifiaciones.png",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\img\\notifiaciones.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\ParkPoints.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\ParkPoints.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/ParkPoints.png",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\img\\ParkPoints.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\perfil.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\perfil.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/perfil.png",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\img\\perfil.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\Recoger-puntos.jpg",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\Recoger-puntos.jpg",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/Recoger-puntos.jpg",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Recoger-puntos.jpg"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\recompensas-puntos.jpg",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\recompensas-puntos.jpg",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/recompensas-puntos.jpg",
       "AssetKind": "All",
@@ -340,10 +340,29 @@
       "OriginalItemSpec": "wwwroot\\img\\recompensas-puntos.jpg"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\tiemporeal.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\Reportar informacion.jpg",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
+      "BasePath": "_content/ParkPoint",
+      "RelativePath": "img/Reportar informacion.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Reportar informacion.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\tiemporeal.png",
+      "SourceId": "ParkPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/tiemporeal.png",
       "AssetKind": "All",
@@ -359,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\img\\tiemporeal.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\x.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\x.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/x.png",
       "AssetKind": "All",
@@ -378,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\img\\x.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\img\\youtube.png",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\img\\youtube.png",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "img/youtube.png",
       "AssetKind": "All",
@@ -397,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\img\\youtube.png"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\ayuda.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\js\\ayuda.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "js/ayuda.js",
       "AssetKind": "All",
@@ -416,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\js\\ayuda.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\Regex.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\js\\Regex.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "js/Regex.js",
       "AssetKind": "All",
@@ -435,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Regex.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\js\\site.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -454,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -473,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -492,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -511,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -530,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -549,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -568,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -587,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -606,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -625,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -644,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -663,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "ParkPoint",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\48592365\\Downloads\\ParkPoint\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\48178331\\Downloads\\ParkPoint\\wwwroot\\",
       "BasePath": "_content/ParkPoint",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",

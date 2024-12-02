@@ -64,17 +64,17 @@ public class BD
 
     }
 
-    public static Auto ListarMarcas()
+    public static List<Auto> ListarAutos()
     {
-        List<Auto>  = new List<Auto>();
+        List<Auto> listaAutos = new List<Auto>();
 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Marca";
-            listaMarcas = db.Query<Marca>(sql).ToList();
+            string sql = "SELECT * FROM Auto";
+            listaAutos = db.Query<Auto>(sql).ToList();
         }
 
-        return listaMarcas;
+        return listaAutos;
     }
 
 

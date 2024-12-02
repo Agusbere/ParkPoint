@@ -162,23 +162,26 @@ CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
     @IdAuto INT
 AS
 BEGIN
-    -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
-    IF EXISTS (SELECT * FROM Estacionamiento WHERE ubicacionY = @UbicacionY AND ubicacionX = @UbicacionX)
+    IF NOT EXISTS (SELECT TOP 1 FROM Estacionamiento WHERE id_auto = @IdAuto)
     BEGIN
-        -- Actualizar el espacio de estacionamiento si ya está ocupado
-        UPDATE Estacionamiento
-        SET 
-            ocupado = 1,
-            calle = @Calle, 
-            altura_calle = @Altura, 
-            fecha_ocupado = GETDATE(),
-            id_auto = @IdAuto
-        WHERE ubicacionY = @UbicacionY AND ubicacionX = @UbicacionX;
-    END
-    ELSE
-    BEGIN
-        -- Insertar un nuevo espacio de estacionamiento en la ubicación especificada
-        INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, ubicacionY, ubicacionX)
-        VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @UbicacionY, @UbicacionX);
+        -- Verificar si existe un espacio en la ubicación especificada en la tabla Estacionamiento
+        IF EXISTS (SELECT * FROM Estacionamiento WHERE ubicacionY = @UbicacionY AND ubicacionX = @UbicacionX)
+        BEGIN
+            -- Actualizar el espacio de estacionamiento si ya está ocupado
+            UPDATE Estacionamiento
+            SET 
+                ocupado = 1,
+                -- calle = @Calle, 
+                -- altura_calle = @Altura, 
+                fecha_ocupado = GETDATE(),
+                id_auto = @IdAuto
+            WHERE ubicacionY = @UbicacionY AND ubicacionX = @UbicacionX;
+        END
+        ELSE
+        BEGIN
+            -- Insertar un nuevo espacio de estacionamiento en la ubicación especificada
+            INSERT INTO Estacionamiento (ocupado, calle, altura_calle, fecha_ocupado, id_auto, ubicacionY, ubicacionX)
+            VALUES (1, @Calle, @Altura, GETDATE(), @IdAuto, @UbicacionY, @UbicacionX);
+        END
     END
 END;
