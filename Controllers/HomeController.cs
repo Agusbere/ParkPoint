@@ -101,7 +101,7 @@ public IActionResult ObtenerModelos(int idMarca)
     {   
 
 
-        Usuario usuario = ParkPointService.Registrarse(nombre, apellido, email, contra, patente, id_marca, id_modelo);
+        Usuario usuario = ParkPointService.Registrarse(HttpContext, nombre, apellido, email, contra, patente, id_marca, id_modelo);
 
         return RedirectToAction("Index", usuario);
     }

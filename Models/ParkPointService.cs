@@ -1,15 +1,15 @@
 using System.Text.RegularExpressions;
 
-public static class ParkPointService
+public class ParkPointService
 {
     const string ID_USUARIO_LLAVE = "idUsuario";
     public static Usuario Usuario;
     DetallesUbicacion detalles = new DetallesUbicacion();
 
-    public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
+    public static Usuario Registrarse(HttpContext httpContext, string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
         Usuario usuario = BD.Registrarse(Nombre, Apellido, Email, Contrasena, Patente, IdMarca, IdModelo);
-        HttpContext.Session.SetInt32(ID_USUARIO_LLAVE, usuario.IdUsuario);
+        httpContext.Session.SetInt32(ID_USUARIO_LLAVE, usuario.id_usuario);
         return usuario;
 
     }
@@ -82,6 +82,6 @@ public static class ParkPointService
 
     public static int? ObtenerIdUsuario(HttpContext httpContext)
     {
-        return HttpContext.Session.GetInt32(ID_USUARIO_LLAVE);
+        return httpContext.Session.GetInt32(ID_USUARIO_LLAVE);
     }
 }

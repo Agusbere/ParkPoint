@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\48178331\\Downloads\\ParkPoint\\ParkPoint.csproj": {}
+    "F:\\_basura\\Git\\ParkPoint\\ParkPoint.csproj": {}
   },
   "projects": {
-    "C:\\Users\\48178331\\Downloads\\ParkPoint\\ParkPoint.csproj": {
+    "F:\\_basura\\Git\\ParkPoint\\ParkPoint.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\48178331\\Downloads\\ParkPoint\\ParkPoint.csproj",
+        "projectUniqueName": "F:\\_basura\\Git\\ParkPoint\\ParkPoint.csproj",
         "projectName": "ParkPoint",
-        "projectPath": "C:\\Users\\48178331\\Downloads\\ParkPoint\\ParkPoint.csproj",
-        "packagesPath": "C:\\Users\\48178331\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\48178331\\Downloads\\ParkPoint\\obj\\",
+        "projectPath": "F:\\_basura\\Git\\ParkPoint\\ParkPoint.csproj",
+        "packagesPath": "C:\\Users\\Luki\\.nuget\\packages\\",
+        "outputPath": "F:\\_basura\\Git\\ParkPoint\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\48178331\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Luki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,24 +74,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -99,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
