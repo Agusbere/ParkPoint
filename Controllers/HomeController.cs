@@ -34,10 +34,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY, int idAuto)
+    public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY, int idUsuario)
     {
         Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
-        BD.OcuparEspacio(idAuto, calle, altura, ubicacionX, ubicacionY);
+        BD.OcuparEspacio(idUsuario, calle, altura, ubicacionX, ubicacionY);
         return View("Index");
     }
 

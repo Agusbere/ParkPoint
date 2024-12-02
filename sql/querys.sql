@@ -163,7 +163,7 @@ CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
 AS
 BEGIN
     DECLARE @IdAuto INT;
-    SELECT TOP 1 @IdAuto = id_auto  FROM Auto WHERE id_usuario = @IdUsuario;
+    SELECT TOP 1 @IdAuto = id_auto FROM Auto WHERE id_usuario = @IdUsuario;
 
     IF NOT EXISTS (SELECT TOP 1 * FROM Estacionamiento WHERE id_auto = @IdAuto)
     BEGIN
@@ -174,8 +174,8 @@ BEGIN
             UPDATE Estacionamiento
             SET 
                 ocupado = 1,
-                -- calle = @Calle, 
-                -- altura_calle = @Altura, 
+                calle = @Calle, 
+                altura_calle = @Altura, 
                 fecha_ocupado = GETDATE(),
                 id_auto = @IdAuto
             WHERE ubicacionY = @UbicacionY AND ubicacionX = @UbicacionX;
