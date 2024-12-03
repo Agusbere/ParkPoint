@@ -1,3 +1,4 @@
+using System.Net;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ParkPoint.Models;
@@ -17,37 +18,50 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+
         if (idUsuario != null)
         {
+
+            int idAuto = BD.VerIdAutoActual(new Usuario { id_usuario = (int)idUsuario });
+
+
+
+            bool autoOcupado = BD.VerificarAutoOcupado(idAuto);
+
+            ViewBag.AutoOcupado = autoOcupado;
+
             ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
-       
+
             ViewBag.Ubicaciones = "var puntosAlmagro = [";
             string conector = "";
             foreach (Estacionamiento ubicacion in ViewBag.ListaCoordenadas)
             {
-
                 ViewBag.Ubicaciones += conector + "[" + ubicacion.ubicacionX.ToString().Replace(",", ".") + "," + ubicacion.ubicacionY.ToString().Replace(",", ".") + "]";
                 conector = ",";
-
             }
             ViewBag.Ubicaciones += "];";
 
             return View();
         }
         else
+        {
             return RedirectToAction("InicioSesion");
+        }
     }
+
 
     public IActionResult OcuparEspacio(string calle, int altura, string ubicacionX, string ubicacionY)
     {
         int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+
         if (idUsuario != null)
         {
-            Console.WriteLine(calle, altura, ubicacionX, ubicacionY);
             BD.OcuparEspacio((int)idUsuario, calle, altura, ubicacionX, ubicacionY);
         }
-        return View("Index");
+
+        return RedirectToAction("Index"); // Redirigir a Index
     }
+
 
     public IActionResult Reportar()
     {
@@ -76,11 +90,11 @@ public class HomeController : Controller
         return View();
     }
     [HttpGet]
-public IActionResult ObtenerModelos(int idMarca)
-{
-    List<Modelo> modelos = BD.ListarModelos(idMarca);
-    return Json(modelos);
-}
+    public IActionResult ObtenerModelos(int idMarca)
+    {
+        List<Modelo> modelos = BD.ListarModelos(idMarca);
+        return Json(modelos);
+    }
 
     public IActionResult Registro()
     {
@@ -89,13 +103,15 @@ public IActionResult ObtenerModelos(int idMarca)
             List<int> IdMarca = new List<int>();
             ViewBag.Marcas = BD.ListarMarcas();
 
-            for(int i = 0; i < ViewBag.Marcas.Count; i++){
+            for (int i = 0; i < ViewBag.Marcas.Count; i++)
+            {
                 IdMarca.Add(ViewBag.Marcas[i].id_marca);
             }
 
             List<Modelo> Modelos = new List<Modelo>();
 
-            for(int i = 0; i < IdMarca.Count; i++){
+            for (int i = 0; i < IdMarca.Count; i++)
+            {
                 Console.WriteLine(IdMarca[i]);
 
                 Modelos.AddRange(BD.ListarModelos(IdMarca[i]));
@@ -120,25 +136,25 @@ public IActionResult ObtenerModelos(int idMarca)
         return RedirectToAction("Index");
     }
 
-    public IActionResult InicioSesion()
-    {   
-        if (ParkPointService.ObtenerIdUsuario(HttpContext) == null)
-        {
-            return View();
-        }
-        else
-            return RedirectToAction("Index");
+    [HttpPost]
+    public IActionResult InicioSesion(string email, string contra)
+    {
+
+        Usuario usuario = ParkPointService.IniciarSesion(email, contra);
+        ParkPointService.GuardarIdUsuario(HttpContext, usuario.id_usuario);
+
+        return RedirectToAction("Index");
     }
     public IActionResult CerrarSesion()
     {
         ParkPointService.RemoverIdUsuario(HttpContext);
-        return RedirectToAction("InicioSesion");
+        return RedirectToAction("Ayuda");
     }
 
 
     public IActionResult Ubicaciones()
     {
-        
+
         return View("Index");
     }
 

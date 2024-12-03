@@ -7,33 +7,57 @@ public class BD
     private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint; Trusted_Connection=True ;";
 
     public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
-{
-    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-      
-        string sql = "EXEC SP_Registrarse @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
-        db.Execute(sql, new
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            @Nombre = Nombre,
-            @Apellido = Apellido,
-            @Email = Email,
-            @Contrasena = Contrasena,
-            @Patente = Patente,
-            @IdMarca = IdMarca,
-            @IdModelo = IdModelo
-        });
 
-        // Aquí deberías obtener el ID del usuario recién registrado
-        // Suponiendo que tienes una forma de obtener el ID, puedes hacer lo siguiente:
-        string sqlSelectUser = "SELECT * FROM Usuario WHERE email = @Email";
-        string sqlSelectAuto = "SELECT * FROM Auto WHERE patente = @Patente"; 
-         // O usa otro campo único
-        Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelectUser, new { @Email = Email });
-        Auto auto = db.QueryFirstOrDefault<Auto>(sqlSelectAuto, new{@Patente = Patente});
+            string sql = "EXEC SP_Registrarse @Nombre, @Apellido, @Email, @Contrasena, @Patente, @IdMarca, @IdModelo";
+            db.Execute(sql, new
+            {
+                @Nombre = Nombre,
+                @Apellido = Apellido,
+                @Email = Email,
+                @Contrasena = Contrasena,
+                @Patente = Patente,
+                @IdMarca = IdMarca,
+                @IdModelo = IdModelo
+            });
 
-        return nuevoUsuario; // Retorna el nuevo usuario
+            // Aquí deberías obtener el ID del usuario recién registrado
+            // Suponiendo que tienes una forma de obtener el ID, puedes hacer lo siguiente:
+            string sqlSelectUser = "SELECT * FROM Usuario WHERE email = @Email";
+            string sqlSelectAuto = "SELECT * FROM Auto WHERE patente = @Patente";
+            // O usa otro campo único
+            Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelectUser, new { @Email = Email });
+            Auto auto = db.QueryFirstOrDefault<Auto>(sqlSelectAuto, new { @Patente = Patente });
+
+            return nuevoUsuario; // Retorna el nuevo usuario
+        }
     }
-}
+
+    public static Usuario IniciarSesion(string Email, string Contrasena)
+    {
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+
+            string sql = "EXEC SP_IniciarSesion @Email, @Contrasena";
+            db.Execute(sql, new
+            {
+                @Email = Email,
+                @Contrasena = Contrasena,
+            });
+
+            // Aquí deberías obtener el ID del usuario recién registrado
+            // Suponiendo que tienes una forma de obtener el ID, puedes hacer lo siguiente:
+            string sqlSelectUser = "SELECT * FROM Usuario WHERE email = @Email";
+            // O usa otro campo único
+            Usuario nuevoUsuario = db.QueryFirstOrDefault<Usuario>(sqlSelectUser, new { @Email = Email });
+
+            return nuevoUsuario;
+        }
+
+    }
     public static List<Infraccion> ListarMotivosReporte()
     {
 
@@ -128,17 +152,13 @@ public class BD
 
         return contrasena;
     }
-
     public static string ObtenerMailParaUsuario(int idUsuario)
     {
-        string email = null;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT email FROM Usuario WHERE IdUsuario = @idUsuario";
-            email = db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
+            string sql = "SELECT * FROM Usuario WHERE IdUsuario = @idUsuario";
+            return db.QueryFirstOrDefault<string>(sql, new { @idUsuario = idUsuario });
         }
-
-        return email;
     }
 
     public static string ObtenerContrasenaParaUsuario(int idUsuario)
@@ -218,7 +238,7 @@ public class BD
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "UPDATE Estacionamiento SET ocupado = 0, fecha_libre = @FechaLibre, id_auto = @IdAuto WHERE id_estacionamiento = @IdEstacionamiento";
+            string sql = "UPDATE Estacionamiento SET ocupado = 0, fecha_libre = @FechaLibre, id_auto = NULL WHERE id_estacionamiento = @IdEstacionamiento AND id_auto = @IdAuto";
 
             db.Execute(sql, new { @FechaLibre = DateTime.Now, @IdAuto = idAuto, @IdEstacionamiento = idEstacionamiento });
         }
@@ -264,18 +284,32 @@ public class BD
         return notificacion;
     }
 
-    public static int VerIdAutoActual(Usuario usuario){
+    public static int VerIdAutoActual(Usuario usuario)
+    {
 
         int id_auto;
-        using (SqlConnection db = new SqlConnection(_connectionString)){
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
 
             string sql = "SELECT id_auto FROM Auto WHERE id_usuario = @IdUsuario";
-            id_auto = db.QueryFirstOrDefault<int>(sql, new { @IdUsuario = usuario.id_usuario});
+            id_auto = db.QueryFirstOrDefault<int>(sql, new { @IdUsuario = usuario.id_usuario });
         }
-            
+
 
         return id_auto;
     }
+
+    public static bool VerificarAutoOcupado(int idAuto)
+{
+    using (SqlConnection db = new SqlConnection(_connectionString))
+    {
+        string sql = "SELECT COUNT(*) FROM Estacionamiento WHERE id_auto = @IdAuto AND ocupado = 1";
+        int count = db.QueryFirstOrDefault<int>(sql, new { @IdAuto = idAuto });
+
+        return count > 0;
+    }
+}
+
 
 
 }

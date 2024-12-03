@@ -10,6 +10,11 @@ public class ParkPointService
         Usuario usuario = BD.Registrarse(Nombre, Apellido, Email, Contrasena, Patente, IdMarca, IdModelo);
         return usuario;
     }
+
+    public static Usuario IniciarSesion(string Email, string Contra){
+        Usuario usuario = BD.IniciarSesion(Email, Contra);
+        return usuario;
+    }
     public static void GuardarIdUsuario(HttpContext httpContext, int idUsuario)
     {
         httpContext.Session.SetInt32(ID_USUARIO_LLAVE, idUsuario);
