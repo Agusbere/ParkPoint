@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    bool estaRegistrado = ViewData["EstaRegistrado"] != null && (bool)ViewData["EstaRegistrado"];
+}
+
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -26,7 +30,7 @@
     <div class="botones-header">
         <!--<a onclick="MostrarNotificaciones(@ViewBag.Id_usuario)"> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"> </a>-->
         <a> <img class="notis" src="~/img/campana-header.png" alt="notificaciones"></a>
-        <a href = "@Url.Action("Registro")"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
+        <a href="@((estaRegistrado) ? Url.Action("Perfil", "Home") : Url.Action("Registro", "Home"))"><img class="perfil" src="~/img/perfil.png" alt="perfil"> </a>
     </div>
 </header>
 

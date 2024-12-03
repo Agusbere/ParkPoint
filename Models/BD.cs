@@ -322,6 +322,35 @@ public class BD
         }
     }
 
+    public static Usuario ObtenerDatosUsuarioLogeado(int? id_usuario){
+
+        Usuario usuario;
+
+         using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuario WHERE id_usuario = @IdUsuario";
+
+            usuario = db.QueryFirstOrDefault<Usuario>(sql, new { @IdUsuario = id_usuario });
+
+            
+        }
+        return usuario;
+    }
+    public static Auto ObtenerDatosAutoLogeado(int? id_usuario){
+
+        Auto auto;
+
+         using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Auto WHERE id_usuario = @IdUsuario";
+
+            auto = db.QueryFirstOrDefault<Auto>(sql, new { @IdUsuario = id_usuario });
+
+            
+        }
+        return auto;
+    }
+
 
 
 }

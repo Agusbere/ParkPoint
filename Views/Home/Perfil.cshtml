@@ -1,5 +1,7 @@
 @{
     ViewData["Title"] = "PERFIL";
+    var usuario = ViewData["Usuario"] as Usuario;
+    var auto = ViewData["Auto"] as Auto;
 }
 <div class="contenedor-main">
 
@@ -9,10 +11,9 @@
 
    <div class="elementos-perfil">
 
-    <div class ="elemento-perfil"> <label class="nombre-perfil"> Nombre</label> <input readonly type="text" class="input-perfil"> </div>
-    <div class ="elemento-perfil"><label class="nombre-perfil"> Apellido</label> <input readonly type="text" class="input-perfil"></div>
-    <div class ="elemento-perfil"><label class="nombre-perfil"> Marca</label> <input readonly type="text" class="input-perfil"></div>
-    <div class ="elemento-perfil"><label class="nombre-perfil"> Patente</label> <input readonly type="text" class="input-perfil"></div>
+    <div class ="elemento-perfil"> <label class="nombre-perfil"> Nombre</label> <input readonly type="text" class="input-perfil"> @usuario.nombre </div>
+    <div class ="elemento-perfil"><label class="nombre-perfil"> Apellido</label> <input readonly type="text" class="input-perfil">@usuario.apellido </div>
+    <div class ="elemento-perfil"><label class="nombre-perfil"> Patente</label> @auto.patente <input readonly type="text" class="input-perfil"></div>
    </div>
 
    <a href="@Url.Action("CerrarSesion")"> Cerrar Sesion</a>

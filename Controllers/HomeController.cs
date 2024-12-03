@@ -17,14 +17,24 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        bool estaRegistrado;
         int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+
+        Usuario usuario = null;
+        Auto auto = null;
 
         if (idUsuario != null)
         {
+            estaRegistrado = true;
+
+            usuario = BD.ObtenerDatosUsuarioLogeado(idUsuario);
+            auto = BD.ObtenerDatosAutoLogeado(idUsuario);
+
+            ViewData["EstaRegistrado"] = estaRegistrado;
+            ViewData["Usuario"] = usuario;
+            ViewData["Auto"] = auto;
 
             int idAuto = BD.VerIdAutoActual(new Usuario { id_usuario = (int)idUsuario });
-
-
 
             bool autoOcupado = BD.VerificarAutoOcupado(idAuto);
 
@@ -40,6 +50,8 @@ public class HomeController : Controller
                 conector = ",";
             }
             ViewBag.Ubicaciones += "];";
+
+    
 
             return View();
         }
@@ -172,9 +184,24 @@ public class HomeController : Controller
 
     }
 
-    public IActionResult Perfil(){
+    public IActionResult Perfil()
+    {
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+
+        if (idUsuario == null)
+        {
+            return RedirectToAction("InicioSesion");
+        }
+
+        Usuario usuario = BD.ObtenerDatosUsuarioLogeado(idUsuario);
+        Auto auto = BD.ObtenerDatosAutoLogeado(idUsuario);
+
+        ViewData["Usuario"] = usuario;
+        ViewData["Auto"] = auto;
         return View();
     }
+
+    
     public IActionResult CerrarSesion()
     {
         ParkPointService.RemoverIdUsuario(HttpContext);
