@@ -83,6 +83,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult InicioSesion()
+    {
+        return View();
+    }
+
     public IActionResult Puntos()
     {
 
@@ -139,11 +144,32 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult InicioSesion(string email, string contra)
     {
+        //COMPARAR MAIL Y CONTRASEÑA INGRESADAS CON LA BD.
 
-        Usuario usuario = ParkPointService.IniciarSesion(email, contra);
-        ParkPointService.GuardarIdUsuario(HttpContext, usuario.id_usuario);
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(contra))
+        {
 
-        return RedirectToAction("Index");
+            ModelState.AddModelError("", "El correo electrónico y la contraseña son requeridos.");
+            return View();
+        }
+
+        bool loginExitoso = BD.VerificarUsuario(email, contra);
+
+        if (loginExitoso)
+        {
+
+            Usuario usuario = ParkPointService.IniciarSesion(email, contra);
+            ParkPointService.GuardarIdUsuario(HttpContext, usuario.id_usuario);
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            return RedirectToAction("InicioSesion");
+        }
+
+
+
+
     }
     public IActionResult CerrarSesion()
     {

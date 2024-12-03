@@ -30,31 +30,28 @@
     <div class="tiempo-zona">
         Tiempo estimado en la zona: 15 minutos
     </div>
-   
+
 
     <div class="conjunto-botones-de-accion">
         <a class="reportar" href="@Url.Action("Reportar")">
-                <img src="~/img/advertencia.png" alt="reporte">
-                Reportar
-            </a>
-    
+            <img src="~/img/advertencia.png" alt="reporte">
+            Reportar
+        </a>
+
         @if (ViewBag.AutoOcupado)
         {
-        
+
             <a class="desocupar" href="@Url.Action("LiberarEspacio")">
                 <img src="~/img/auto.png" alt="desocupar">
                 Desocupar
             </a>
-        
+
         }
     </div>
-  
+
 
 
 </div>
-
-
-
 
 <script>
     @ViewBag.Ubicaciones

@@ -11,7 +11,8 @@ public class ParkPointService
         return usuario;
     }
 
-    public static Usuario IniciarSesion(string Email, string Contra){
+    public static Usuario IniciarSesion(string Email, string Contra)
+    {
         Usuario usuario = BD.IniciarSesion(Email, Contra);
         return usuario;
     }

@@ -58,6 +58,18 @@ public class BD
         }
 
     }
+
+    public static bool VerificarUsuario(string Email, string Contrasena)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            // Realizamos la consulta para verificar si existe un usuario con ese email y contraseña
+            string sql = "SELECT COUNT(1) FROM Usuario WHERE email = @Email AND contrasena = @Contrasena";
+            int count = db.ExecuteScalar<int>(sql, new { @Email = Email, @Contrasena = Contrasena });
+
+            return count > 0; // Retorna true si existe al menos un registro, false si no
+        }
+    }
     public static List<Infraccion> ListarMotivosReporte()
     {
 
@@ -300,15 +312,15 @@ public class BD
     }
 
     public static bool VerificarAutoOcupado(int idAuto)
-{
-    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        string sql = "SELECT COUNT(*) FROM Estacionamiento WHERE id_auto = @IdAuto AND ocupado = 1";
-        int count = db.QueryFirstOrDefault<int>(sql, new { @IdAuto = idAuto });
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT COUNT(*) FROM Estacionamiento WHERE id_auto = @IdAuto AND ocupado = 1";
+            int count = db.QueryFirstOrDefault<int>(sql, new { @IdAuto = idAuto });
 
-        return count > 0;
+            return count > 0;
+        }
     }
-}
 
 
 
