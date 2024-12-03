@@ -41,10 +41,11 @@
         @if (ViewBag.AutoOcupado)
         {
 
-            <a class="desocupar" href="@Url.Action("DesocuparEspacio")">
-                <img src="~/img/auto.png" alt="desocupar">
-                Desocupar
-            </a>
+            <a href="@Url.Action("DesocuparEspacio", "Home", new { id_auto = TempData["IdAuto"] })"><img
+                    src="~/img/auto.png" alt="desocupar">Desocupar Espacio</a>
+
+
+
 
         }
     </div>

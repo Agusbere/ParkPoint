@@ -246,13 +246,13 @@ public class BD
         }
     }
 
-    public static void LiberarEspacio(int idEstacionamiento, int idAuto)
+    public static void LiberarEspacio(int idAuto)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "UPDATE Estacionamiento SET ocupado = 0, fecha_libre = @FechaLibre, id_auto = NULL WHERE id_estacionamiento = @IdEstacionamiento AND id_auto = @IdAuto";
+            string sql = "UPDATE Estacionamiento SET ocupado = 0, fecha_libre = @FechaLibre, id_auto = NULL WHERE id_auto = @IdAuto AND OCUPADO = 1";
 
-            db.Execute(sql, new { @FechaLibre = DateTime.Now, @IdAuto = idAuto, @IdEstacionamiento = idEstacionamiento });
+            db.Execute(sql, new { @FechaLibre = DateTime.Now, @IdAuto = idAuto});
         }
     }
 
