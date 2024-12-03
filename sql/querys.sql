@@ -242,6 +242,7 @@ SELECT Usuario.*
 FROM Usuario
 WHERE email = @Email AND contrasena = @Contrasena;
 END;
+GO
 
 
 CREATE PROCEDURE SP_OcuparEspacioEstacionamiento
