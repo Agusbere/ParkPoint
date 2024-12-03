@@ -1,9 +1,9 @@
-html, body {
-  overflow-y:visible;
-  overflow-x: hidden; 
+html,
+body {
+  overflow-y: visible;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
-
 
 * {
   font-family: "Alexandria", sans-serif;
@@ -13,8 +13,6 @@ html, body {
   height: 92.3vh;
 }
 
-
-
 footer {
   background-color: #1f2733;
   color: white;
@@ -23,7 +21,7 @@ footer {
 
 .contenedor-footer {
   display: flex;
-  padding: 0 80px; 
+  padding: 0 80px;
 }
 
 footer ul {
@@ -47,7 +45,7 @@ footer ul li a {
 }
 
 .redes-sociales {
-  display: flex; 
+  display: flex;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -64,7 +62,7 @@ footer ul li a {
 }
 
 .Copyright {
-  display:flex;
+  display: flex;
   justify-content: end;
   padding: 10px 20px;
   margin-bottom: 0;
@@ -183,7 +181,7 @@ header nav {
   gap: 15px;
 }
 
-header nav a{
+header nav a {
   text-decoration: none;
   color: white;
 }
@@ -196,7 +194,8 @@ header nav a{
   gap: 20px;
 }
 
-.perfil, .notis {
+.perfil,
+.notis {
   width: 40px;
 }
 
@@ -205,7 +204,7 @@ header nav a{
   max-width: 33.3333%;
 }
 
-.reportar-o-estacionar{
+.reportar-o-estacionar {
   margin-top: 120px;
 }
 
@@ -215,71 +214,69 @@ header nav a{
 
 .casilla-formulario h5 {
   margin-bottom: 5px;
-  font-size: 20px
+  font-size: 20px;
 }
 
 .casilla-formulario h5 span {
-  color: red; 
+  color: red;
 }
 
 .input-formulario {
-  padding-left: 15px; 
-  font-size: 1.2rem; 
-  border: 3px solid #000F99;
-  width: 900px; 
-  height: 69px; 
+  padding-left: 15px;
+  font-size: 1.2rem;
+  border: 3px solid #000f99;
+  width: 900px;
+  height: 69px;
   border-radius: 10px;
 }
 
 .input-formulario::placeholder {
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   color: #999;
 }
 
 #submit-estacionar {
   margin-top: 150px;
-  width: 900px; 
+  width: 900px;
   height: 87.07px;
   border-radius: 20px;
   border: none;
-  background-color: #171D8D;
+  background-color: #171d8d;
   color: white;
   font-size: 1.5rem;
 }
 
 #submit-reportar {
   margin-top: 70px;
-  width: 900px; 
+  width: 900px;
   height: 87.07px;
   border-radius: 20px;
   border: none;
-  background-color: #171D8D;
+  background-color: #171d8d;
   color: white;
   font-size: 1.5rem;
 }
 
-#submit-reportar:hover, #submit-estacionar:hover {
+#submit-reportar:hover,
+#submit-estacionar:hover {
   transition-duration: 0.1s;
   background-color: #0019f1;
 }
 
-
-.imagenes-reportes{
-
+.imagenes-reportes {
   gap: 100px;
   display: flex;
   align-items: center;
 }
 
-.imagenes-reportes img{
-
+.imagenes-reportes img {
   border-radius: 20px;
   width: 100px;
   height: 500px;
   padding: 30px;
 }
 
-.cantidad-puntos{
+.cantidad-puntos {
   display: flex;
   position: absolute;
   top: 130px;
@@ -287,55 +284,48 @@ header nav a{
   align-items: center;
 }
 
-.cantidad-puntos p{
+.cantidad-puntos p {
   margin-top: 15px;
   font-size: 60px;
 }
 
-
-.card-reportar{
+.card-reportar {
   display: block;
   position: relative;
-  
 }
 
-.card-reportar img{
-
-    display: block;
-    width: 600px;
-    height: 600px;
-    background-color: #000F99;
-
+.card-reportar img {
+  display: block;
+  width: 600px;
+  height: 600px;
+  background-color: #000f99;
 }
-
 
 .texto-recoger {
-
-    position: absolute;
-    bottom: 5px;
-    left: 95px;
-    color: #ffffff;
-    background-color:#171D8D;
-    padding: 10px;
-    font-size: 48px;
-    border-radius: 20px;
-    font-weight: bold;
-    
-    
+  position: absolute;
+  bottom: 5px;
+  left: 95px;
+  color: #ffffff;
+  background-color: #171d8d;
+  padding: 10px;
+  font-size: 48px;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .texto-reportar {
-    background-color: rgba(23, 29, 141, 0.8);
-    font-weight: bold ;
-    position: absolute;
-    bottom: 0px;
-    left: 10px;
-    color: #ffffff;
-    padding: 12px;
-    font-size: 48px;
-    border-radius: 20px;
-}.botones-ayuda button {
-  border: 4px solid #171D8D;
+  background-color: rgba(23, 29, 141, 0.8);
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  color: #ffffff;
+  padding: 12px;
+  font-size: 48px;
+  border-radius: 20px;
+}
+.botones-ayuda button {
+  border: 4px solid #171d8d;
   background-color: white;
   border-radius: 20px;
   width: 660px;
@@ -383,7 +373,7 @@ header nav a{
 .bg-log-in {
   display: flex;
   justify-content: center;
-  background: linear-gradient(180deg, #001AFF 58.66%, #000F99 100%);
+  background: linear-gradient(180deg, #001aff 58.66%, #000f99 100%);
   padding: 0;
   margin: 0;
   width: 100%;
@@ -414,7 +404,8 @@ header nav a{
   padding-left: 30px;
 }
 
-.title::before,.title::after {
+.title::before,
+.title::after {
   position: absolute;
   content: "";
   height: 16px;
@@ -436,7 +427,8 @@ header nav a{
   animation: pulse 1s linear infinite;
 }
 
-.message, .signin {
+.message,
+.signin {
   color: rgba(88, 87, 87, 0.822);
   font-size: 14px;
 }
@@ -486,7 +478,8 @@ header nav a{
   font-size: 0.9em;
 }
 
-.form label .input:focus + span,.form label .input:valid + span {
+.form label .input:focus + span,
+.form label .input:valid + span {
   top: 30px;
   font-size: 0.7em;
   font-weight: 600;
@@ -504,7 +497,7 @@ header nav a{
   border-radius: 10px;
   color: #fff;
   font-size: 16px;
-  transform: .3s ease;
+  transform: 0.3s ease;
 }
 
 .submit:hover {
@@ -540,12 +533,12 @@ header nav a{
 .message {
   font-size: 40px;
   font-weight: bold;
-  color: #171D8D;
+  color: #171d8d;
 }
 .link {
   font-size: 40px;
   font-weight: bold;
-  color: #001AFF;
+  color: #001aff;
   text-decoration: underline;
 }
 .timer {
@@ -603,7 +596,7 @@ header nav a{
   border: none;
   cursor: pointer;
   font-weight: 600;
-  background-color: #000F99;
+  background-color: #000f99;
   color: white;
 }
 
@@ -639,5 +632,47 @@ header nav a{
 }
 
 .content {
-  font-family: sans-serif
+  font-family: sans-serif;
+}
+
+.logo-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem; /* 8 en Tailwind corresponde a 2rem, que es 32px */
+}
+.foto-perfil {
+  margin-top: 100px;
+  height: 125px;
+  border-radius: 9999px; /* Equivalente a 'rounded-full' */
+  margin-bottom: 1rem; /* Equivalente a 'mb-4', que es 1rem o 16px */
+}
+
+.elementos-perfil {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Equivalente a 'grid-cols-2' */
+  gap: 1rem; /* Equivalente a 'gap-4', que es 1rem o 16px */
+  margin-bottom: 2rem; /* Equivalente a 'mb-8', que es 2rem o 32px */
+}
+.elemento-perfil{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nombre-perfil{
+
+  color: #4a5568; /* Equivalente a 'text-gray-700' en Tailwind */
+  margin-bottom: 0.5rem; /* Equivalente a 'mb-2', que es 0.5rem o 8px */
+}
+
+.input-perfil{
+
+  border: 1px solid; /* Equivalente a 'border' en Tailwind */
+  border-radius: 9999px; /* Equivalente a 'rounded-full' en Tailwind */
+  padding-left: 1rem; /* Equivalente a 'px-4', que es 1rem o 16px */
+  padding-right: 1rem; /* Equivalente a 'px-4', que es 1rem o 16px */
+  padding-top: 0.5rem; /* Equivalente a 'py-2', que es 0.5rem o 8px */
+  padding-bottom: 0.5rem; /* Equivalente a 'py-2', que es 0.5rem o 8px */
+  text-align: center; /* Equivalente a 'text-center' en Tailwind */
 }

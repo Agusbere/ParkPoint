@@ -1,66 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="perfil-container">
-    <!-- Encabezado -->
-    <div class="header">
-      <span class="hora">18:58</span>
-      <div class="status-icons">
-        <span class="wifi"></span>
-        <span class="battery"></span>
-      </div>
-      <button class="notification-icon"></button>
-    </div>
+@{
+    ViewData["Title"] = "PERFIL";
+}
+<div class="contenedor-main">
 
-    <!-- Foto de perfil -->
-    <div class="foto-perfil-container">
-      <div class="foto-perfil">
-        <img src="placeholder.jpg" alt="Foto de perfil" class="foto">
-        <button class="camera-icon">
-          <img src="camera-icon.svg" alt="Editar foto">
-        </button>
-      </div>
-    </div>
+   <div class="logo-perfil">
+    <img src="~/img/foto-perfil.jpg" class="foto-perfil" />
+   </div>
 
-    <!-- Datos del usuario -->
-    <div class="datos-usuario">
-      <button class="editar-datos">Editar datos</button>
-      <div class="dato">
-        <span class="icon usuario"></span>
-        <span>Juan Perez</span>
-      </div>
-      <div class="dato">
-        <span class="icon email"></span>
-        <span>Juanperez@gmail.com</span>
-      </div>
-      <div class="dato">
-        <span class="icon auto"></span>
-        <span>Chevrolet Zafira</span>
-      </div>
-      <div class="dato">
-        <span class="icon patente"></span>
-        <span>AB 123 CD</span>
-      </div>
-    </div>
+   <div class="elementos-perfil">
 
-    <!-- Botón de estadísticas -->
-    <div class="estadisticas">
-      <button>Estadísticas</button>
-    </div>
+    <div class ="elemento-perfil"> <label class="nombre-perfil"> Nombre</label> <input readonly type="text" class="input-perfil"> </div>
+    <div class ="elemento-perfil"><label class="nombre-perfil"> Apellido</label> <input readonly type="text" class="input-perfil"></div>
+    <div class ="elemento-perfil"><label class="nombre-perfil"> Marca</label> <input readonly type="text" class="input-perfil"></div>
+    <div class ="elemento-perfil"><label class="nombre-perfil"> Patente</label> <input readonly type="text" class="input-perfil"></div>
+   </div>
 
-    <!-- Navegación inferior -->
-    <nav class="bottom-nav">
-      <button class="nav-item home"></button>
-      <button class="nav-item estacionar"></button>
-      <button class="nav-item alertas"></button>
-      <button class="nav-item perfil activo"></button>
-    </nav>
-  </div>
-</body>
-</html>
+</div>

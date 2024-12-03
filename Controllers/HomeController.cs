@@ -171,6 +171,10 @@ public class HomeController : Controller
 
 
     }
+
+    public IActionResult Perfil(){
+        return View();
+    }
     public IActionResult CerrarSesion()
     {
         ParkPointService.RemoverIdUsuario(HttpContext);
