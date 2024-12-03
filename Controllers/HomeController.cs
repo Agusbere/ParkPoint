@@ -178,7 +178,7 @@ public class HomeController : Controller
     public IActionResult CerrarSesion()
     {
         ParkPointService.RemoverIdUsuario(HttpContext);
-        return RedirectToAction("Ayuda");
+        return RedirectToAction("IndexBloqueado");
     }
 
 
