@@ -45,13 +45,13 @@
     </label>
 
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="text" class="input" name = "patente">
-        <span>Patente</span>
+        <input pattern="^[A-Za-z]{2}\s\d{3}\s[A-Za-z]{2}$|^[A-Za-z]{3}\s\d{3}$" autocomplete = "off" required="" placeholder="" type="text" class="input" name = "patente">
+        <span>Patente (AB 123 CD) Ó (ABC 123)</span>
     </label> 
 
     <label>
-        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "contra">
-        <span>Contraseña</span>
+        <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "contra" minlength="8" >
+        <span>Contraseña (Mínimo 8 caracteres)</span>
     </label>
     <label>
         <input autocomplete = "off" required="" placeholder="" type="password" class="input" name = "confirmacionContra">
