@@ -156,8 +156,6 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult InicioSesion(string email, string contra)
     {
-        //COMPARAR MAIL Y CONTRASEÑA INGRESADAS CON LA BD.
-
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(contra))
         {
 
@@ -238,6 +236,13 @@ public class HomeController : Controller
         return ParkPointService.ObtenerNotificacionesPorUsuario(id_usuario);
     }
 
+    public IActionResult DesocuparEspacio(int id_estacionamiento, int id_auto){
+
+        BD.LiberarEspacio(id_estacionamiento, id_auto);
+
+        return View("IndexBloqueado");
+
+    }
 
 
 

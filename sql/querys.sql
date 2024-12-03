@@ -49,16 +49,6 @@ INSERT INTO [dbo].[Modelo] (nombre_modelo, id_marca) VALUES
 GO
 
 
-INSERT INTO [dbo].[Usuario] (dni, foto_dni, nombre, apellido, email, contrasena)
-VALUES 
-    (12345678, 'foto_dni_usuario.jpg', 'Juan', 'Pérez', 'juan.perez@mail.com', 'password123');
-GO
-
-INSERT INTO [dbo].[Auto] (patente, id_usuario, id_marca, id_modelo)
-VALUES 
-    ('ABC123', 1, 1, 1);
-GO
-
 INSERT INTO [dbo].[Estacionamiento] (ocupado, ubicacionX, ubicacionY) 
 VALUES 
 (0, -34.597392, -58.46271), -- 1,
