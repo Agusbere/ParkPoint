@@ -52,6 +52,16 @@ public class HomeController : Controller
             }
             ViewBag.Ubicaciones += "];";
 
+            var tiempoRestante = HttpContext.Session.GetString("TiempoRestante");
+    if (tiempoRestante != null)
+    {
+        DateTime endTime = DateTime.Parse(tiempoRestante);
+        if (DateTime.UtcNow < endTime)
+        {
+            return View("IndexBloqueado");
+        }
+    }
+
     
 
             return View();
@@ -216,6 +226,8 @@ public class HomeController : Controller
 
     public IActionResult indexBloqueado()
     {
+        DateTime endTime = DateTime.UtcNow.AddHours(24);
+    HttpContext.Session.SetString("TiempoRestante", endTime.ToString("o"));
 
         return View();
     }
