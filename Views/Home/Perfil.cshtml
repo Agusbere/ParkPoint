@@ -13,6 +13,7 @@
 
     <div class ="elemento-perfil"> <label class="nombre-perfil"> Nombre</label> <input readonly type="text" class="input-perfil"> @usuario.nombre </div>
     <div class ="elemento-perfil"><label class="nombre-perfil"> Apellido</label> <input readonly type="text" class="input-perfil">@usuario.apellido </div>
+    <div class ="elemento-perfil"><label class="nombre-perfil"> Marca del vehículo</label> @BD.ListarMarcas().FirstOrDefault(m => m.id_marca == auto.id_marca)?.nombre_marca<input readonly type="text" class="input-perfil"></div>
     <div class ="elemento-perfil"><label class="nombre-perfil"> Patente</label> @auto.patente <input readonly type="text" class="input-perfil"></div>
    </div>
 
