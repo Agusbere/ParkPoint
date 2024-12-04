@@ -132,41 +132,41 @@ footer ul li a {
   gap: 10px;
   text-decoration: none;
   font-weight: bold;
-  width: 200px; /* Ancho fijo */
-  box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+  width: 200px;
+  box-sizing: border-box;
 }
 
 .ocupar-espacio {
-  background-color: #171d8d; /* Azul de fondo */
-  color: #ffffff; /* Texto blanco */
+  background-color: #171d8d;
+  color: #ffffff;
   justify-content: center;
-  font-size: 14px; /* Reduce el tamaño del texto */
-  white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+  font-size: 14px;
+  white-space: nowrap;
   padding: 15px 25px;
 }
 
 .ocupar-espacio img {
-  width: 25px; /* Ajuste del tamaño del ícono */
+  width: 25px;
 }
 
 .reportar {
-  background-color: #ffffff; /* Blanco de fondo */
-  color: #171d8d; /* Azul para el texto */
-  display: flex; /* Flexbox para alinear el texto */
-  align-items: center; /* Centra el texto verticalmente */
-  justify-content: center; /* Centra el texto horizontalmente */
+  background-color: #ffffff;
+  color: #171d8d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
-  padding: 15px 30px 15px 50px; /* Top, Right, Bottom, Left (más espacio a la izquierda para la imagen) */
-  position: relative; /* Necesario para posicionar la imagen */
-  white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+  padding: 15px 30px 15px 50px;
+  position: relative;
+  white-space: nowrap;
 }
 
 .reportar img {
-  width: 30px; /* Tamaño de la imagen */
-  position: absolute; /* Posiciona la imagen de manera absoluta dentro del contenedor */
-  left: 15px; /* Coloca la imagen a la izquierda del botón */
-  top: 50%; /* Posiciona la imagen verticalmente en el centro */
-  transform: translateY(-50%); /* Ajusta para que la imagen esté centrada verticalmente */
+  width: 30px; 
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 
@@ -650,44 +650,92 @@ header nav a {
   font-family: sans-serif;
 }
 
+/* Contenedor principal */
+.contenedor-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Foto de perfil */
 .logo-perfil {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem; /* 8 en Tailwind corresponde a 2rem, que es 32px */
-}
-.foto-perfil {
-  margin-top: 100px;
-  height: 125px;
-  border-radius: 9999px; /* Equivalente a 'rounded-full' */
-  margin-bottom: 1rem; /* Equivalente a 'mb-4', que es 1rem o 16px */
+  margin-bottom: 2rem;
 }
 
+.foto-perfil {
+  height: 125px;
+  width: 125px;
+  border-radius: 9999px; /* Para que sea redonda */
+  margin-bottom: 1rem;
+  border: none; /* Eliminar el borde de la foto */
+}
+
+/* Elementos del perfil */
 .elementos-perfil {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Equivalente a 'grid-cols-2' */
-  gap: 1rem; /* Equivalente a 'gap-4', que es 1rem o 16px */
-  margin-bottom: 2rem; /* Equivalente a 'mb-8', que es 2rem o 32px */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 1.5rem; /* Aumento de espacio entre los inputs */
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 600px; /* Limitar el ancho del contenedor */
 }
-.elemento-perfil{
 
+/* Elemento del perfil individual */
+.elemento-perfil {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.nombre-perfil{
-
-  color: #4a5568; /* Equivalente a 'text-gray-700' en Tailwind */
-  margin-bottom: 0.5rem; /* Equivalente a 'mb-2', que es 0.5rem o 8px */
+  align-items: flex-start;
 }
 
-.input-perfil{
-
-  border: 1px solid; /* Equivalente a 'border' en Tailwind */
-  border-radius: 9999px; /* Equivalente a 'rounded-full' en Tailwind */
-  padding-left: 1rem; /* Equivalente a 'px-4', que es 1rem o 16px */
-  padding-right: 1rem; /* Equivalente a 'px-4', que es 1rem o 16px */
-  padding-top: 0.5rem; /* Equivalente a 'py-2', que es 0.5rem o 8px */
-  padding-bottom: 0.5rem; /* Equivalente a 'py-2', que es 0.5rem o 8px */
-  text-align: center; /* Equivalente a 'text-center' en Tailwind */
+/* Estilo de los labels */
+.nombre-perfil {
+  color: #000000; /* Negro */
+  margin-bottom: 0.5rem; /* Espacio entre el label y el input */
 }
+
+/* Estilo de los inputs */
+.input-perfil {
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 50px;
+  padding: 0.75rem 1rem; /* Aumento de espacio dentro de los inputs */
+  text-align: center; /* Centrado del texto dentro del input */
+  width: 100%;
+  max-width: 400px; /* Mayor ancho para los inputs */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  background-color: #f7fafc; /* Fondo suave */
+  color: #4a5568; /* Color de texto */
+}
+
+/* Estilo del botón Cerrar sesión */
+.cerrar-sesion {
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  background-color: #171d8d;
+  color: #ffffff;
+  border: 1px solid #171d8d;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  max-width: 250px; /* Ancho del botón */
+  margin-top: 2rem;
+}
+
+/* Efecto hover aplicado al botón Cerrar sesión */
+.cerrar-sesion:hover {
+  background-color: #ffffff;
+  color: #171d8d;
+  border: 1px solid #171d8d;
+}
+
+
+
+
+

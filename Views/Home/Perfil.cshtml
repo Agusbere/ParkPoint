@@ -5,18 +5,29 @@
 }
 <div class="contenedor-main">
 
-   <div class="logo-perfil">
-    <img src="~/img/foto-perfil.jpg" class="foto-perfil" />
-   </div>
+    <div class="logo-perfil">
+        <img src="~/img/foto-perfil.jpg" class="foto-perfil" />
+    </div>
 
-   <div class="elementos-perfil">
+    <div class="elementos-perfil">
+        <div class="elemento-perfil">
+            <label class="nombre-perfil"> Nombre</label>
+            <input readonly type="text" class="input-perfil" value="@usuario.nombre" />
+        </div>
+        <div class="elemento-perfil">
+            <label class="nombre-perfil"> Apellido</label>
+            <input readonly type="text" class="input-perfil" value="@usuario.apellido" />
+        </div>
+        <div class="elemento-perfil">
+            <label class="nombre-perfil"> Marca del vehículo</label>
+            <input readonly type="text" class="input-perfil" value="@BD.ListarMarcas().FirstOrDefault(m => m.id_marca == auto.id_marca)?.nombre_marca" />
+        </div>
+        <div class="elemento-perfil">
+            <label class="nombre-perfil"> Patente</label>
+            <input readonly type="text" class="input-perfil" value="@auto.patente" />
+        </div>
+    </div>
 
-    <div class ="elemento-perfil"> <label class="nombre-perfil"> Nombre</label> <input readonly type="text" class="input-perfil"> @usuario.nombre </div>
-    <div class ="elemento-perfil"><label class="nombre-perfil"> Apellido</label> <input readonly type="text" class="input-perfil">@usuario.apellido </div>
-    <div class ="elemento-perfil"><label class="nombre-perfil"> Marca del vehículo</label> @BD.ListarMarcas().FirstOrDefault(m => m.id_marca == auto.id_marca)?.nombre_marca<input readonly type="text" class="input-perfil"></div>
-    <div class ="elemento-perfil"><label class="nombre-perfil"> Patente</label> @auto.patente <input readonly type="text" class="input-perfil"></div>
-   </div>
-
-   <a href="@Url.Action("CerrarSesion")"> Cerrar Sesion</a>
+    <a href="@Url.Action("CerrarSesion")" class="cerrar-sesion">Cerrar Sesión</a>
 
 </div>
