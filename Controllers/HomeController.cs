@@ -253,6 +253,7 @@ public class HomeController : Controller
 
         Console.WriteLine("ID AUTO QUE LLEGA A DESOUCPAR: " + id_auto);
         BD.LiberarEspacio(id_auto);
+        
 
         return View("IndexBloqueado");
 

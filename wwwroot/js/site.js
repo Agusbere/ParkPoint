@@ -87,39 +87,6 @@ function enviarDatosAControlador(calle, altura, selectedLat, selectedLon) {
     },
   });
 }
-/* 
-function ocuparEspacio(calle, altura) {
-    if (!calle || !altura) {
-        console.error("Datos inválidos para ocupar el espacio:", { calle, altura });
-        return; // Detenemos si los datos son inválidos
-    }
-
-    fetch('/Home/OcuparEspacio', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            calle: calle,
-            altura: altura,
-            ubicacionX: selectedLat, // Asegúrate de que selectedLat y selectedLon estén definidos
-            ubicacionY: selectedLon
-        })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error al ocupar el espacio');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("Espacio ocupado con éxito:", data);
-        alert("Espacio ocupado exitosamente.");
-    })
-    .catch(error => {
-        console.error("Error al ocupar el espacio:", error);
-    });
-} */
 
 // Crear los marcadores para cada punto en Almagro
 
@@ -365,3 +332,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Llama a la función para obtener la ubicación
+function AcreditarPuntos(){
+
+
+
+}

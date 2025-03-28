@@ -48,7 +48,7 @@
             -- Tabla Puntos
             CREATE TABLE [dbo].[Puntos](
                 [id_puntos] INT IDENTITY(1,1) PRIMARY KEY,
-                [cantidad] TEXT NOT NULL,
+                [cantidad] INT NOT NULL,
                 [fecha_actualizacion] DATE NOT NULL,
                 [id_usuario] INT NOT NULL,
                 FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario])
