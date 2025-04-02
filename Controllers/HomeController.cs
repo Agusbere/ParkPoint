@@ -259,6 +259,14 @@ public class HomeController : Controller
 
     }
 
-
+    public IActionResult LiberarEspacio(int idAuto, int?idUsuario)
+    {
+        idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext); // Obtener el ID del usuario en sesión
+        if (idUsuario != null)
+        {
+            BD.LiberarEspacio(idAuto, (int)idUsuario); // Pasar idUsuario a la función
+        }
+        return RedirectToAction("Index"); // Redirigir a la página principal
+    }
 
 }

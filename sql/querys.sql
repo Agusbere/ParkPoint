@@ -193,5 +193,12 @@ BEGIN
     UPDATE Puntos
     SET cantidad = cantidad + 50, fecha_actualizacion = GETDATE()
     WHERE id_usuario = @IdUsuario;
+
+    -- Si el usuario no tiene puntos, insertar un nuevo registro
+    IF NOT EXISTS (SELECT 1 FROM Puntos WHERE id_usuario = @IdUsuario)
+    BEGIN
+        INSERT INTO Puntos (id_usuario, cantidad, fecha_actualizacion)
+        VALUES (@IdUsuario, 50, GETDATE());
+    END
 END;
 GO

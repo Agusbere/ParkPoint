@@ -256,6 +256,15 @@ public class BD
         }
     }
 
+    public static void LiberarEspacio(int idAuto, int idUsuario)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "EXEC SP_DesocuparEspacio @IdUsuario, @IdAuto";
+            db.Execute(sql, new { @IdUsuario = idUsuario, @IdAuto = idAuto });
+        }
+    }
+
     public static DetallesUbicacion MostrarDetallesUbicacion(int idEstacionamiento)
     {
         DetallesUbicacion detalles = new DetallesUbicacion();
