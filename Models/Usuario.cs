@@ -8,6 +8,7 @@ public class Usuario
     public string email { get; set; }
     public string contrasena { get; set; }
     public string? foto_usuario { get; set; }
+    public int cant_puntos { get; set; }
 
     public Usuario() { }
 

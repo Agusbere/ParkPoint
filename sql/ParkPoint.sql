@@ -13,7 +13,8 @@
                 [apellido] VARCHAR(255) NOT NULL,
                 [email] VARCHAR(255) NOT NULL,
                 [contrasena] VARCHAR(255) NOT NULL,
-                [foto_usuario] VARCHAR(255) NULL
+                [foto_usuario] VARCHAR(255) NULL,
+                [cant_puntos] INT NOT NULL DEFAULT 0
             );
             GO
 
@@ -42,27 +43,6 @@
                 [id_modelo] INT NOT NULL,
                 FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario]),
                 FOREIGN KEY ([id_modelo]) REFERENCES [dbo].[Modelo]([id_modelo])
-            );
-            GO
-
-            -- Tabla Puntos
-            CREATE TABLE [dbo].[Puntos](
-                [id_puntos] INT IDENTITY(1,1) PRIMARY KEY,
-                [cantidad] INT NOT NULL,
-                [fecha_actualizacion] DATE NOT NULL,
-                [id_usuario] INT NOT NULL,
-                FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario])
-            );
-            GO
-
-            -- Tabla Canjeo
-            CREATE TABLE [dbo].[Canjeo](
-                [id_canjeo] INT IDENTITY(1,1) PRIMARY KEY,
-                [fecha_canjeo] DATE NOT NULL,
-                [id_usuario] INT NOT NULL,
-                [id_puntos] INT NOT NULL,
-                FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario]),
-                FOREIGN KEY ([id_puntos]) REFERENCES [dbo].[Puntos]([id_puntos])
             );
             GO
 
@@ -109,8 +89,8 @@
                 [descripcion] TEXT NOT NULL,
                 [puntos_necesarios] INT NOT NULL,
                 [imagen] VARCHAR(255) NULL,
-                [id_canjeo] INT NOT NULL,
-                FOREIGN KEY ([id_canjeo]) REFERENCES [dbo].[Canjeo]([id_canjeo])
+                [id_usuario] INT NOT NULL,
+                FOREIGN KEY ([id_usuario]) REFERENCES [dbo].[Usuario]([id_usuario])
             );
             GO
 

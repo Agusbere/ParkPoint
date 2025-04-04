@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase=ParkPoint; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint; Trusted_Connection=True ;";
 
     public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
@@ -204,18 +204,15 @@ public class BD
         }
     }
 
-    public static Puntos ObtenerPuntosUsuario(int idUsuario)
+    public static void ObtenerPuntosUsuario(int idUsuario)
     {
-        Puntos puntosUsuario = new Puntos();
 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Puntos WHERE id_usuario = @IdUsuario";
+            string sql = "SELECT cant_puntos FROM Usuario WHERE id_usuario = @IdUsuario";
 
-            puntosUsuario = db.QueryFirstOrDefault<Puntos>(sql, new { @IdUsuario = idUsuario });
+            int puntosUsuario = db.Execute(sql, new { @IdUsuario = idUsuario });
         }
-
-        return puntosUsuario;
     }
 
     public static Recompensa ObtenerDatosRecompensa(int idRecompensa)

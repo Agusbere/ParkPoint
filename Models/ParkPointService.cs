@@ -76,10 +76,6 @@ public class ParkPointService
     {
         return BD.ObtenerContrasenaParaUsuario(idUsuario);
     }
-    public static Puntos ObtenerPuntosUsuario(int idUsuario)
-    {
-        return BD.ObtenerPuntosUsuario(idUsuario);
-    }
 
     public static Recompensa ObtenerRecompensa(int idRecompensa)
     {

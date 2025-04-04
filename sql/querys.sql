@@ -179,6 +179,7 @@ BEGIN
     END
 END;
 GO
+
 CREATE PROCEDURE SP_DesocuparEspacio
     @IdUsuario INT,
     @IdAuto INT
@@ -189,16 +190,10 @@ BEGIN
     SET ocupado = 0, fecha_libre = GETDATE(), id_auto = NULL
     WHERE id_auto = @IdAuto AND ocupado = 1;
 
-    -- Acreditar 50 parkpoints al usuario
-    UPDATE Puntos
-    SET cantidad = cantidad + 50, fecha_actualizacion = GETDATE()
+    -- Sumar 50 puntos al usuario directamente
+    UPDATE Usuario
+    SET cant_puntos = cant_puntos + 50
     WHERE id_usuario = @IdUsuario;
-
-    -- Si el usuario no tiene puntos, insertar un nuevo registro
-    IF NOT EXISTS (SELECT 1 FROM Puntos WHERE id_usuario = @IdUsuario)
-    BEGIN
-        INSERT INTO Puntos (id_usuario, cantidad, fecha_actualizacion)
-        VALUES (@IdUsuario, 50, GETDATE());
-    END
 END;
 GO
+
