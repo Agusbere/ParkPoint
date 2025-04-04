@@ -249,15 +249,15 @@ public class HomeController : Controller
         return ParkPointService.ObtenerNotificacionesPorUsuario(id_usuario);
     }
 
-    public IActionResult DesocuparEspacio(int id_auto){
+    // public IActionResult DesocuparEspacio(int id_auto){
 
-        Console.WriteLine("ID AUTO QUE LLEGA A DESOUCPAR: " + id_auto);
-        BD.LiberarEspacio(id_auto);
+    //     Console.WriteLine("ID AUTO QUE LLEGA A DESOUCPAR: " + id_auto);
+    //     BD.LiberarEspacio(id_auto);
         
 
-        return View("IndexBloqueado");
+    //     return View("IndexBloqueado");
 
-    }
+    // }
 
     public IActionResult LiberarEspacio(int idAuto, int?idUsuario)
     {
@@ -266,7 +266,7 @@ public class HomeController : Controller
         {
             BD.LiberarEspacio(idAuto, (int)idUsuario); // Pasar idUsuario a la función
         }
-        return RedirectToAction("Index"); // Redirigir a la página principal
+        return View("IndexBloqueado"); // Redirigir a la página principal
     }
 
 }

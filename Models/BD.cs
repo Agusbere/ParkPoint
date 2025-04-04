@@ -243,15 +243,6 @@ public class BD
         }
     }
 
-    public static void LiberarEspacio(int idAuto)
-    {
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "UPDATE Estacionamiento SET ocupado = 0, fecha_libre = @FechaLibre, id_auto = NULL WHERE id_auto = @IdAuto AND OCUPADO = 1";
-
-            db.Execute(sql, new { @FechaLibre = DateTime.Now, @IdAuto = idAuto});
-        }
-    }
 
     public static void LiberarEspacio(int idAuto, int idUsuario)
     {
