@@ -332,8 +332,36 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Llama a la función para obtener la ubicación
-function AcreditarPuntos(){
+document.getElementById("search-bar").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") { // Detectar si la tecla presionada es Enter
+      event.preventDefault(); // Evitar que el formulario se envíe si está dentro de uno
+      buscarUbicacion(); // Llamar a la función de búsqueda
+  }
+});
+// Función para buscar una ubicación
+function buscarUbicacion() {
+  const query = document.getElementById("search-bar").value; // Obtener el texto ingresado
+  if (!query) {
+      alert("Por favor, ingresa una ubicación.");
+      return;
+  }
 
+  // Llamar a la API de geocodificación de Nominatim
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}`)
+      .then((response) => response.json())
+      .then((data) => {
+          if (data.length === 0) {
+              alert("No se encontró la ubicación.");
+              return;
+          }
 
+          // Obtener las coordenadas de la primera ubicación encontrada
+          const { lat, lon } = data[0];
 
+          // Hacer zoom en el mapa a las coordenadas encontradas
+          map.setView([lat, lon], 5); // Zoom nivel 13 para mostrar más mapa
+      })
+      .catch((error) => {
+          console.error("Error al buscar la ubicación:", error);
+      });
 }

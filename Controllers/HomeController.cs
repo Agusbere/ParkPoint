@@ -293,7 +293,7 @@ public IActionResult Canjear(int puntos)
     // Restar los puntos al usuario
     BD.RestarPuntosUsuario(idUsuario.Value, puntos);
 
-   
+    // 
 
     // Redirigir al index
     return RedirectToAction("Index");

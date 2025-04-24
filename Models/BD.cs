@@ -65,7 +65,7 @@ public class BD
         {
             // Realizamos la consulta para verificar si existe un usuario con ese email y contraseña
             string sql = "SELECT COUNT(1) FROM Usuario WHERE email = @Email AND contrasena = @Contrasena";
-            int count = db.ExecuteScalar<int>(sql, new { @Email = Email, @Contrasena = Contrasena });
+            return db.ExecuteScalar<int>(sql, new { @Email = Email, @Contrasena = Contrasena });
 
             return count > 0; // Retorna true si existe al menos un registro, false si no
         }
