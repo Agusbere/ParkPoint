@@ -34,7 +34,7 @@
     <div class="conjunto-botones-de-accion">
         @if (ViewBag.AutoOcupado)
         {
-            <a class="ocupar-espacio" href="@Url.Action("DesocuparEspacio", "Home", new { id_auto = TempData["IdAuto"] })">
+            <a class="ocupar-espacio" href="@Url.Action("DesocuparEspacio", "Home", new { id_auto = ViewBag.idAutoOcupando })">
                 <img src="~/img/auto.png" alt="Desocupar"> Desocupar Espacio
             </a>
         }

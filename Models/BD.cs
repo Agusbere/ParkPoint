@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost; DataBase=ParkPoint; Trusted_Connection=True ;";
+    private static string _connectionString = @"Server=localhost\SQLEXPRESS;Database=ParkPoint;Trusted_Connection=True;";
 
     public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
@@ -245,13 +245,13 @@ public class BD
 
 
     public static void LiberarEspacio(int idAuto, int idUsuario)
+{
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "EXEC SP_DesocuparEspacio @IdUsuario, @IdAuto";
-            db.Execute(sql, new { @IdUsuario = idUsuario, @IdAuto = idAuto });
-        }
+        string sql = "EXEC SP_DesocuparEspacio @IdUsuario, @IdAuto";
+        db.Execute(sql, new { @IdUsuario = idUsuario, @IdAuto = idAuto });
     }
+}
 
     public static DetallesUbicacion MostrarDetallesUbicacion(int idEstacionamiento)
     {

@@ -181,19 +181,18 @@ END;
 GO
 
 CREATE PROCEDURE SP_DesocuparEspacio
-    @IdUsuario INT,
-    @IdAuto INT
+    @IdAuto INT,
+    @IdUsuario INT
 AS
 BEGIN
-    -- Actualizar el estado del estacionamiento
+    -- Actualiza el estado del estacionamiento a desocupado
     UPDATE Estacionamiento
     SET ocupado = 0, fecha_libre = GETDATE(), id_auto = NULL
-    WHERE id_auto = @IdAuto AND ocupado = 1;
+    WHERE id_auto = @IdAuto;
 
-    -- Sumar 50 puntos al usuario directamente
+    -- Otorga puntos al usuario
     UPDATE Usuario
-    SET cant_puntos = cant_puntos + 50
+    SET cant_puntos = cant_puntos + 20
     WHERE id_usuario = @IdUsuario;
 END;
-GO
 

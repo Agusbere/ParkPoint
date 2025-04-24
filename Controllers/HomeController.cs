@@ -39,6 +39,8 @@ public class HomeController : Controller
 
             bool autoOcupado = BD.VerificarAutoOcupado(idAuto);
 
+            ViewBag.idAutoOcupando = idAuto;
+
             ViewBag.AutoOcupado = autoOcupado;
 
             ViewBag.ListaCoordenadas = BD.ListarEstacionamientos();
@@ -249,24 +251,15 @@ public class HomeController : Controller
         return ParkPointService.ObtenerNotificacionesPorUsuario(id_usuario);
     }
 
-    // public IActionResult DesocuparEspacio(int id_auto){
-
-    //     Console.WriteLine("ID AUTO QUE LLEGA A DESOUCPAR: " + id_auto);
-    //     BD.LiberarEspacio(id_auto);
-        
-
-    //     return View("IndexBloqueado");
-
-    // }
-
-    public IActionResult LiberarEspacio(int idAuto, int?idUsuario)
+    public IActionResult DesocuparEspacio(int id_auto)
+{
+    Console.WriteLine("Desocupar espacio llamado con id_auto: " + id_auto);
+    int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext); // Obtener el ID del usuario en sesión
+    if (idUsuario != null)
     {
-        idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext); // Obtener el ID del usuario en sesión
-        if (idUsuario != null)
-        {
-            BD.LiberarEspacio(idAuto, (int)idUsuario); // Pasar idUsuario a la función
-        }
-        return View("IndexBloqueado"); // Redirigir a la página principal
+        BD.LiberarEspacio(id_auto, (int)idUsuario); // Llama al método para liberar el espacio
     }
+    return RedirectToAction("IndexBloqueado"); // Redirige a la página principal
+}
 
 }
