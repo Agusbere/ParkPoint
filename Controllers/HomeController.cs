@@ -1,3 +1,6 @@
+using System.Runtime.InteropServices.ComTypes;
+using System.ComponentModel;
+using System.IO.Compression;
 using System.Net;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -114,11 +117,18 @@ public class HomeController : Controller
     }
 
     public IActionResult Puntos()
+{
+    int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+
+    if (idUsuario == null)
     {
-
-
-        return View();
+        // Manejo del caso en que el usuario no está autenticado o no tiene ID
+        return RedirectToAction("Login"); // Redirige al login o maneja el error
     }
+
+    ViewBag.Puntos = BD.ObtenerPuntosUsuario(idUsuario.Value); // Usa .Value para obtener el valor de int
+    return View();
+}
     [HttpGet]
     public IActionResult ObtenerModelos(int idMarca)
     {
@@ -261,5 +271,31 @@ public class HomeController : Controller
     }
     return RedirectToAction("IndexBloqueado"); // Redirige a la página principal
 }
+[HttpPost]
+public IActionResult Canjear(int puntos)
+{
+    int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
 
+    if (idUsuario == null)
+    {
+        return RedirectToAction("Login"); // Redirige al login si el usuario no está autenticado
+    }
+
+    // Verificar si el usuario tiene suficientes puntos
+    int puntosActuales = BD.ObtenerPuntosUsuario(idUsuario.Value);
+
+    if (puntosActuales < puntos)
+    {
+        TempData["Error"] = "No tienes los puntos necesarios para canjear esta recompensa.";
+        return RedirectToAction("Puntos"); // Redirige a la vista de puntos con un mensaje de error
+    }
+
+    // Restar los puntos al usuario
+    BD.RestarPuntosUsuario(idUsuario.Value, puntos);
+
+   
+
+    // Redirigir al index
+    return RedirectToAction("Index");
+}
 }

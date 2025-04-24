@@ -4,12 +4,54 @@
 
 
 <div class = "contenedor-main">
-
-    <div class = "cantidad-puntos">
-        <img src="~/img/ParkPoints.png" alt="ParkPoints">
-        <p>60</p>
+<div class="contenedor-puntos">
+    <div class="header-puntos"></div>
+        <h1>Mis Puntos</h1>
+        <div class="cantidad-puntos">
+            <img src="~/img/ParkPoints.png" alt="ParkPoints" class="icono-puntos">
+            <p>@ViewBag.Puntos</p>
+        </div>
     </div>
 
-    
+    <!-- Mostrar mensaje de error si existe -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <div class="cards-canjeo">
+        <!-- Card 1 -->
+        <div class="card">
+            <h3>Visualización en el mapa</h3>
+            <p>Precio: <strong>20 puntos</strong></p>
+            <form method="post" action="/Home/Canjear">
+                <input type="hidden" name="puntos" value="20" />
+                <button onclick="disminuirContador()" type="submit" class="btn-canjear">Canjear</button>
+            </form>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <h3>Visualización en el mapa</h3>
+            <p>Precio: <strong>40 puntos</strong></p>
+            <form method="post" action="/Home/Canjear">
+                <input type="hidden" name="puntos" value="40" />
+                <button onclick="disminuirContador()" type="submit" class="btn-canjear">Canjear</button>
+            </form>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <h3>Visualización en el mapa</h3>
+            <p>Precio: <strong>60 puntos</strong></p>
+            <form method="post" action="/Home/Canjear">
+                <input type="hidden" name="puntos" value="60" />
+                <button onclick="disminuirContador()"  type="submit" class="btn-canjear">Canjear</button>
+            </form>
+        </div>
+    </div>
+</div>
     
 </div>

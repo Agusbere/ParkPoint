@@ -204,16 +204,22 @@ public class BD
         }
     }
 
-    public static void ObtenerPuntosUsuario(int idUsuario)
+    public static int ObtenerPuntosUsuario(int idUsuario)
+{
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "SELECT cant_puntos FROM Usuario WHERE id_usuario = @IdUsuario";
-
-            int puntosUsuario = db.Execute(sql, new { @IdUsuario = idUsuario });
-        }
+        string sql = "SELECT cant_puntos FROM Usuario WHERE id_usuario = @IdUsuario";
+        return db.QueryFirstOrDefault<int>(sql, new { @IdUsuario = idUsuario });
     }
+}
+public static void RestarPuntosUsuario(int idUsuario, int puntos)
+{
+    using (SqlConnection db = new SqlConnection(_connectionString))
+    {
+        string sql = "UPDATE Usuario SET cant_puntos = cant_puntos - @Puntos WHERE id_usuario = @IdUsuario";
+        db.Execute(sql, new { @Puntos = puntos, @IdUsuario = idUsuario });
+    }
+}
 
     public static Recompensa ObtenerDatosRecompensa(int idRecompensa)
     {
