@@ -2,54 +2,54 @@
     ViewData["Title"] = "Index - No puedes usar el mapa";
     var timerDuration = 24 * 60 * 60 * 1000;
     var endTime = DateTime.UtcNow.AddMilliseconds(timerDuration);
-    
 }
 
-<div class = "div-bloqueado">
-
-
-<img class = "index-bloqueado-foto" src = "~/img/index-bloqueado.jpeg">
-
-<p class = "message">¡No tienes más visualizaciones de mapa disponibles!</p>
-<p class = "message"><a class = "link">Gasta tus ParkPoints</a> para conseguir más o espera:</p>
-
-<p class="timer" id="timer">24:00:00</h3>
-
+<div class="div-bloqueado">
+    <img class="index-bloqueado-foto" src="~/img/index-bloqueado.jpeg">
+    <p class="message">¡No tienes más visualizaciones de mapa disponibles!</p>
+    <p class="message"><a class="link">Gasta tus ParkPoints</a> para conseguir más o espera:</p>
+    <p class="timer" id="timer">24:00:00</p>
 </div>
 
-
 <script>
+    // Verificar desde el backend si el usuario ya no está bloqueado
+    fetch('/Home/VerificarBloqueo')
+        .then(response => response.json())
+        .then(data => {
+            if (!data.bloqueado) {
+                localStorage.removeItem('endTime');
+                window.location.href = '/Home/Index';
+            }
+        });
+
     // Obtener el tiempo restante desde el almacenamiento local o calcularlo
     var endTime;
 
-    // Comprobar si hay un tiempo de finalización almacenado
     if (localStorage.getItem('endTime')) {
         endTime = new Date(localStorage.getItem('endTime')).getTime();
     } else {
-        // Si no hay tiempo almacenado, establecer uno nuevo
         endTime = new Date('@endTime.ToString("yyyy-MM-ddTHH:mm:ssZ")').getTime();
-        // Guardar el tiempo de finalización en el almacenamiento local
         localStorage.setItem('endTime', new Date(endTime).toISOString());
     }
 
     // Actualizar el temporizador cada segundo
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         var now = new Date().getTime();
         var distance = endTime - now;
 
-        // Calcular horas, minutos y segundos
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Mostrar el temporizador en el elemento con clase "timer"
-        document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
+        document.getElementById("timer").innerHTML =
+            hours.toString().padStart(2, '0') + ":" +
+            minutes.toString().padStart(2, '0') + ":" +
+            seconds.toString().padStart(2, '0');
 
-        // Si el temporizador llega a 0, redirigir al índice
         if (distance < 0) {
             clearInterval(timerInterval);
-            localStorage.removeItem('endTime'); // Limpiar el almacenamiento local
-            window.location.href = '/Home/Index'; // Redirigir a la vista del índice
+            localStorage.removeItem('endTime');
+            window.location.href = '/Home/Index';
         }
     }, 1000);
-</script>   
+</script>

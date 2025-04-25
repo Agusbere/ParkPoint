@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public class BD
 {
-    private static string _connectionString = @"Server=localhost\SQLEXPRESS;Database=ParkPoint;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost;Database=ParkPoint;Trusted_Connection=True;";
 
     public static Usuario Registrarse(string Nombre, string Apellido, string Email, string Contrasena, string Patente, int IdMarca, int IdModelo)
     {
@@ -63,11 +63,11 @@ public class BD
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            // Realizamos la consulta para verificar si existe un usuario con ese email y contraseña
+            
             string sql = "SELECT COUNT(1) FROM Usuario WHERE email = @Email AND contrasena = @Contrasena";
-            return db.ExecuteScalar<int>(sql, new { @Email = Email, @Contrasena = Contrasena });
+            int count = db.ExecuteScalar<int>(sql, new { @Email = Email, @Contrasena = Contrasena });
 
-            return count > 0; // Retorna true si existe al menos un registro, false si no
+            return count > 0;
         }
     }
     public static List<Infraccion> ListarMotivosReporte()

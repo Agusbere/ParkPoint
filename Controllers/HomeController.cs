@@ -58,16 +58,14 @@ public class HomeController : Controller
             ViewBag.Ubicaciones += "];";
 
             var tiempoRestante = HttpContext.Session.GetString("TiempoRestante");
-    if (tiempoRestante != null)
-    {
-        DateTime endTime = DateTime.Parse(tiempoRestante);
-        if (DateTime.UtcNow < endTime)
-        {
-            return View("IndexBloqueado");
-        }
-    }
-
-    
+            if (tiempoRestante != null)
+            {
+                DateTime endTime = DateTime.Parse(tiempoRestante);
+                if (DateTime.UtcNow < endTime)
+                {
+                    return View("IndexBloqueado");
+                }
+            }
 
             return View();
         }
@@ -117,18 +115,18 @@ public class HomeController : Controller
     }
 
     public IActionResult Puntos()
-{
-    int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
-
-    if (idUsuario == null)
     {
-        // Manejo del caso en que el usuario no está autenticado o no tiene ID
-        return RedirectToAction("Login"); // Redirige al login o maneja el error
-    }
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
 
-    ViewBag.Puntos = BD.ObtenerPuntosUsuario(idUsuario.Value); // Usa .Value para obtener el valor de int
-    return View();
-}
+        if (idUsuario == null)
+        {
+            // Manejo del caso en que el usuario no está autenticado o no tiene ID
+            return RedirectToAction("Login"); // Redirige al login o maneja el error
+        }
+
+        ViewBag.Puntos = BD.ObtenerPuntosUsuario(idUsuario.Value); // Usa .Value para obtener el valor de int
+        return View();
+    }
     [HttpGet]
     public IActionResult ObtenerModelos(int idMarca)
     {
@@ -222,7 +220,7 @@ public class HomeController : Controller
         return View();
     }
 
-    
+
     public IActionResult CerrarSesion()
     {
         ParkPointService.RemoverIdUsuario(HttpContext);
@@ -239,7 +237,7 @@ public class HomeController : Controller
     public IActionResult indexBloqueado()
     {
         DateTime endTime = DateTime.UtcNow.AddHours(24);
-    HttpContext.Session.SetString("TiempoRestante", endTime.ToString("o"));
+        HttpContext.Session.SetString("TiempoRestante", endTime.ToString("o"));
 
         return View();
     }
@@ -262,40 +260,37 @@ public class HomeController : Controller
     }
 
     public IActionResult DesocuparEspacio(int id_auto)
-{
-    Console.WriteLine("Desocupar espacio llamado con id_auto: " + id_auto);
-    int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext); // Obtener el ID del usuario en sesión
-    if (idUsuario != null)
     {
-        BD.LiberarEspacio(id_auto, (int)idUsuario); // Llama al método para liberar el espacio
+        Console.WriteLine("Desocupar espacio llamado con id_auto: " + id_auto);
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext); // Obtener el ID del usuario en sesión
+        if (idUsuario != null)
+        {
+            BD.LiberarEspacio(id_auto, (int)idUsuario); // Llama al método para liberar el espacio
+        }
+        return RedirectToAction("IndexBloqueado"); // Redirige a la página principal
     }
-    return RedirectToAction("IndexBloqueado"); // Redirige a la página principal
-}
-[HttpPost]
-public IActionResult Canjear(int puntos)
-{
-    int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
-
-    if (idUsuario == null)
+    [HttpPost]
+    public IActionResult Canjear(int puntos)
     {
-        return RedirectToAction("Login"); // Redirige al login si el usuario no está autenticado
+        int? idUsuario = ParkPointService.ObtenerIdUsuario(HttpContext);
+
+        if (idUsuario == null)
+        {
+            return RedirectToAction("Login"); // Redirige al login si el usuario no está autenticado
+        }
+
+        // Verificar si el usuario tiene suficientes puntos
+        int puntosActuales = BD.ObtenerPuntosUsuario(idUsuario.Value);
+
+        if (puntosActuales < puntos)
+        {
+            TempData["Error"] = "No tienes los puntos necesarios para canjear esta recompensa.";
+            return RedirectToAction("Puntos"); // Redirige a la vista de puntos con un mensaje de error
+        }
+
+        BD.RestarPuntosUsuario(idUsuario.Value, puntos);
+        HttpContext.Session.Remove("TiempoRestante");
+
+        return RedirectToAction("Index");
     }
-
-    // Verificar si el usuario tiene suficientes puntos
-    int puntosActuales = BD.ObtenerPuntosUsuario(idUsuario.Value);
-
-    if (puntosActuales < puntos)
-    {
-        TempData["Error"] = "No tienes los puntos necesarios para canjear esta recompensa.";
-        return RedirectToAction("Puntos"); // Redirige a la vista de puntos con un mensaje de error
-    }
-
-    // Restar los puntos al usuario
-    BD.RestarPuntosUsuario(idUsuario.Value, puntos);
-
-    // 
-
-    // Redirigir al index
-    return RedirectToAction("Index");
-}
 }
