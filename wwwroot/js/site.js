@@ -359,7 +359,7 @@ function buscarUbicacion() {
           const { lat, lon } = data[0];
 
           // Hacer zoom en el mapa a las coordenadas encontradas
-          map.setView([lat, lon], 5); // Zoom nivel 13 para mostrar más mapa
+          map.setView([lat, lon], 18); // Zoom nivel 13 para mostrar más mapa
       })
       .catch((error) => {
           console.error("Error al buscar la ubicación:", error);
